@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>标题（模板）</title>
-    <url>/2022/07/26/my-first-blog/</url>
-    <content><![CDATA[<p>这里是正文</p>
-]]></content>
-      <categories>
-        <category>默认分类</category>
-      </categories>
-      <tags>
-        <tag>标签1</tag>
-        <tag>标签2</tag>
-        <tag>标签3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2022/07/25/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -46,6 +32,20 @@
         <tag>音声</tag>
         <tag>日语</tag>
         <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>标题（模板）</title>
+    <url>/2022/07/26/my-first-blog/</url>
+    <content><![CDATA[<p>这里是正文</p>
+]]></content>
+      <categories>
+        <category>默认分类</category>
+      </categories>
+      <tags>
+        <tag>标签1</tag>
+        <tag>标签2</tag>
+        <tag>标签3</tag>
       </tags>
   </entry>
 </search>
