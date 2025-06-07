@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>4.28总结：安装环境、sql基础 - 宅邦邦</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="安装环境PLSQL Developer 又称 sqlpuls用户名：scott密码：oracle
+虚拟机环境：打开虚拟机Windows7 x64.vmx运行（win+r） cmd 输入 ipconf,"> 
+    <meta name="author" content="邦邦"> 
+    <link rel="alternative" href="atom.xml" title="宅邦邦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="4.28总结：安装环境、sql基础 - 宅邦邦"/>
+    <meta name="twitter:description" content="安装环境PLSQL Developer 又称 sqlpuls用户名：scott密码：oracle
+虚拟机环境：打开虚拟机Windows7 x64.vmx运行（win+r） cmd 输入 ipconf,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="宅邦邦"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="4.28总结：安装环境、sql基础 - 宅邦邦"/>
+    <meta property="og:description" content="安装环境PLSQL Developer 又称 sqlpuls用户名：scott密码：oracle
+虚拟机环境：打开虚拟机Windows7 x64.vmx运行（win+r） cmd 输入 ipconf,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">宅邦邦</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://h-sanae.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">4.28总结：安装环境、sql基础</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">4.28总结：安装环境、sql基础</h1>
+        <div class="stuff">
+            <span>六月 07, 2025</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h1><p>PLSQL Developer 又称 sqlpuls<br>用户名：scott<br>密码：oracle</p>
+<h2 id="虚拟机环境："><a href="#虚拟机环境：" class="headerlink" title="虚拟机环境："></a>虚拟机环境：</h2><p>打开虚拟机Windows7 x64.vmx<br>运行（win+r） cmd 输入 ipconfig 查看本机IP（IPv4）：192.168.48.128<br>开始菜单 Net Manager 修改 本地-服务器命名-orcl 和 监听程序- LISTENER 的 主机名 为本机IP （192.168.48.128）<br>进入 C:\oraclient\client64\bin\network\admin 以及 C:\oraclient\client64\network\admin 修改 listener.ora 和 tnsnames.ora 的 HOST（127.0.0.1）为本机IP</p>
+<h2 id="本机环境："><a href="#本机环境：" class="headerlink" title="本机环境："></a>本机环境：</h2><p>安装sqlplus及汉化包<br>帮助-注册-输入许可证信息<br>将 instantclient_21_3 解压到D盘根目录<br>进入 D:\instantclient_21_3\network\admin 修改 tnsnames.ora 的 HOST 为 虚拟机本机IP（192.168.48.128）<br>添加环境变量 变量名：TNS_ADMIN 变量值：D:\instantclient_21_3\network\admin<br>sqlplus-工具-首选项-连接<br>Oracle主目录：D:\instantclient_21_3<br>OCI库：D:\instantclient_21_3\oci.dll</p>
+<h1 id="数据库相关术语"><a href="#数据库相关术语" class="headerlink" title="数据库相关术语"></a>数据库相关术语</h1><p>数据库（Database，DB）<br>数据库管理系统（Batabase Management System，DBMS）<br>结构化查询语言（Structured Query Language，SQL）<br>关系型数据库（Relational Database，RDB）：目前应用最广泛的数据库。<br>常见的五种关系型数据库管理系统：<br>① Oracle Database：甲骨文公司 （用得最多）<br>② SQL Server：微软公司<br>③ DB2：IBM 公司（巨贵）<br>④ PostgreSQL：开源<br>⑤ MySQL：开源</p>
+<p>服务器：用于接收并处理其它程序发出的请求的程序（软件），或者是安装此类程 序的设备（计算机）。<br>客户端：向服务器发出请求的程序（软件），或者是安装此类程序的设备（计算 机）。<br>表（table）：类似 Excel，由行和列组成的二维表。行（Row）和列（Column） 字段：表中的列（垂直方向），叫做一个字段。<br>记录：表的行（水平方向），叫做一条记录。【注意】关系数据库必须以行为单位 进行数据读写。<br>单元格：行列交汇处。【注意】与 Excel 不同，一个单元格只能输入一个数据。</p>
+<h1 id="SQL相关"><a href="#SQL相关" class="headerlink" title="SQL相关"></a>SQL相关</h1><h2 id="SQL是什么？"><a href="#SQL是什么？" class="headerlink" title="SQL是什么？"></a>SQL是什么？</h2><p>结构化查询语言(Structured Query Language)，是数据库编程的核心语言。<br>SQL 语句：用关键字、表名和列名等组合而成的一条语句。</p>
+<h3 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h3><ol>
+<li>DQL（Data Query Language，数据查询语言）:一种用于从数据库中检索数据的语 言,代表关键字为select。 </li>
+<li>DDL（Data Definition Language，数据定义语言）:用来创建数据库中的各种对象， 创建、删除、修改表的结构，代表关键字为create、drop、alter。 </li>
+<li>DML（Data Manipulation Language，数据操作语言）:用于数据库中对数据的操 纵，代表关键字为insert、delete 、update。 </li>
+<li>DCL（Data Control Language，数据控制语言）:用来授予或回收访问数据库的某种 特权。代表关键字为grant、revoke。 </li>
+<li>TCL（Trasactional Control Languag, 事务控制语言）：用于维护数据的一致性，包 括commit、rollback和savepoint三条语句。</li>
+</ol>
+<h2 id="emp员工表列名"><a href="#emp员工表列名" class="headerlink" title="emp员工表列名"></a>emp员工表列名</h2><p>empno 员工编号<br>ename 员工姓名<br>job 员工工作<br>mgr 领导编号<br>hiredate 聘用日期<br>sal 工资<br>comm 奖金<br>deptno 部门编号<br>![[image 1.png]]</p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><p>三击即可选中某一条sql代码（或使用home将光标移动到本行开始，再使用shift+end选中本行）<br>快捷键F8即可运行选中的代码</p>
+<p>单行注释：–注释文字<br>多行注释：&#x2F;* 注释文字*&#x2F;</p>
+<p>select查询语句显示的结果称为结果集（result set）</p>
+<p>关键字、表名不区分大小写<br>selelct 后跟 列（字段），可选多个列，用逗号隔开，对列进行筛选；*代表所有列<br>from 后跟 表；表名加点可显示列名：emp.ename<br>where 后跟 条件判断式 ，对行进行筛选</p>
+<p>单引号转义自己时输入两个单引号可显示一个单引号，且任一边的单引号数量须为奇数</p>
+<h3 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h3><p>为查询显示的每个输出字段或表达式取一个别名，以增加结果集的可读性，易于理解列 的含义！相当于起个外号一样，别名的效果范围仅在该SQL语句范围内，别名并不会改 变本名（列：空格 或 as；表：空格）<br>select ename 姓名，sal as 工资 from emp e<br>ename列名起名为姓名，sal列名起名为工资，emp表名起为e<br>![[image 2.png]]</p>
+<h3 id="去重-distinct"><a href="#去重-distinct" class="headerlink" title="去重 distinct"></a>去重 distinct</h3><p>加在列名前，单列完全去重（多列只会去完全相同的记录，因此列数越多去重效果越差）<br>![[image 3.png]]</p>
+<h3 id="连接符"><a href="#连接符" class="headerlink" title="连接符 ||"></a>连接符 ||</h3><p>可将两个字段的字符串连接在一起，还可以在结果集中加入字符串（使用前提左边有值右边也有值）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename <span class="operator">||</span> <span class="string">&#x27;的工资是&#x27;</span> <span class="operator">||</span> sal <span class="operator">||</span> <span class="string">&#x27;元&#x27;</span> 工资信息 <span class="keyword">from</span> emp</span><br><span class="line"><span class="operator">!</span>[[image <span class="number">4.</span>png]]</span><br></pre></td></tr></table></figure>
+
+<h3 id="虚拟表-dual-（做测试，看系统日期）"><a href="#虚拟表-dual-（做测试，看系统日期）" class="headerlink" title="虚拟表 dual （做测试，看系统日期）"></a>虚拟表 dual （做测试，看系统日期）</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sysdate <span class="keyword">from</span> dual</span><br></pre></td></tr></table></figure>
+<p>![[image 5.png]]</p>
+<h3 id="伪列-rownum"><a href="#伪列-rownum" class="headerlink" title="伪列 rownum"></a>伪列 rownum</h3><p>只能从1开始（rownum只能小于任何数和等于1）根据查询结果集生成的一个列，在物理上不真实存在<br>![[image 6.png]]</p>
+<h3 id="rowid"><a href="#rowid" class="headerlink" title="rowid"></a>rowid</h3><p>在数据插入到在数据插入到表里的时候就生成的，真实一直存在，有点类似身份证，用于区分数据的唯一性<br>![[image 7.png]]</p>
+<h1 id="上机作业"><a href="#上机作业" class="headerlink" title="上机作业"></a>上机作业</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">--1. 查询emp表中员工的名字和工资</span></span><br><span class="line"><span class="keyword">select</span> ename, sal <span class="keyword">from</span> emp;</span><br><span class="line"></span><br><span class="line"><span class="comment">--2. 查询emp表中员工的编号,名字,奖金</span></span><br><span class="line"><span class="keyword">select</span> empno, ename, comm <span class="keyword">from</span> emp;</span><br><span class="line"></span><br><span class="line"><span class="comment">--3. 查询部门编号和部门名称</span></span><br><span class="line"><span class="keyword">select</span> deptno, dname <span class="keyword">from</span> dept;</span><br><span class="line"></span><br><span class="line"><span class="comment">--4. 查询员工名字和入职日期(列名中文显示 名字, 入职日期)</span></span><br><span class="line"><span class="keyword">select</span> ename 名字, hiredate 入职日期 <span class="keyword">from</span> emp;</span><br><span class="line"></span><br><span class="line"><span class="comment">--5. 查询员工编号，名字，经理编号</span></span><br><span class="line"><span class="keyword">select</span> empno,  ename, mgr <span class="keyword">from</span> emp;</span><br><span class="line"></span><br><span class="line"><span class="comment">--6. 查询公司里的所有部门的部门编号（去重）</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> deptno <span class="keyword">from</span> emp;</span><br><span class="line"></span><br><span class="line"><span class="comment">--7. 查询员工的姓名和工资，按这种格式显示：simth的工资是800块</span></span><br><span class="line"><span class="keyword">select</span> ename <span class="operator">||</span> <span class="string">&#x27;的工资是&#x27;</span> <span class="operator">||</span> sal <span class="operator">||</span> <span class="string">&#x27;块&#x27;</span>  工资信息 <span class="keyword">from</span> emp;</span><br><span class="line"></span><br><span class="line"><span class="comment">--8. 使用虚拟表来查看系统日期</span></span><br><span class="line"><span class="keyword">select</span> sysdate <span class="keyword">from</span> dual;</span><br><span class="line"></span><br><span class="line"><span class="comment">--9. 查看员工表的前五条数据</span></span><br><span class="line"><span class="keyword">select</span> emp.<span class="operator">*</span>, rownum <span class="keyword">from</span> emp <span class="keyword">where</span> rownum<span class="operator">&lt;=</span><span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--10. 查看员工表的rowid</span></span><br><span class="line"><span class="keyword">select</span> emp.<span class="operator">*</span>,rowid <span class="keyword">from</span> emp;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">安装环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%8E%AF%E5%A2%83%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">虚拟机环境：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%9C%BA%E7%8E%AF%E5%A2%83%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">本机环境：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.</span> <span class="toc-text">数据库相关术语</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL%E7%9B%B8%E5%85%B3"><span class="toc-number">3.</span> <span class="toc-text">SQL相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">SQL是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.1.</span> <span class="toc-text">SQL分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#emp%E5%91%98%E5%B7%A5%E8%A1%A8%E5%88%97%E5%90%8D"><span class="toc-number">3.2.</span> <span class="toc-text">emp员工表列名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">3.3.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%AB%E5%90%8D"><span class="toc-number">3.3.1.</span> <span class="toc-text">别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E9%87%8D-distinct"><span class="toc-number">3.3.2.</span> <span class="toc-text">去重 distinct</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E7%AC%A6"><span class="toc-number">3.3.3.</span> <span class="toc-text">连接符 ||</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E8%A1%A8-dual-%EF%BC%88%E5%81%9A%E6%B5%8B%E8%AF%95%EF%BC%8C%E7%9C%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E6%9C%9F%EF%BC%89"><span class="toc-number">3.3.4.</span> <span class="toc-text">虚拟表 dual （做测试，看系统日期）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E5%88%97-rownum"><span class="toc-number">3.3.5.</span> <span class="toc-text">伪列 rownum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rowid"><span class="toc-number">3.3.6.</span> <span class="toc-text">rowid</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E6%9C%BA%E4%BD%9C%E4%B8%9A"><span class="toc-number">4.</span> <span class="toc-text">上机作业</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

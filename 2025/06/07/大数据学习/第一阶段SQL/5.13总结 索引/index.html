@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>5.13总结 索引 - 宅邦邦</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="索引的目的是加速查询的速度：原则上一个列最多只能建两个索引索引建完自动生效，不改变语法书写格式
+索引创建索引1create (unique/BITMAP) index 索引名称 on 表名(列名) ,"> 
+    <meta name="author" content="邦邦"> 
+    <link rel="alternative" href="atom.xml" title="宅邦邦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="5.13总结 索引 - 宅邦邦"/>
+    <meta name="twitter:description" content="索引的目的是加速查询的速度：原则上一个列最多只能建两个索引索引建完自动生效，不改变语法书写格式
+索引创建索引1create (unique/BITMAP) index 索引名称 on 表名(列名) ,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="宅邦邦"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="5.13总结 索引 - 宅邦邦"/>
+    <meta property="og:description" content="索引的目的是加速查询的速度：原则上一个列最多只能建两个索引索引建完自动生效，不改变语法书写格式
+索引创建索引1create (unique/BITMAP) index 索引名称 on 表名(列名) ,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">宅邦邦</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://h-sanae.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">5.13总结 索引</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">5.13总结 索引</h1>
+        <div class="stuff">
+            <span>六月 07, 2025</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>索引的目的是加速查询的速度：原则上一个列最多只能建两个索引<br>索引建完自动生效，不改变语法书写格式</p>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> (<span class="keyword">unique</span><span class="operator">/</span>BITMAP) index 索引名称 <span class="keyword">on</span> 表名(列名) tablespace 表空间名； <span class="comment">--unique 用于指定是否强制要求索引列为唯一性数据，表空间可选择是否指定，不指定则用默认表空间。出于性能考虑索引表空间和表的表空间要分开。</span></span><br></pre></td></tr></table></figure>
+<h2 id="索引分类"><a href="#索引分类" class="headerlink" title="索引分类"></a>索引分类</h2><h3 id="一、按存储形式分类"><a href="#一、按存储形式分类" class="headerlink" title="一、按存储形式分类"></a>一、按存储形式分类</h3><ul>
+<li>b_tree索引</li>
+<li>位图索引</li>
+<li>基于函数索引</li>
+<li>方向键索引</li>
+</ul>
+<h4 id="B-TREE索引"><a href="#B-TREE索引" class="headerlink" title="B-TREE索引"></a>B-TREE索引</h4><p>适用场景：列基数比较大的时候使用（行业、身高）<br>列基数：该列不重复数据的个数 count(distinct col)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index ind_name <span class="keyword">on</span> tb_name(col_name)</span><br></pre></td></tr></table></figure>
+
+<h4 id="位图索引"><a href="#位图索引" class="headerlink" title="位图索引"></a>位图索引</h4><p>说明：位图索引在创建时，会扫描整张表，为索引列的每个取值建立一个不重复的位图 （BITMAP）来描述该取值<br>适用场景：列基数比较小的时候使用（性别、婚姻状况）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> bitmap index ind_name <span class="keyword">on</span> tb_name(col_name); </span><br><span class="line"><span class="keyword">create</span> bitmap index ind_student54_sex <span class="keyword">on</span> student_54_new(sex)</span><br></pre></td></tr></table></figure>
+<h4 id="反向键索引"><a href="#反向键索引" class="headerlink" title="反向键索引"></a>反向键索引</h4><p>说明：可以视作一种特殊的B-TREE索引，存储索引列的反向值<br>背景：为防止B-TREE索引在某叶上数据量占比过高而使用的一种索引<br>适用场景：原始数据分支不明显但反向数据分支明显的列（身高：集中在一米七一米八）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index ind_name <span class="keyword">on</span> tb_name(col_name) reverse</span><br></pre></td></tr></table></figure>
+<h4 id="基于函数的索引"><a href="#基于函数的索引" class="headerlink" title="基于函数的索引"></a>基于函数的索引</h4><p>说明：可以视作一种特殊的B-TREE索引，存储函数处理后的数据<br>背景：在某个字段上以原值建立了索引，但是在筛选时在该字段上经常加函数，导致索引无法生效<br>适用场景：对某列进行筛选时经常需要配合函数使用（例如查找姓名中的首字母）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index ind_name <span class="keyword">on</span> tb_name(<span class="keyword">function</span>(col_name));</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、按唯一性分类"><a href="#二、按唯一性分类" class="headerlink" title="二、按唯一性分类"></a>二、按唯一性分类</h3><h4 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h4><p>索引列中不可能出现重复值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">unique</span> index ind_name <span class="keyword">on</span> tb_name(col_name)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>B-TREE索引可以建立唯一索引，位图索引不能建立唯一索引</li>
+<li>如果在某列上建立了唯一约束或主键约束，ORACLE会自动在该列上建立一个同名的唯一索引</li>
+</ul>
+<h4 id="非唯一索引"><a href="#非唯一索引" class="headerlink" title="非唯一索引"></a>非唯一索引</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index ind_name <span class="keyword">on</span> tb_name(col_name);</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、按列的个数分类（索引覆盖的列的个数）"><a href="#三、按列的个数分类（索引覆盖的列的个数）" class="headerlink" title="三、按列的个数分类（索引覆盖的列的个数）"></a>三、按列的个数分类（索引覆盖的列的个数）</h3><h4 id="单列索引"><a href="#单列索引" class="headerlink" title="单列索引"></a>单列索引</h4><p>基于一个列建立的索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index ind_name <span class="keyword">on</span> tb_name(col_name)</span><br></pre></td></tr></table></figure>
+<h4 id="复合索引（联合索引）"><a href="#复合索引（联合索引）" class="headerlink" title="复合索引（联合索引）"></a>复合索引（联合索引）</h4><p>基于两个或两个以上列建立的索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--写在前面的字段（ename）且叫为主键列，触发索引需要用到主键列，与主键列的位置没有关系</span></span><br><span class="line"><span class="keyword">create</span> index ind_emp_enamejob <span class="keyword">on</span> emp(ename,job)</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改索引名称"><a href="#修改索引名称" class="headerlink" title="修改索引名称"></a>修改索引名称</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> index 索引名 rename <span class="keyword">to</span> 新索引名；</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><p>通过drop index 索引名</p>
+<h2 id="索引建立或使用的规则与建议"><a href="#索引建立或使用的规则与建议" class="headerlink" title="索引建立或使用的规则与建议"></a>索引建立或使用的规则与建议</h2><p>1.如果对某大表进行筛选时，某列或某几列频繁出现在WHERE子句中，并且检索出的数 据低于总行数的15%（50%），应考虑在这些列上建立索引。<br>2.如果对某大表进行排序时，某列或某几列频繁出现在ORDER BY子句中，应考虑在这些 列上建立索引。<br>3.小表不要建立索引。<br>4.对于含有空值的列，如果经常在查询时查询非空值，建议在该列上建立索引；如果经 常在查询时查询空值，建议在该列上建立基于函数的索引。<br>5.为了提高表连接的性能，应在连接列上建立索引（建立一般普通的索引即可）<br>6.索引是数据库的一种实体对象，级别类似于表，会占用内存空间，ORACLE会自动进行 索引维护，表和索引可以建立在不同的表空间。<br>7.通过索引可以提升数据的查询速度，但是会相对地降低DML语句的操作速度，尤其是 插和改的速度，ORACLE会花费时间在索引维护上，所以说要把握好索引的数量<br>8.对于列基数比较大的列，适合B-TREE索引，列基数比较小的列，适合位图索引。<br>9.对于复合索引，至少要引用到索引列中的第一个列才会使用该索引。<br>10.某列可以出现在多个索引中，但相同的某列或某几列无法多次建立索引。 –就是可以 有多个组合，但不能有重复组合，不同顺序的相同几列视为不同组合<br>11.索引建立后并不一定会被引用，ORACLE会分析整个SQL后做出最优的执行方式。<br>12.ORACLE会自动在主键约束和唯一约束列上建立唯一索引。<br>13.对于一般的B-TREE索引，通配符出现在搜索词的首位时不会引用索引<br>14.在索引列上使用&lt;&gt; !&#x3D;号时，或对空值进行判断时，索引不会生效<br>15.rebiuld重建索引，减少碎片，提高效率。</p>
+<h2 id="索引的优缺点"><a href="#索引的优缺点" class="headerlink" title="索引的优缺点"></a>索引的优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>1.大大加快数据的检索速度;<br>2.创建唯一性索引，保证数据库表中每一行数据的唯一性;<br>3.加速表和表之间的连接;<br>4.在使用分组和排序子句进行数据检索时，可以显著减少查询中分组和排序的时间。</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>1.索引需要占物理空间。<br>2.当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，降低了数据的 维护速度。</p>
+<h1 id="SQL性能优化问题"><a href="#SQL性能优化问题" class="headerlink" title="SQL性能优化问题"></a>SQL性能优化问题</h1><p>SQL执行顺序from—where—group by—having—select—order by From后面的表执行顺序从右往左，从后往前<br>1、 如果结果集没有影响的关联，将小的表放在后面<br>2、 Where条件顺序，将过滤条数大的放在后面，过滤条数小的放在前面<br>3、 尽量减少对表的重复查询<br>4、 使用exists代替in：in后面用子查询，用exists代替in（看exists子查询中where条件， 结果返回true或者fasle），如果in后面是具体的值，还是用in，用in的SQL语句总是多了 一种转换过程<br>5、 Distict,查询效率低，要先排序，再去重<br>6、 索引正确使用，不能使用聚合函数，不能使用not<br>7、 大于等于效率要高于大于，用&gt;&#x3D;替代&gt;，前提是整数相比较<br>8、 Like效率低，使用instr代替instr(name,’n’)&gt;&#x3D;1可以代替like‘%c%’<br>9、 Where 是过滤行，having对分组的过滤<br>10、 要查看执行计划(F5, EXPLAIN )<br>11、 对 WHERE + ORDER BY 组合的优化, 在where 进行限制后 在进行 order BY<br>12、 尽量少排序 ORDER BY<br>13、 任何地方都不要使用select * from表，用具体的字段列表代替“*”，不要返回用不到 的任何字段<br>14、 尽量用 JOIN 替换子查询<br>15、 尽量少使用 OR ,索引失效<br>16、 尽量避免 UNION 使用 UNION ALL 然后再 GROUP BY 去重<br>17、 尽早过滤数据, WHERE 过滤 使用 join时 先过滤再 JOIN<br>18、 尽量避免一条 UPDATE 更新多条记录, 用 MERGE INTO , 效率比 UPDATE 高</p>
+<h1 id="作业练习"><a href="#作业练习" class="headerlink" title="作业练习"></a>作业练习</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--1.给emp表的ename列创建一个索引，建立索引前后时间对比</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">&#x27;S%&#x27;</span></span><br><span class="line"><span class="keyword">create</span> index idx_emp_ename <span class="keyword">on</span> emp(ename);</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">&#x27;S%&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--2.创建job和sal的复合索引，查询工资大于2000的MANAGER员工信息</span></span><br><span class="line"><span class="keyword">create</span> index idx_emp_jobsal <span class="keyword">on</span> emp(job,sal)</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> sal<span class="operator">&gt;</span><span class="number">2000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--3.查询所有人选修c002课程及格的情况,自己判断如何创建索引</span></span><br><span class="line"><span class="comment">--在sc表的cno和score字段上创建复合索引</span></span><br><span class="line"><span class="keyword">create</span> index idx_sc_sccno <span class="keyword">on</span> sc(cno,score)</span><br><span class="line"><span class="keyword">select</span> sc.<span class="operator">*</span>,<span class="keyword">case</span> <span class="keyword">when</span> score<span class="operator">&gt;=</span><span class="number">60</span> <span class="keyword">then</span> <span class="string">&#x27;及格&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;不及格&#x27;</span> <span class="keyword">end</span> 及格情况 </span><br><span class="line"><span class="keyword">from</span> sc <span class="keyword">where</span> cno<span class="operator">=</span><span class="string">&#x27;c002&#x27;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">--4.使用小写函数来创建索引，查询带有m的员工信息</span></span><br><span class="line"><span class="keyword">create</span> index idx_emp_ename <span class="keyword">on</span> emp(<span class="built_in">lower</span>(ename))</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">&#x27;m%&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--5.修改删除一个索引</span></span><br><span class="line"><span class="keyword">alter</span> index idx_emp_ename rename <span class="keyword">to</span> ind_emp_ename1；<span class="comment">--修改</span></span><br><span class="line"><span class="keyword">drop</span> index ind_emp_ename1 <span class="comment">--删除</span></span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">1.</span> <span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="toc-number">1.1.</span> <span class="toc-text">创建索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">索引分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%8C%89%E5%AD%98%E5%82%A8%E5%BD%A2%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text">一、按存储形式分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#B-TREE%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">B-TREE索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">位图索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E9%94%AE%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">反向键索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%87%BD%E6%95%B0%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">基于函数的索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8C%89%E5%94%AF%E4%B8%80%E6%80%A7%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text">二、按唯一性分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">唯一索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">非唯一索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%8C%89%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0%E5%88%86%E7%B1%BB%EF%BC%88%E7%B4%A2%E5%BC%95%E8%A6%86%E7%9B%96%E7%9A%84%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">三、按列的个数分类（索引覆盖的列的个数）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%88%97%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">单列索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%B4%A2%E5%BC%95%EF%BC%88%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%EF%BC%89"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">复合索引（联合索引）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%B4%A2%E5%BC%95%E5%90%8D%E7%A7%B0"><span class="toc-number">1.3.</span> <span class="toc-text">修改索引名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="toc-number">1.4.</span> <span class="toc-text">删除索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%BB%BA%E7%AB%8B%E6%88%96%E4%BD%BF%E7%94%A8%E7%9A%84%E8%A7%84%E5%88%99%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="toc-number">1.5.</span> <span class="toc-text">索引建立或使用的规则与建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.6.</span> <span class="toc-text">索引的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.6.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">SQL性能优化问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E7%BB%83%E4%B9%A0"><span class="toc-number">3.</span> <span class="toc-text">作业练习</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
