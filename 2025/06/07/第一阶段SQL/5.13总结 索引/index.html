@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title> - 宅邦邦</title>
+    <title>5.13总结 索引 - 宅邦邦</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -19,7 +19,7 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content=" - 宅邦邦"/>
+    <meta name="twitter:title" content="5.13总结 索引 - 宅邦邦"/>
     <meta name="twitter:description" content="索引的目的是加速查询的速度：原则上一个列最多只能建两个索引索引建完自动生效，不改变语法书写格式
 索引创建索引1create (unique/BITMAP) index 索引名称 on 表名(列名) ,"/>
     
@@ -28,7 +28,7 @@
     
     <meta property="og:site_name" content="宅邦邦"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content=" - 宅邦邦"/>
+    <meta property="og:title" content="5.13总结 索引 - 宅邦邦"/>
     <meta property="og:description" content="索引的目的是加速查询的速度：原则上一个列最多只能建两个索引索引建完自动生效，不改变语法书写格式
 索引创建索引1create (unique/BITMAP) index 索引名称 on 表名(列名) ,"/>
     
@@ -48,7 +48,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle"></h3>
+    <h3 class="subtitle">5.13总结 索引</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -63,10 +63,12 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title"></h1>
+        <h1 class="title">5.13总结 索引</h1>
         <div class="stuff">
             <span>六月 07, 2025</span>
             
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
 
         </div>
         <div class="content markdown">
@@ -142,6 +144,10 @@
 
 
     </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">1.</span> <span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="toc-number">1.1.</span> <span class="toc-text">创建索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">索引分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%8C%89%E5%AD%98%E5%82%A8%E5%BD%A2%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text">一、按存储形式分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#B-TREE%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">B-TREE索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">位图索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E9%94%AE%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">反向键索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%87%BD%E6%95%B0%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">基于函数的索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8C%89%E5%94%AF%E4%B8%80%E6%80%A7%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text">二、按唯一性分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">唯一索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">非唯一索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%8C%89%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0%E5%88%86%E7%B1%BB%EF%BC%88%E7%B4%A2%E5%BC%95%E8%A6%86%E7%9B%96%E7%9A%84%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">三、按列的个数分类（索引覆盖的列的个数）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%88%97%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">单列索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%B4%A2%E5%BC%95%EF%BC%88%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%EF%BC%89"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">复合索引（联合索引）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%B4%A2%E5%BC%95%E5%90%8D%E7%A7%B0"><span class="toc-number">1.3.</span> <span class="toc-text">修改索引名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="toc-number">1.4.</span> <span class="toc-text">删除索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%BB%BA%E7%AB%8B%E6%88%96%E4%BD%BF%E7%94%A8%E7%9A%84%E8%A7%84%E5%88%99%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="toc-number">1.5.</span> <span class="toc-text">索引建立或使用的规则与建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.6.</span> <span class="toc-text">索引的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.6.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">SQL性能优化问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E7%BB%83%E4%B9%A0"><span class="toc-number">3.</span> <span class="toc-text">作业练习</span></a></li></ol>
+        </div>
     
 </div>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title> - 宅邦邦</title>
+    <title>5.7总结：函数 - 宅邦邦</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -20,7 +20,7 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content=" - 宅邦邦"/>
+    <meta name="twitter:title" content="5.7总结：函数 - 宅邦邦"/>
     <meta name="twitter:description" content="函数SQL 函数会对传递进来的参数进行处理，并返回一个处理结果，也就是返回一个值。通常用于返回特定的数据，可以很方便地转换和处理数据，Oracle 数据库中主要使用两种类型的函数： 
 
 单行函数：对,"/>
@@ -30,7 +30,7 @@
     
     <meta property="og:site_name" content="宅邦邦"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content=" - 宅邦邦"/>
+    <meta property="og:title" content="5.7总结：函数 - 宅邦邦"/>
     <meta property="og:description" content="函数SQL 函数会对传递进来的参数进行处理，并返回一个处理结果，也就是返回一个值。通常用于返回特定的数据，可以很方便地转换和处理数据，Oracle 数据库中主要使用两种类型的函数： 
 
 单行函数：对,"/>
@@ -51,7 +51,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle"></h3>
+    <h3 class="subtitle">5.7总结：函数</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -66,10 +66,12 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title"></h1>
+        <h1 class="title">5.7总结：函数</h1>
         <div class="stuff">
             <span>六月 07, 2025</span>
             
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
 
         </div>
         <div class="content markdown">
@@ -146,6 +148,10 @@
 
 
     </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">自定义函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">字符函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#length-%E8%AE%A1%E7%AE%97%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6"><span class="toc-number">1.2.1.</span> <span class="toc-text">length 计算字符串长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upper-%E5%92%8C-lower-%E5%A4%A7-%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.2.</span> <span class="toc-text">upper 和 lower 大&#x2F;小写转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concat-%E8%BF%9E%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.2.3.</span> <span class="toc-text">concat 连接字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lpad-%E5%92%8C-rpad-%E5%B7%A6-%E5%8F%B3%E5%A1%AB%E5%85%85"><span class="toc-number">1.2.4.</span> <span class="toc-text">lpad 和 rpad 左&#x2F;右填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#instr-%E6%89%BE%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BA%E7%8E%B0%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.2.5.</span> <span class="toc-text">instr 找字符串出现位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substr-%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.2.6.</span> <span class="toc-text">substr 截取字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#trunc-%E6%88%AA%E6%96%AD"><span class="toc-number">1.2.7.</span> <span class="toc-text">trunc 截断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E6%88%AA%E6%96%AD%EF%BC%9A%E6%88%AA%E6%96%AD%E6%95%B0%E5%AD%97%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9A%84%E5%B0%8F%E6%95%B0%E4%BD%8D%E6%95%B0"><span class="toc-number">1.2.7.1.</span> <span class="toc-text">数字截断：截断数字到指定的小数位数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E6%88%AA%E6%96%AD%EF%BC%9A%E5%B0%86%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE%E4%B8%BA%E5%BD%93%E5%A4%A9%E5%BC%80%E5%A7%8B%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%8800-00-00%EF%BC%89"><span class="toc-number">1.2.7.2.</span> <span class="toc-text">日期截断：将时间设置为当天开始的时间（00:00:00）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#replace-%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.2.8.</span> <span class="toc-text">replace 替换字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#translate-%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.2.9.</span> <span class="toc-text">translate 替换字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">数字函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%96%E6%95%B4"><span class="toc-number">1.3.1.</span> <span class="toc-text">取整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.2.</span> <span class="toc-text">运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">转换函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">日期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nvl-%E7%A9%BA%E5%80%BC%E6%9B%BF%E6%8D%A2"><span class="toc-number">1.5.1.</span> <span class="toc-text">nvl 空值替换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E7%BB%83%E4%B9%A0"><span class="toc-number">2.</span> <span class="toc-text">作业练习</span></a></li></ol>
+        </div>
     
 </div>
 

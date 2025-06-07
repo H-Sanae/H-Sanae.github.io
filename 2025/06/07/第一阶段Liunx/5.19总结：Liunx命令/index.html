@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title> - 宅邦邦</title>
+    <title>5.19总结：Liunx命令 - 宅邦邦</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -18,7 +18,7 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content=" - 宅邦邦"/>
+    <meta name="twitter:title" content="5.19总结：Liunx命令 - 宅邦邦"/>
     <meta name="twitter:description" content="Linux命令（搜索查看查找类）find 从指定目录查找文件-name &amp;lt;查询方式&amp;gt; 按照指定的文件名查找模式查找文件-mtime n 查找n天以前被修改过的所有文件。-exec&amp;lt;,"/>
     
     
@@ -26,7 +26,7 @@
     
     <meta property="og:site_name" content="宅邦邦"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content=" - 宅邦邦"/>
+    <meta property="og:title" content="5.19总结：Liunx命令 - 宅邦邦"/>
     <meta property="og:description" content="Linux命令（搜索查看查找类）find 从指定目录查找文件-name &amp;lt;查询方式&amp;gt; 按照指定的文件名查找模式查找文件-mtime n 查找n天以前被修改过的所有文件。-exec&amp;lt;,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
@@ -45,7 +45,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle"></h3>
+    <h3 class="subtitle">5.19总结：Liunx命令</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -60,7 +60,7 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title"></h1>
+        <h1 class="title">5.19总结：Liunx命令</h1>
         <div class="stuff">
             <span>六月 07, 2025</span>
             
@@ -154,6 +154,10 @@
 
 
     </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%EF%BC%88%E6%90%9C%E7%B4%A2%E6%9F%A5%E7%9C%8B%E6%9F%A5%E6%89%BE%E7%B1%BB%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">Linux命令（搜索查看查找类）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#find-%E4%BB%8E%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">find 从指定目录查找文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head-%E4%B8%8E-tail-%E6%9F%A5%E7%9C%8B%E8%A1%8C"><span class="toc-number">1.2.</span> <span class="toc-text">head 与 tail 查看行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cat-%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AE%B9"><span class="toc-number">1.3.</span> <span class="toc-text">cat 查看内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#more%E6%9F%A5%E7%9C%8B%E5%A4%A7%E5%86%85%E5%AE%B9"><span class="toc-number">1.4.</span> <span class="toc-text">more查看大内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep-%E8%BF%87%E6%BB%A4%E6%9F%A5%E6%89%BE"><span class="toc-number">1.5.</span> <span class="toc-text">grep 过滤查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history-%E6%9F%A5%E7%9C%8B%E5%B7%B2%E7%BB%8F%E6%89%A7%E8%A1%8C%E8%BF%87%E7%9A%84%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4"><span class="toc-number">1.6.</span> <span class="toc-text">history 查看已经执行过的历史命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wc-%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6"><span class="toc-number">1.7.</span> <span class="toc-text">wc 统计文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#du-%E6%9F%A5%E7%9C%8B%E7%A9%BA%E9%97%B4"><span class="toc-number">1.8.</span> <span class="toc-text">du 查看空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6%E5%8F%B7-%EF%BC%88%E9%85%8D%E5%90%88%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%EF%BC%89"><span class="toc-number">1.9.</span> <span class="toc-text">管道符号 | （配合命令使用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%8C-%E6%8C%87%E4%BB%A4"><span class="toc-number">1.10.</span> <span class="toc-text">&gt; 和 &gt;&gt; 指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">解压安装类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#zip%E5%8E%8B%E7%BC%A9-unzip%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">zip压缩 unzip解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tar-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">tar 压缩解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yum%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text">Yum包管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">用户权限类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-number">3.1.</span> <span class="toc-text">用户及用户组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84%E7%9A%84%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.1.</span> <span class="toc-text">用户和组的相关文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E8%AF%A6%E8%A7%A3"><span class="toc-number">3.2.</span> <span class="toc-text">权限详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chmod-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="toc-number">3.3.</span> <span class="toc-text">chmod 修改权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chown-%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E8%80%85"><span class="toc-number">3.3.1.</span> <span class="toc-text">chown 修改文件所有者</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E7%BB%83%E4%B9%A0"><span class="toc-number">4.</span> <span class="toc-text">作业练习</span></a></li></ol>
+        </div>
     
 </div>
 
