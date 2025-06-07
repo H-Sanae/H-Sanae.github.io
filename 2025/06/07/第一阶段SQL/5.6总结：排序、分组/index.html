@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - 宅邦邦</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="关键词相关关键词一共6个，一条查询语句最少要有2个关键词，最多6个关键词，每个关键词只能出现一次
+
+select 选列
+from 选表
+where 选行
+group by 分组
+having 选分组,"> 
+    <meta name="author" content="邦邦"> 
+    <link rel="alternative" href="atom.xml" title="宅邦邦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content=" - 宅邦邦"/>
+    <meta name="twitter:description" content="关键词相关关键词一共6个，一条查询语句最少要有2个关键词，最多6个关键词，每个关键词只能出现一次
+
+select 选列
+from 选表
+where 选行
+group by 分组
+having 选分组,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="宅邦邦"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content=" - 宅邦邦"/>
+    <meta property="og:description" content="关键词相关关键词一共6个，一条查询语句最少要有2个关键词，最多6个关键词，每个关键词只能出现一次
+
+select 选列
+from 选表
+where 选行
+group by 分组
+having 选分组,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">宅邦邦</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>六月 07, 2025</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="关键词相关"><a href="#关键词相关" class="headerlink" title="关键词相关"></a>关键词相关</h1><p>关键词一共6个，一条查询语句最少要有2个关键词，最多6个关键词，每个关键词只能出现一次</p>
+<ul>
+<li>select 选列</li>
+<li>from 选表</li>
+<li>where 选行</li>
+<li>group by 分组</li>
+<li>having 选分组后的行</li>
+<li>order by 排序</li>
+</ul>
+<p><strong>书写顺序</strong>：select — from — where — group by — having — order by<br><strong>执行顺序</strong>：from — where — group by — having — select — order by</p>
+<h1 id="排序-order-by"><a href="#排序-order-by" class="headerlink" title="排序 order by"></a>排序 order by</h1><p>asc 升序（从小到大），默认，可写可不写；<br>desc 降序（从大到小），需在列名后标注</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="comment">--升序</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">desc</span> <span class="comment">--降序</span></span><br></pre></td></tr></table></figure>
+
+<p>order by 是唯一一个可以使用别名的关键词 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sal 工资, deptno 部门 <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> 工资 <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+
+<p>排序后空值最大（升序排序时空值在最下面）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> comm <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+
+<p>desc不共用（每列默认升序，需逐个设置）<br>多个列进行排序时，先全按照左边的列进行排序，在左边列排完的基础上，再排右边列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--先按部门升序排序，再按工资降序排序</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> deptno, sal <span class="keyword">desc</span></span><br><span class="line"><span class="comment">--两者都需降序排序时需要都写出desc</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> deptno <span class="keyword">desc</span>, sal <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+
+<p>数字指代能用但不常用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> deptno,ename,sal <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> <span class="number">1</span>,<span class="number">3</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="分组-group-by"><a href="#分组-group-by" class="headerlink" title="分组 group by"></a>分组 group by</h1><p>单独使用时效果相当于去重，一般只搭配聚合函数一起使用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--两者结果一样</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> deptno <span class="keyword">from</span> emp <span class="comment">--去重</span></span><br><span class="line"><span class="keyword">select</span> deptno <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno  <span class="comment">--分组</span></span><br></pre></td></tr></table></figure>
+<p><strong>分组后select后面只能跟分了组的列和聚合函数</strong></p>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><p>多行聚合成一行的函数，如：<br>最大值max() 最小值min() 求和sum() 平均值avg() 计数count()</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(sal),<span class="built_in">min</span>(sal),<span class="built_in">sum</span>(sal),<span class="built_in">avg</span>(sal),<span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> emp</span><br></pre></td></tr></table></figure>
+<p>count求的就是结果集里面有多少条有效数据（空值不计），可使用count(1)或者count(*)来求所有数据的计数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--求每个部门的最高工资</span></span><br><span class="line"><span class="keyword">select</span> deptno,<span class="built_in">max</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br><span class="line"><span class="comment">--每个部门有几个工作为MANAGER的员工</span></span><br><span class="line"><span class="keyword">select</span>  deptno,<span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> emp <span class="keyword">where</span> job<span class="operator">=</span><span class="string">&#x27;MANAGER&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br><span class="line"><span class="comment">--可进行多项分组</span></span><br><span class="line"><span class="keyword">select</span> deptno,job,<span class="built_in">avg</span>(sal),<span class="built_in">count</span>(<span class="number">1</span>),<span class="built_in">sum</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno,job</span><br></pre></td></tr></table></figure>
+<p>有分组的查询语句，那么聚合函数则在分组后产生</p>
+<h2 id="having"><a href="#having" class="headerlink" title="having"></a>having</h2><p>功能等同where：专门用于筛选聚合函数<br>与where的区别：</p>
+<ul>
+<li>where是用来过滤行的，having是用来过滤分组的 </li>
+<li>having一般跟在group by子句后</li>
+<li>where是在分组前进行过滤，而having是在分组后进行过滤</li>
+<li>where后面不可以加聚合函数过滤条件，having可以</li>
+<li>where效率比having高，因此只有出现聚合函数作为过滤条件时用having，其余所有情况都用where</li>
+</ul>
+<p><strong>where条件里为什么不能有聚合函数</strong>：聚合函数是对行组进行计算，而执行顺序上是先where对单个行进行过滤，才分组，两者有个先后关系。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--求人数大于4的部门的名称和人数</span></span><br><span class="line"><span class="keyword">select</span>  deptno,<span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> emp  <span class="keyword">group</span> <span class="keyword">by</span> deptno <span class="keyword">having</span> <span class="built_in">count</span>(<span class="number">1</span>)<span class="operator">&gt;</span><span class="number">4</span> </span><br></pre></td></tr></table></figure>
+
+<p>having 只能筛选聚合函数和分组后的列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--求各部门工作是销售的员工人数</span></span><br><span class="line"><span class="comment">--错误写法：没有对job进行分组，having无法对job进行筛选</span></span><br><span class="line"><span class="keyword">select</span> deptno,<span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno <span class="keyword">having</span> job<span class="operator">=</span><span class="string">&#x27;SALESMAN&#x27;</span></span><br><span class="line"><span class="comment">--正确写法：使用where进行筛选</span></span><br><span class="line"><span class="keyword">select</span> deptno,<span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> emp <span class="keyword">where</span> job<span class="operator">=</span><span class="string">&#x27;SALESMAN&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br></pre></td></tr></table></figure>
+
+<h1 id="作业练习"><a href="#作业练习" class="headerlink" title="作业练习"></a>作业练习</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--1.查询员工姓名、工资，按照工资的正序排列</span></span><br><span class="line"><span class="keyword">select</span> enmae,sal <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal</span><br><span class="line"></span><br><span class="line"><span class="comment">--2.查询员工信息，先按照部门编号降序排列，再按照工资的正序排列</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> deptno <span class="keyword">desc</span>, sal</span><br><span class="line"></span><br><span class="line"><span class="comment">--3.查询员工信息，先按照工资降序排列，再按照部门降序排列</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">desc</span>, deptno <span class="keyword">desc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--4.求每个部门有多少员工</span></span><br><span class="line"><span class="keyword">select</span> deptno, <span class="built_in">count</span>(<span class="number">1</span>)  <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br><span class="line"></span><br><span class="line"><span class="comment">--5.求每个部门里的最高工资</span></span><br><span class="line"><span class="keyword">select</span> deptno, <span class="built_in">max</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br><span class="line"></span><br><span class="line"><span class="comment">--6.参加每种工作的人数</span></span><br><span class="line"><span class="keyword">select</span> job, <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> job</span><br><span class="line"></span><br><span class="line"><span class="comment">--7.求员工里面的最高工资</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(sal) <span class="keyword">from</span> emp</span><br><span class="line"></span><br><span class="line"><span class="comment">--8.求公司有多少个部门</span></span><br><span class="line"><span class="comment">--使用dept表</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> dept</span><br><span class="line"><span class="comment">--使用emp表进行子查询，缺点：若emp表中没有某部门数据，则会少算这一部门，可能计数不全</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">distinct</span> deptno <span class="keyword">from</span> emp)</span><br><span class="line"></span><br><span class="line"><span class="comment">--9.求部门平均工资大于1600的部门编号</span></span><br><span class="line"><span class="keyword">select</span> deptno <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno <span class="keyword">having</span> <span class="built_in">avg</span>(sal)<span class="operator">&gt;</span><span class="number">1600</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--10.求部门平均工资大于1600,并且不是20号部门的部门编号</span></span><br><span class="line"><span class="keyword">select</span> deptno <span class="keyword">from</span> emp <span class="keyword">where</span> deptno<span class="operator">!=</span><span class="number">20</span> <span class="keyword">group</span> <span class="keyword">by</span> deptno <span class="keyword">having</span> <span class="built_in">avg</span>(sal)<span class="operator">&gt;</span><span class="number">1600</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--11.列出最低薪金大于1500的各种工作</span></span><br><span class="line"><span class="keyword">select</span> job <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> job <span class="keyword">having</span> <span class="built_in">min</span>(sal)<span class="operator">&gt;</span><span class="number">1500</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--12.列出在每个部门工作的员工数量、平均工资</span></span><br><span class="line"><span class="keyword">select</span> deptno,<span class="built_in">count</span>(<span class="number">1</span>), <span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br><span class="line"></span><br><span class="line"><span class="comment">--13.列出各个部门的MANAGER（经理）的最低薪金</span></span><br><span class="line"><span class="keyword">select</span> deptno,<span class="built_in">min</span>(sal) <span class="keyword">from</span> emp <span class="keyword">where</span> job<span class="operator">=</span><span class="string">&#x27;MANAGER&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br><span class="line"></span><br><span class="line"><span class="comment">--14.查询每个部门每个岗位的工资总和。</span></span><br><span class="line"><span class="keyword">select</span> deptno, job, <span class="built_in">sum</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno, job <span class="keyword">order</span> <span class="keyword">by</span> deptno</span><br><span class="line"></span><br><span class="line"><span class="comment">--15.查询部门人数大于2的部门编号，最低工资、最高工资,部门人数。</span></span><br><span class="line"><span class="keyword">select</span> deptno,<span class="built_in">min</span>(sal),<span class="built_in">max</span>(sal),<span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno <span class="keyword">having</span> <span class="built_in">count</span>(<span class="number">1</span>)<span class="operator">&gt;</span><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--16.查询部门平均工资大于2000，且人数大于2的 部门编号、部门人数、部门平均工资 ，并按照部门人数升序排序。</span></span><br><span class="line"><span class="keyword">select</span> deptno,<span class="built_in">count</span>(<span class="number">1</span>),<span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno <span class="keyword">having</span> <span class="built_in">avg</span>(sal)<span class="operator">&gt;</span><span class="number">2000</span> <span class="keyword">and</span> <span class="built_in">count</span>(<span class="number">1</span>)<span class="operator">&gt;</span><span class="number">2</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="built_in">count</span>(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">--17.查询员工岗位中不是以“SA”开头并且平均工资在2500元以上的岗位及平均工资，并按平均工资降序排序</span></span><br><span class="line"><span class="keyword">select</span> job,<span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp <span class="keyword">where</span> job <span class="keyword">not</span> <span class="keyword">like</span> <span class="string">&#x27;SA%&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> job <span class="keyword">having</span> <span class="built_in">avg</span>(sal)<span class="operator">&gt;</span><span class="number">2500</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="built_in">avg</span>(sal) <span class="keyword">desc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--18.查询岗位不为SALESMAN，工资和大于等于2500的岗位及 每种岗位的工资和</span></span><br><span class="line"><span class="keyword">select</span> job,<span class="built_in">sum</span>(sal) <span class="keyword">from</span> emp <span class="keyword">where</span> job<span class="operator">!=</span><span class="string">&#x27;SALESMAN&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> job <span class="keyword">having</span> <span class="built_in">sum</span>(sal)<span class="operator">&gt;=</span><span class="number">2500</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--19.写一个查询，显示每个部门最高工资和最低工资的差额</span></span><br><span class="line"><span class="keyword">select</span> deptno,<span class="built_in">max</span>(sal)<span class="operator">-</span><span class="built_in">min</span>(sal) <span class="keyword">from</span> emp <span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

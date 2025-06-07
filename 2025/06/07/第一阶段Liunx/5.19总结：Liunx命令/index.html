@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - 宅邦邦</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Linux命令（搜索查看查找类）find 从指定目录查找文件-name &amp;lt;查询方式&amp;gt; 按照指定的文件名查找模式查找文件-mtime n 查找n天以前被修改过的所有文件。-exec&amp;lt;,"> 
+    <meta name="author" content="邦邦"> 
+    <link rel="alternative" href="atom.xml" title="宅邦邦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content=" - 宅邦邦"/>
+    <meta name="twitter:description" content="Linux命令（搜索查看查找类）find 从指定目录查找文件-name &amp;lt;查询方式&amp;gt; 按照指定的文件名查找模式查找文件-mtime n 查找n天以前被修改过的所有文件。-exec&amp;lt;,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="宅邦邦"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content=" - 宅邦邦"/>
+    <meta property="og:description" content="Linux命令（搜索查看查找类）find 从指定目录查找文件-name &amp;lt;查询方式&amp;gt; 按照指定的文件名查找模式查找文件-mtime n 查找n天以前被修改过的所有文件。-exec&amp;lt;,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">宅邦邦</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>六月 07, 2025</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Linux命令（搜索查看查找类）"><a href="#Linux命令（搜索查看查找类）" class="headerlink" title="Linux命令（搜索查看查找类）"></a>Linux命令（搜索查看查找类）</h1><h2 id="find-从指定目录查找文件"><a href="#find-从指定目录查找文件" class="headerlink" title="find 从指定目录查找文件"></a>find 从指定目录查找文件</h2><p>-name &lt;查询方式&gt; 按照指定的文件名查找模式查找文件<br>-mtime n 查找n天以前被修改过的所有文件。<br>-exec&lt;执行指令&gt;：假设find指令的回传值为True，就执行该指令；<br>-size &lt;文件大小&gt; 按照指定的文件大小查找文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find /root -name <span class="string">&quot;*.pdf&quot;</span> find /root -name <span class="string">&quot;*.pdf&quot;</span> -a -size +1M find /root -mtime +7 <span class="comment">#七天前被修改过的文件 </span></span><br><span class="line">find /root -name <span class="string">&quot;*.sql&quot;</span> -<span class="built_in">exec</span> <span class="built_in">ls</span> -l &#123;&#125; \; <span class="comment">#查找文件并以ls -l形式显示 </span></span><br><span class="line">find /root -name <span class="string">&quot;*.pdf&quot;</span> -<span class="built_in">exec</span> <span class="built_in">rm</span> -f &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="head-与-tail-查看行"><a href="#head-与-tail-查看行" class="headerlink" title="head 与 tail 查看行"></a>head 与 tail 查看行</h2><p>头+ 尾-<br>head -n +行数 文件名 （不加-n默认开头十行）<br>tail -n -行数 文件名 （不加-n默认结尾十行） </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">head</span> a.txt <span class="comment">#默认显示开头十行</span></span><br><span class="line"><span class="built_in">tail</span> a.txt <span class="comment">#默认显示结尾十行 </span></span><br><span class="line"><span class="built_in">head</span> -n +3 a.txt   <span class="comment">#只显示前三行 </span></span><br><span class="line"><span class="built_in">tail</span> -n -3 a.txt   <span class="comment">#只显示后三行</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="cat-查看内容"><a href="#cat-查看内容" class="headerlink" title="cat 查看内容"></a>cat 查看内容</h2><p>cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上。<br>-n 显示行号包括空行<br>-b 跳过空白行编号<br>-s 将所有的连续的多个空行替换为一个空行（压缩成一个空行） </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> 1.<span class="built_in">log</span> 2.<span class="built_in">log</span> </span><br><span class="line"><span class="built_in">cat</span> -sb test.log</span><br></pre></td></tr></table></figure>
+
+<h2 id="more查看大内容"><a href="#more查看大内容" class="headerlink" title="more查看大内容"></a>more查看大内容</h2><p>more 分屏查看文件（敲空格查看下一页）</p>
+<h2 id="grep-过滤查找"><a href="#grep-过滤查找" class="headerlink" title="grep 过滤查找"></a>grep 过滤查找</h2><p>以行为单位进行查找，显示结果为满足的行<br>-c 统计满足的行数<br>-v 反转不包含</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&quot;p&quot;</span> 1.txt <span class="comment">#单文件搜索包含p的行 </span></span><br><span class="line">grep <span class="string">&quot;P&quot;</span> 1.txt b.txt <span class="comment">#多文件搜索 </span></span><br><span class="line">grep -v <span class="string">&quot;p&quot;</span> 1.txt <span class="comment">#单文件搜索不包含p的行 </span></span><br><span class="line">grep -c <span class="string">&quot;p&quot;</span> 1.txt <span class="comment">#统计出现多少行 </span></span><br><span class="line">grep <span class="string">&quot;^n&quot;</span> 1.txt <span class="comment">#显示以n开头的行</span></span><br><span class="line">grep <span class="string">&quot;n$&quot;</span> 1.txt <span class="comment">#显示以n结尾的行 </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="history-查看已经执行过的历史命令"><a href="#history-查看已经执行过的历史命令" class="headerlink" title="history 查看已经执行过的历史命令"></a>history 查看已经执行过的历史命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> 5 <span class="comment">#最近五个命令</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="wc-统计文件"><a href="#wc-统计文件" class="headerlink" title="wc 统计文件"></a>wc 统计文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wc</span> -c name.txt <span class="comment">#查看文件的字节数</span></span><br><span class="line"><span class="built_in">wc</span> -l name.txt <span class="comment">#查看文件的行数</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="du-查看空间"><a href="#du-查看空间" class="headerlink" title="du 查看空间"></a>du 查看空间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">du</span> -h name.txt 人性化方式（带单位） </span><br><span class="line"><span class="built_in">du</span> -s name.txt 只统计每个参数所占用空间总的大小 </span><br><span class="line"><span class="built_in">du</span> -sh /root</span><br></pre></td></tr></table></figure>
+
+<h2 id="管道符号-（配合命令使用）"><a href="#管道符号-（配合命令使用）" class="headerlink" title="管道符号 | （配合命令使用）"></a>管道符号 | （配合命令使用）</h2><p>管道符 | 表示将前一个命令的处理结果输出传递给后面的命令处理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> | grep -c <span class="string">&quot;ll&quot;</span> <span class="comment">#统计历史输入了几次ll命令</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="和-指令"><a href="#和-指令" class="headerlink" title="&gt; 和 &gt;&gt; 指令"></a>&gt; 和 &gt;&gt; 指令</h2><p>&gt; 输出重定向(覆盖写),<br>&gt;&gt; 追加（追加写）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l | grep -c <span class="string">&quot;^d&quot;</span> </span><br><span class="line"><span class="built_in">ls</span> -l | grep <span class="string">&quot;^d&quot;</span> | <span class="built_in">wc</span> -l </span><br><span class="line"><span class="built_in">history</span> | grep -c <span class="string">&quot;ls&quot;</span> </span><br><span class="line"><span class="built_in">history</span> | grep <span class="string">&quot;ls&quot;</span> | grep <span class="string">&quot;s$&quot;</span> &gt; ttt.txt </span><br><span class="line"><span class="built_in">cat</span> a.txt b.txt &gt;&gt; ttt.txt </span><br><span class="line"><span class="built_in">cat</span> a.txt b.txt | grep <span class="string">&quot;s&quot;</span> &gt;&gt; ttt.txt</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="解压安装类"><a href="#解压安装类" class="headerlink" title="解压安装类"></a>解压安装类</h1><h2 id="zip压缩-unzip解压"><a href="#zip压缩-unzip解压" class="headerlink" title="zip压缩 unzip解压"></a>zip压缩 unzip解压</h2><p>常用选项：<br>-r  递归压缩，即压缩目录<br>-d&lt;目录&gt;  指定解压后文件的存放目录<br>压缩用相对路径，解压可以用绝对路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩文件和目录 </span></span><br><span class="line">zip 文件名.zip 将要压缩的内容 </span><br><span class="line">zip test.zip -r a/b  <span class="comment">#注：绝对路径压缩会带前面的路径文件夹</span></span><br><span class="line"><span class="comment"># 解压缩文件 </span></span><br><span class="line">unzip 文件名.zip</span><br><span class="line">unzip linux.x64_11gR2_database_1of2.zip -d /opt/app/database/</span><br></pre></td></tr></table></figure>
+
+<h2 id="tar-压缩解压"><a href="#tar-压缩解压" class="headerlink" title="tar 压缩解压"></a>tar 压缩解压</h2><p>-z  调用 gzip 程序进行压缩或解压<br>-c  创建（Create）.tar 格式的包文件<br>-x  解开.tar 格式的包文件<br>-c  &lt;&#x2F;解压时指定释放的目标文件夹 指定目录<br>-v  输出详细信息（Verbose）<br>-f  表示使用归档文件（一般都要带上表示使用tar，放在最后）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">压缩：tar [选项] ... 归档文件名（压缩包名字） 源文件或目录 <span class="comment">#压缩选项一般用-zcvf</span></span><br><span class="line">解压：tar [选项] ... 归档文件名 [-C 目标目录]  <span class="comment">#解压选项一般用-zxvf</span></span><br><span class="line">tar -zcvf abc123.tar.gz abc.txt 123.txt  <span class="comment">#将abc.txt和123.txt压缩成abc123.tar.gz</span></span><br><span class="line">tar -zcvf abc123.tar.gz m </span><br><span class="line">tar -zxvf abc123.tar.gz -C /home/test/  <span class="comment">#解压到指定目录</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Yum包管理"><a href="#Yum包管理" class="headerlink" title="Yum包管理"></a>Yum包管理</h2><p>Yum是一个Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载 RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum list | grep xxx  <span class="comment">#查询yum服务器是否有需要安装的软件</span></span><br><span class="line">yum info xxx  <span class="comment">#查询指定的yum包信息</span></span><br><span class="line">yum install xxx  <span class="comment">#安装指定的yum包</span></span><br><span class="line">yum remove xxx  <span class="comment">#卸载指定的yum包 </span></span><br><span class="line">yum list installed  <span class="comment">#查看已安装的软件包</span></span><br><span class="line">yum install ntpdate  <span class="comment"># # 安装网络对时</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="用户权限类"><a href="#用户权限类" class="headerlink" title="用户权限类"></a>用户权限类</h1><p>登录时尽量少用root帐号登录，因为它是系统管理员，最大的权限，避免操作失误。可 以利用普通用户登录，登录后再用 su - 用户名 命令来切换</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su - <span class="built_in">test</span>  <span class="comment">#切换到test用户</span></span><br><span class="line">su - root <span class="comment">#切换到root用户（需要输入密码）</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="用户及用户组"><a href="#用户及用户组" class="headerlink" title="用户及用户组"></a>用户及用户组</h2><p>类似于角色，系统可以对有共性的多个用户进行统一的管理 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">新增用户组 groupadd xiaoshou </span><br><span class="line">添加用户 useradd xiaomei </span><br><span class="line">添加用户时加上组 useradd -g xiaoshou xiaomei </span><br><span class="line">指定/修改密码 passwd xiaomei </span><br><span class="line">查询用户信息 <span class="built_in">id</span> xiaomei </span><br><span class="line">切换用户 su - xiaomei </span><br><span class="line">查看当前用户 <span class="built_in">whoami</span> </span><br><span class="line">修改用户的组 usermod -g 用户组 用户名 </span><br><span class="line">删除用户 userdel xiaomei (<span class="built_in">exit</span>退出后再删除) </span><br><span class="line">删除组 groupdel xiaoshou</span><br></pre></td></tr></table></figure>
+<h3 id="用户和组的相关文件"><a href="#用户和组的相关文件" class="headerlink" title="用户和组的相关文件"></a>用户和组的相关文件</h3><p><strong>&#x2F;etc&#x2F;passwd 文件</strong><br>用户（user）的配置文件，记录用户的各种信息<br>每行的含义：用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell</p>
+<p><strong>&#x2F;etc&#x2F;group 文件</strong><br>组(group)的配置文件，记录Linux包含的组的信息<br>每行含义：组名:口令:组标识号:组内用户列表</p>
+<h2 id="权限详解"><a href="#权限详解" class="headerlink" title="权限详解"></a>权限详解</h2><p>[ r ]代表可读(read)<br>[ w ]代表可写(write)<br>[ x ]代表可执行(execute)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x.  2 root    root      6 5月  16 14:26 a</span><br><span class="line">-rw-rw-rw-.  1 wukong shenxian   0 5月  19 16:32 1.txt</span><br></pre></td></tr></table></figure>
+<p>10个字符.<br>第一个字符代表文件类型：文件（-） 目录（d） 链接（l）<br>接下来每三个字符为一组，共三组，分别代表 文件拥有者、同组的其他用户、不同组的其他用户</p>
+<p>可用数字表示为：r&#x3D;4， w&#x3D;2， x&#x3D;1<br>因此 rwx&#x3D;4+2+1&#x3D;7</p>
+<h2 id="chmod-修改权限"><a href="#chmod-修改权限" class="headerlink" title="chmod 修改权限"></a>chmod 修改权限</h2><p>u 所有者  g 所有组  o 其他人  a 所有人(u、g、o的总和) </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u=rwx,g=rx,o=x name.txt</span><br><span class="line"><span class="built_in">chmod</span> o+w name.txt </span><br><span class="line"><span class="built_in">chmod</span> a-x name.txt</span><br><span class="line"><span class="built_in">chmod</span> +x name.txt <span class="comment">#不写用户默认为所有人，效果同a+x</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">chmod</span> u=rwx,g=rx,o=x file</span><br><span class="line"><span class="built_in">chmod</span> 751 file  <span class="comment">#功能同上     </span></span><br><span class="line">   　　 　   </span><br><span class="line"><span class="built_in">chmod</span> -R u+r directory  <span class="comment">#递归地给directory目录下所有文件和子目录的属主分配读的权限</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="chown-修改文件所有者"><a href="#chown-修改文件所有者" class="headerlink" title="chown 修改文件所有者"></a>chown 修改文件所有者</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> [-R] 所有者 文件或目录  <span class="comment">#-R表示递归里面的所有文件及目录 </span></span><br><span class="line"><span class="built_in">chown</span> test02 /root/test.txt </span><br><span class="line"><span class="built_in">chown</span> -R 用户:组 /usr/local/mysql </span><br><span class="line"><span class="built_in">chown</span> meimei:students 1.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="作业练习"><a href="#作业练习" class="headerlink" title="作业练习"></a>作业练习</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#上机练习4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.将/etc/passwd文件拷贝到/root/目录下，并改名为ptest</span></span><br><span class="line"><span class="built_in">cp</span> /etc/passwd /root/ptest</span><br><span class="line"><span class="comment">#2.查看ptest的前八行数据 </span></span><br><span class="line"><span class="built_in">head</span> -n +8 ptest</span><br><span class="line"><span class="comment">#3.过滤查看ptest文件中包含root的行 </span></span><br><span class="line">grep <span class="string">&quot;root&quot;</span> ptest</span><br><span class="line"></span><br><span class="line"><span class="comment">#4.查看/home目录占用空间 </span></span><br><span class="line"><span class="built_in">du</span> -sh /home</span><br><span class="line"></span><br><span class="line"><span class="comment">#5./root中新建文件test.log，插入内容如下： @directory-client @gnome-apps @gnome-desktop </span></span><br><span class="line"><span class="built_in">touch</span> /root/test.log</span><br><span class="line">vim test.log</span><br><span class="line">i <span class="string">&quot;@directory-client @gnome-apps @gnome-desktop &quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#6.将test.log和ptest合并到/root目录下的test1.log </span></span><br><span class="line"><span class="built_in">cat</span> test.log ptest &gt; /root/test1.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#7.将/root目录下的ptest加上行号输出到test2.log</span></span><br><span class="line"><span class="built_in">cat</span> -n /root/ptest &gt; test2.log</span><br><span class="line"></span><br><span class="line"><span class="comment">#8.查找并显示根目录下大于1M的png文件 </span></span><br><span class="line">find / -name <span class="string">&quot;*.png&quot;</span> -a -size +1M</span><br><span class="line"></span><br><span class="line"><span class="comment">#9.统计系统上使用ls命令的次数 </span></span><br><span class="line"><span class="built_in">history</span> | grep -c <span class="string">&quot;ls&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#10.将/root/ptest中出现了root的行存储到test.txt文件 </span></span><br><span class="line">grep <span class="string">&quot;root&quot;</span> /root/ptest &gt; test.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#11.根据名称查找 /root 下的txt文件 </span></span><br><span class="line">find /root -name <span class="string">&quot;*.txt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#12.查找整个linux系统下大于20M的文件 (+n 大于 -n小于 n等于) </span></span><br><span class="line">find / -size +20M</span><br><span class="line"></span><br><span class="line"><span class="comment">#13.查找/root/xxx/yyy/zzz下所有.txt文件并把他们删掉 </span></span><br><span class="line">find /root/xxx/yyy/zzz -name <span class="string">&quot;*.txt&quot;</span> -<span class="built_in">exec</span> <span class="built_in">rm</span> -f &#123;&#125; \;</span><br><span class="line"></span><br><span class="line"><span class="comment">#14.统计ptest文件的字节数 </span></span><br><span class="line"><span class="built_in">wc</span> -c ptest</span><br><span class="line"><span class="built_in">cat</span> ptest | <span class="built_in">wc</span> -c  <span class="comment">#只显示数字</span></span><br><span class="line"><span class="comment">#15.统计ptest文件以s开头的行的数量</span></span><br><span class="line">grep -c <span class="string">&quot;^s&quot;</span> ptest</span><br><span class="line"></span><br><span class="line"><span class="comment">#上机练习5</span></span><br><span class="line"><span class="comment">#1.将 /root/xxx 压缩成 a.tar.gz </span></span><br><span class="line">tar -zcvf a.tar.gz /root/xxx </span><br><span class="line"></span><br><span class="line"><span class="comment">#2.将 a.tar.gz 解压到/root/ceshi/ </span></span><br><span class="line"><span class="built_in">mkdir</span> ceshi</span><br><span class="line">tar -zxvf a.tar.gz -C /root/ceshi/</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.增加用户组 students </span></span><br><span class="line">groupadd students</span><br><span class="line"></span><br><span class="line"><span class="comment">#4.添加新用户kunkun及meimei并直接加到students组 </span></span><br><span class="line">useradd -g students kunkun</span><br><span class="line">useradd -g students meimei</span><br><span class="line"></span><br><span class="line"><span class="comment">#5.指定kunkun密码, 然后切换到这个用户 </span></span><br><span class="line">passwd kunkun</span><br><span class="line">kunkun123</span><br><span class="line">su - kunkun</span><br><span class="line"><span class="comment">#6.到该用户的家目录新建一个student.txt </span></span><br><span class="line"><span class="built_in">cd</span></span><br><span class="line"><span class="built_in">touch</span> student.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#7.查询并写入该用户的用户信息到student.txt, 退出exit </span></span><br><span class="line"><span class="built_in">id</span> kunkun &gt; student.txt</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#8.使用root账号新建文件1.txt及2.txt 对文件/root/1.txt 为所有用户分配读写执行权限 </span></span><br><span class="line"><span class="built_in">touch</span> 1.txt 2.txt</span><br><span class="line"><span class="built_in">chmod</span> 777 /root/1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#9.对文件/root/2.txt 设置权限为rwxr-xr--</span></span><br><span class="line"><span class="built_in">chmod</span> 754 /root/2.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#10.对文件/root/2.txt 设置属组权限增加写的权限 </span></span><br><span class="line"><span class="built_in">chmod</span> g+w /root/2.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#11.给/root/1.txt文件修改kunkun用户及students用户组权限 </span></span><br><span class="line"><span class="built_in">chown</span> kunkun:students /root/1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#12./root/下创建文件夹open，里面批量创建文件open1.log...open100.log </span></span><br><span class="line"><span class="built_in">mkdir</span> open</span><br><span class="line"><span class="built_in">touch</span> /root/open/open&#123;1..100&#125;.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#13.对文件夹open设置为meimei用户及students用户组权限 </span></span><br><span class="line"><span class="built_in">chown</span> -R meimei:students open</span><br><span class="line"></span><br><span class="line"><span class="comment">#14.对文件夹open设置权限为rwxr-xr-x </span></span><br><span class="line"><span class="built_in">chmod</span> -R 755 open</span><br><span class="line"></span><br><span class="line"><span class="comment">#15.查看/etc/group及/etc/passwd文件内容重定向到/root/open.txt中 </span></span><br><span class="line"><span class="built_in">cat</span> /etc/group /etc/passwd &gt; /root/open.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#16.删除用户kunkun和meimei，查看/etc/passwd的后3行数据追加到/root/open.txt中 </span></span><br><span class="line">userdel kunkun</span><br><span class="line">userdel meimei</span><br><span class="line"><span class="built_in">tail</span> -n -3 /etc/passwd &gt;&gt; /root/open.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#17.删除用户组，查看/etc/group的后3行数据追加到/root/open.txt中 </span></span><br><span class="line">groupdel students</span><br><span class="line"><span class="built_in">tail</span> -n -3 /etc/group &gt;&gt; /root/open.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#18.删除home下两个用户的文件夹及里面的内容</span></span><br><span class="line"><span class="built_in">rm</span> -rf /home/kunkun /home/meimei</span><br><span class="line"></span><br><span class="line"><span class="comment">#19.神仙妖怪大战，使用拼音来化名，例如：shaseng为沙僧 </span></span><br><span class="line"><span class="comment">#建立两个组 (神仙, 妖怪)，建立用户 (悟空, 八戒, 沙僧)，把悟空和八戒放入妖怪，沙僧放入神仙 </span></span><br><span class="line">groupadd shenxian</span><br><span class="line">groupadd yaoguai</span><br><span class="line">useradd -g yaoguai wukong</span><br><span class="line">useradd -g yaoguai bajie</span><br><span class="line">useradd -g shenxian shaseng</span><br><span class="line"><span class="comment">#设置三个用户的密码 </span></span><br><span class="line">passwd wukong</span><br><span class="line">wukong123</span><br><span class="line">passwd bajie</span><br><span class="line">bajie123</span><br><span class="line">passwd shaseng</span><br><span class="line">shaseng123</span><br><span class="line"><span class="comment">#用悟空在自己的家目录下建立一个文件 monkey.txt，该文件要输出 i am a monkey </span></span><br><span class="line">su - wukong</span><br><span class="line"><span class="built_in">touch</span> monkey.txt</span><br><span class="line">vim monkey.txt</span><br><span class="line">i <span class="comment">#i am a monkey</span></span><br><span class="line">esc :wq</span><br><span class="line"><span class="comment">#用root账号给八戒一个对悟空文件夹及内容可以rwx的权限 </span></span><br><span class="line">su - root</span><br><span class="line"><span class="built_in">chmod</span> -R g=rwx /home/wukong</span><br><span class="line"><span class="comment">#八戒修改 monkey.txt 加入一句话( i am a pig ) </span></span><br><span class="line">su - bajie</span><br><span class="line">vim /home/wukong/monkey.txt</span><br><span class="line">i <span class="comment">#i am a pig</span></span><br><span class="line">esc :wq</span><br><span class="line"><span class="comment">#测试一下沙僧对该文件有没有权限访问 </span></span><br><span class="line">su - shaseng</span><br><span class="line">vim /home/wukong/monkey.txt <span class="comment">#显示权限不足</span></span><br><span class="line">:q</span><br><span class="line"><span class="comment">#把沙僧放入妖怪组 </span></span><br><span class="line">su - root</span><br><span class="line">usermod -g yaoguai shaseng</span><br><span class="line"><span class="comment">#让沙僧修改该文件 monkey.txt，加入一句话 (&quot;我是沙僧，我是妖怪!&quot;)</span></span><br><span class="line">su - shaseng</span><br><span class="line">vim /home/wukong/monkey.txt</span><br><span class="line">i <span class="comment">#我是沙僧，我是妖怪!</span></span><br><span class="line">esc :wq</span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

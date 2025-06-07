@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - 宅邦邦</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="文件读写文本文件写12345678910# 写文件时若路径没有该文件会新建文件with open(&amp;quot;D:\\wtest.txt&amp;quot;, mode=&amp;#x27;w&amp;#x27;, enc,"> 
+    <meta name="author" content="邦邦"> 
+    <link rel="alternative" href="atom.xml" title="宅邦邦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content=" - 宅邦邦"/>
+    <meta name="twitter:description" content="文件读写文本文件写12345678910# 写文件时若路径没有该文件会新建文件with open(&amp;quot;D:\\wtest.txt&amp;quot;, mode=&amp;#x27;w&amp;#x27;, enc,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="宅邦邦"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content=" - 宅邦邦"/>
+    <meta property="og:description" content="文件读写文本文件写12345678910# 写文件时若路径没有该文件会新建文件with open(&amp;quot;D:\\wtest.txt&amp;quot;, mode=&amp;#x27;w&amp;#x27;, enc,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">宅邦邦</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>六月 07, 2025</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h1><h2 id="文本文件写"><a href="#文本文件写" class="headerlink" title="文本文件写"></a>文本文件写</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 写文件时若路径没有该文件会新建文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;D:\\wtest.txt&quot;</span>, mode=<span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;UTF-8&#x27;</span>) <span class="keyword">as</span> f : </span><br><span class="line">	f.write(<span class="string">&quot;ccccccccccccccc\n&quot;</span>)  <span class="comment">#不会自动换行，需要自行加\n换行</span></span><br><span class="line">	f.write(<span class="string">&quot;ccccccccccccccc\n&quot;</span>) </span><br><span class="line"><span class="comment"># with语句会自动管理文件的生命周期，在代码块结束后自动关闭文件，无需手动调用f.close()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#如果直接通过open()打开文件且不使用with语句，必须手动调用f.close()关闭文件</span></span><br><span class="line">f=<span class="built_in">open</span>(<span class="string">&quot;file.txt&quot;</span>, <span class="string">&quot;w&quot;</span>) </span><br><span class="line">f.write(<span class="string">&quot;Hello, World!&quot;</span>) </span><br><span class="line">f.close() <span class="comment"># 必须手动关闭</span></span><br></pre></td></tr></table></figure>
+<h2 id="文本文件读"><a href="#文本文件读" class="headerlink" title="文本文件读"></a>文本文件读</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/root/python/test.txt&quot;</span>, mode=<span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;UTF-8&#x27;</span>) <span class="keyword">as</span> f: </span><br><span class="line">	res1 = f.read()  <span class="comment">#将文件的全部内容读取为一个字符串</span></span><br><span class="line">	res2 = f.readlines()  <span class="comment">#每行作为一个元素返回列表</span></span><br><span class="line">	<span class="built_in">print</span>(res1) </span><br></pre></td></tr></table></figure>
+
+<p><code>mode</code><br>w 覆盖写<br>a 追加写<br>r 读</p>
+<h1 id="python-库"><a href="#python-库" class="headerlink" title="python 库"></a>python 库</h1><p>标准库，扩展库，自定义库<br>⽤  import  或者  from … import  来导⼊相应的库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv  <span class="comment"># 导入CSV处理模块，用于读写CSV格式文件</span></span><br><span class="line"></span><br><span class="line">data = [&#123;<span class="string">&quot;id&quot;</span>: <span class="number">1</span>, <span class="string">&quot;passwd&quot;</span>: <span class="string">&quot;123456&quot;</span>, <span class="string">&quot;bat&quot;</span>: <span class="number">1000</span>&#125;,  <span class="comment"># 示例数据：包含两个用户信息的字典列表</span></span><br><span class="line">        &#123;<span class="string">&quot;id&quot;</span>: <span class="number">2</span>, <span class="string">&quot;passwd&quot;</span>: <span class="string">&quot;abcdef&quot;</span>, <span class="string">&quot;bat&quot;</span>: <span class="number">2000</span>&#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写入CSV文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/root/python/user.csv&quot;</span>, mode=<span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;UTF-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment"># 创建DictWriter对象，指定表头字段顺序</span></span><br><span class="line">    writer = csv.DictWriter(f, fieldnames=[<span class="string">&quot;id&quot;</span>, <span class="string">&quot;passwd&quot;</span>, <span class="string">&quot;bat&quot;</span>])</span><br><span class="line">    writer.writeheader()  <span class="comment"># 写入表头行（id,passwd,bat）</span></span><br><span class="line">    writer.writerows(data)  <span class="comment"># 将data中的所有字典按表头格式写入文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取CSV文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/root/python/user.csv&quot;</span>, mode=<span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;UTF-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    reader = csv.DictReader(f)  <span class="comment"># 创建DictReader对象，自动将首行作为表头</span></span><br><span class="line">    <span class="comment"># 因为文件是字典列表的格式，因此需要遍历文件中的每一行以取出其中的每一个字典</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> reader:  </span><br><span class="line">        <span class="built_in">print</span>(i)  <span class="comment"># 输出每一个字典,可通过键名访问字段值：i[&#x27;id&#x27;] 返回 &#x27;1&#x27;</span></span><br><span class="line">        data.append(i)  <span class="comment"># 将字典逐个添加到列表中给之后使用</span></span><br><span class="line">        <span class="comment"># 若data有原始数据需要覆盖写可于遍历前先清空：data.clear()</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>: </span><br><span class="line">    x = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入一个数字: &quot;</span>)) </span><br><span class="line">    z=<span class="number">100</span>/x </span><br><span class="line">    <span class="keyword">if</span> x&lt;<span class="number">0</span> :  </span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">&quot;x不能小于0&quot;</span>)  <span class="comment"># 自定义异常</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;<span class="number">100</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">&quot;x不能大于100&quot;</span>)  <span class="comment"># 可设置多个异常情况，后面的e会根据情况输出信息</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;ok&quot;</span>)</span><br><span class="line">      </span><br><span class="line"><span class="keyword">except</span> ValueError: </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;您输入的不是数字,请再次尝试输入！&quot;</span>) </span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError: </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;除数不能为零&quot;</span>) </span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e: </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;其他错误:&quot;</span>,e)  <span class="comment"># e显示为异常信息</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="封装、继承、多态"><a href="#封装、继承、多态" class="headerlink" title="封装、继承、多态"></a>封装、继承、多态</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>类及对象包含属性和⽅法<br>属性：静态特征 全局变量 成员<br>⽅法：动态特征 函数 功能<br>魔法⽅法：不需要调⽤就可以⾃动执⾏。<br>作⽤：初始化对象的成员 ( 给对象添加属性 )</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#类定义 </span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">People</span>: </span><br><span class="line">	name=<span class="string">&quot;&quot;</span> </span><br><span class="line">	age=<span class="number">0</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,xingming,nianling</span>): </span><br><span class="line">		<span class="variable language_">self</span>.name=xingming </span><br><span class="line">		<span class="variable language_">self</span>.age=nianling </span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">show</span>(<span class="params">self</span>): </span><br><span class="line">		<span class="built_in">print</span>(<span class="string">f&quot;姓名是<span class="subst">&#123;self.name&#125;</span>,年龄是<span class="subst">&#123;self.age&#125;</span>&quot;</span>) </span><br><span class="line">		</span><br><span class="line"><span class="comment">#调用 </span></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&quot;__main__&quot;</span>: </span><br><span class="line">	ldh=People(<span class="string">&quot;刘德华&quot;</span>,<span class="number">50</span>) </span><br><span class="line">	ldh.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>class ⼦类名 ( ⽗类名 ):<br>⼦类直接具备⽗类的属性和⽅法<br>解决代码重⽤问题，提⾼开发效率</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="title class_ inherited__">People</span>): </span><br><span class="line">	grade=<span class="string">&quot;&quot;</span> </span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, xingming, nianling,nianji</span>): </span><br><span class="line">		<span class="built_in">super</span>().__init__(xingming,nianling) </span><br><span class="line">		<span class="variable language_">self</span>.grade=nianji </span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">self</span>): </span><br><span class="line">		<span class="built_in">print</span>(<span class="string">f&quot;年级是<span class="subst">&#123;self.grade&#125;</span>&quot;</span>) </span><br><span class="line">		</span><br><span class="line">	<span class="comment"># 方法重写 </span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">show</span>(<span class="params">self</span>): </span><br><span class="line">		<span class="built_in">print</span>(<span class="string">f&quot;姓名是<span class="subst">&#123;self.name&#125;</span>,年龄是<span class="subst">&#123;self.age&#125;</span>,年级是<span class="subst">&#123;self.grade&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>多态从字⾯上理解就是⼀个事物可以呈现多种状态。<br>没有继承就没有多态。<br>多态是能⾃⼰进⾏判断该去执⾏什么 , 创建⼀个列表来体现 , ⾯向对象的列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list1=[ldh,zjl] </span><br><span class="line"><span class="comment"># 通过遍历以一个触发使用各子类重写方法的过程就称作多态</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> l1: </span><br><span class="line">	<span class="built_in">print</span>(i.name) </span><br><span class="line">	i.show()</span><br></pre></td></tr></table></figure>
+
+<h1 id="作业练习"><a href="#作业练习" class="headerlink" title="作业练习"></a>作业练习</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.将内容 “ 诚挚邀请您来参加本次宴会 ” 追加到 “ 邀请函 .txt” ⽂件末尾。 </span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/root/python/邀请函.txt&quot;</span>,mode=<span class="string">&#x27;a&#x27;</span>,encoding=<span class="string">&#x27;UTF-8&#x27;</span>) <span class="keyword">as</span> f : </span><br><span class="line">	f.write(<span class="string">&quot;诚挚邀请您来参加本次宴会&quot;</span>)  </span><br><span class="line">	<span class="comment"># f.close()</span></span><br><span class="line">	</span><br><span class="line"><span class="comment"># 2.读取邀请函的内容。</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/root/python/邀请函.txt&quot;</span>,mode=<span class="string">&quot;r&quot;</span>,encoding=<span class="string">&quot;UTF-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    result=f.read()</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br><span class="line">    <span class="comment"># f.close()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.修改 atm 取款机数据为持久化永久存储， csv 读取实现（分别使⽤函数实现读和取） , 使⽤异常处理 atm 取款机读取 csv 时判断⽂件是否存在，如果⽂件不存在提⽰ &quot; 没有⽂件使⽤原数据 &quot;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">init</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/root/python/user.csv&quot;</span>,mode=<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            result=csv.DictReader(f)</span><br><span class="line">            data.clear()</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> result:</span><br><span class="line">                data.append(i)</span><br><span class="line">            <span class="comment"># f.close()</span></span><br><span class="line">    <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;没有文件使用原数据&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.使⽤异常在 atm 取款机的项⽬中存款函数中： 如果输⼊的存款⾦额不是整数则提⽰：请输⼊整数； 如果输⼊的存款⾦额不是 100 的倍数或者是负数则提⽰：请输⼊ 100 的倍数的正整数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 存款</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">CunKuan</span>(<span class="params">userdata</span>):</span><br><span class="line">    money=<span class="built_in">input</span>(<span class="string">&quot;请输入存款金额:&quot;</span>)</span><br><span class="line">    money=checkMoney(money)</span><br><span class="line">    userdata[<span class="string">&quot;bat&quot;</span>]=<span class="built_in">str</span>(<span class="built_in">float</span>(userdata[<span class="string">&quot;bat&quot;</span>])+money)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;您已成功存款<span class="subst">&#123;money&#125;</span>，您当前的余额为：<span class="subst">&#123;userdata[<span class="string">&#x27;bat&#x27;</span>]&#125;</span>&quot;</span>)</span><br><span class="line">    inputToReturn()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测金额输入</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">checkMoney</span>(<span class="params">m</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        m=<span class="built_in">float</span>(m)</span><br><span class="line">        <span class="keyword">if</span> m &lt;=<span class="number">0</span> <span class="keyword">or</span> m%<span class="number">100</span>!=<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">&quot;金额必须为100倍数的正整数!&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> m</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;请输入整数！&quot;</span>)</span><br><span class="line">        inputToReturn()</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        inputToReturn()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上机练习8</span></span><br><span class="line"><span class="comment"># 1.定义⼀个⽔果类，定义属性（名称和颜⾊），使⽤魔法⽅法，然后通过⽔果类，创建苹果对象、橘⼦对象、西⽠对象并分别添加上颜⾊属性，定义⼀个⽅法分别输出如： </span></span><br><span class="line"><span class="comment">#红⾊的苹果真好吃 </span></span><br><span class="line"><span class="comment">#橙⾊的橘⼦真好吃 </span></span><br><span class="line"><span class="comment">#绿⾊的西⽠真好吃 </span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Fruit</span>: </span><br><span class="line">	name=<span class="string">&quot;&quot;</span> </span><br><span class="line">	color=<span class="string">&quot;&quot;</span> </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,name,color</span>): </span><br><span class="line">		<span class="variable language_">self</span>.name=name</span><br><span class="line">		<span class="variable language_">self</span>.color=color</span><br><span class="line">		 </span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">show</span>(<span class="params">self</span>): </span><br><span class="line">		<span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;self.color&#125;</span>的<span class="subst">&#123;self.name&#125;</span>真好吃&quot;</span>) </span><br><span class="line">				</span><br><span class="line">    <span class="comment">#调用 </span></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&quot;__main__&quot;</span>: </span><br><span class="line">	apple=Fruit(<span class="string">&quot;苹果&quot;</span>,<span class="string">&quot;红色&quot;</span>)</span><br><span class="line">	orange=Fruit(<span class="string">&quot;橘子&quot;</span>,<span class="string">&quot;橙色&quot;</span>)</span><br><span class="line">	watermelon=Fruit(<span class="string">&quot;西瓜&quot;</span>,<span class="string">&quot;绿色&quot;</span>)</span><br><span class="line">	apple.show()</span><br><span class="line">	orange.show()</span><br><span class="line">	watermelon.show()</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="comment"># 猫类Cat。属性:⽑的颜⾊color，品种breed，亲和度love。⽅法:吃饭eat() </span></span><br><span class="line"><span class="comment"># 狗类Dog。属性:⽑的颜⾊color，品种breed，忠诚度loyal。⽅法:吃饭eat() </span></span><br><span class="line"><span class="comment"># 要求 : 使⽤封装、继承和多态，根据以上要求抽取⽗类为Animal，重写eat⽅法，输出打印如下： </span></span><br><span class="line"><span class="comment"># 有⼀只亲和度是10级的花⾊的波斯猫正在吃⻥.....</span></span><br><span class="line"><span class="comment"># 有⼀只忠诚度是9级的⿊⾊的藏獒正在啃⻣头..... </span></span><br><span class="line"><span class="comment"># 有⼀只亲和度是8级的⽩⾊的加菲猫正在吃⻥..... </span></span><br><span class="line"><span class="comment"># 有⼀只忠诚度是 6 级的棕⾊的茶杯⽝正在啃⻣头.....</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>: </span><br><span class="line">	color=<span class="string">&quot;&quot;</span></span><br><span class="line">	breed=<span class="string">&quot;&quot;</span> </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,color,breed</span>): </span><br><span class="line">		<span class="variable language_">self</span>.color=color</span><br><span class="line">		<span class="variable language_">self</span>.breed=breed</span><br><span class="line">		 </span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">eat</span>(<span class="params">self</span>): </span><br><span class="line">		<span class="built_in">print</span>(<span class="string">f&quot;有一只<span class="subst">&#123;self.color&#125;</span>的<span class="subst">&#123;self.breed&#125;</span>正在吃饭....&quot;</span>)</span><br><span class="line">		</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">    love=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, color, breed,love</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(color, breed)</span><br><span class="line">        <span class="variable language_">self</span>.love=love</span><br><span class="line">		</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">eat</span>(<span class="params">self</span>): </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;有一只亲和度是<span class="subst">&#123;self.love&#125;</span>级<span class="subst">&#123;self.color&#125;</span>的<span class="subst">&#123;self.breed&#125;</span>正在吃鱼....&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">    loyal=<span class="string">&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, color, breed,loyal</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(color, breed)</span><br><span class="line">        <span class="variable language_">self</span>.loyal=loyal</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">eat</span>(<span class="params">self</span>): </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;有一只忠诚度是<span class="subst">&#123;self.loyal&#125;</span>级<span class="subst">&#123;self.color&#125;</span>的<span class="subst">&#123;self.breed&#125;</span>正在啃骨头&quot;</span>)</span><br><span class="line">				</span><br><span class="line"><span class="comment">#调用 </span></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&quot;__main__&quot;</span>: </span><br><span class="line">    cat1=Cat(<span class="string">&quot;花色&quot;</span>,<span class="string">&quot;波斯猫&quot;</span>,<span class="string">&quot;10&quot;</span>)</span><br><span class="line">    dog1=Dog(<span class="string">&quot;黑色&quot;</span>,<span class="string">&quot;藏獒&quot;</span>,<span class="string">&quot;9&quot;</span>)</span><br><span class="line">    cat2=Cat(<span class="string">&quot;白色&quot;</span>,<span class="string">&quot;加菲猫&quot;</span>,<span class="string">&quot;8&quot;</span>)</span><br><span class="line">    dog2=Dog(<span class="string">&quot;棕色&quot;</span>,<span class="string">&quot;茶杯犬&quot;</span>,<span class="string">&quot;6&quot;</span>)</span><br><span class="line">    list1=[cat1,dog1,cat2,dog2]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> list1:</span><br><span class="line">         i.eat()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
