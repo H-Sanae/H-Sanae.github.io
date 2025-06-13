@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>影刀考试题 - 宅邦邦</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="第一题流程截图![[Pasted image 20250612112922.png]]
+Python代码段
+123456789101112131415161718192021222324252627,"> 
+    <meta name="author" content="邦邦"> 
+    <link rel="alternative" href="atom.xml" title="宅邦邦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="影刀考试题 - 宅邦邦"/>
+    <meta name="twitter:description" content="第一题流程截图![[Pasted image 20250612112922.png]]
+Python代码段
+123456789101112131415161718192021222324252627,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="宅邦邦"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="影刀考试题 - 宅邦邦"/>
+    <meta property="og:description" content="第一题流程截图![[Pasted image 20250612112922.png]]
+Python代码段
+123456789101112131415161718192021222324252627,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">宅邦邦</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://h-sanae.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">影刀考试题</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">影刀考试题</h1>
+        <div class="stuff">
+            <span>六月 12, 2025</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%BD%B1%E5%88%80/" rel="tag">影刀</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h1><p>流程截图<br>![[Pasted image 20250612112922.png]]</p>
+<p>Python代码段</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df=pd.DataFrame(list1)</span><br><span class="line">df[<span class="string">&quot;票房&quot;</span>]=df[<span class="string">&quot;票房&quot;</span>].astype(<span class="built_in">int</span>)</span><br><span class="line">df=df.groupby(<span class="string">&quot;制片地区&quot;</span>)[<span class="string">&quot;票房&quot;</span>].<span class="built_in">sum</span>().reset_index()</span><br><span class="line">df=df.sort_values(by=<span class="string">&quot;票房&quot;</span>,ascending=<span class="literal">False</span>).head(<span class="number">3</span>)</span><br><span class="line">df.insert(<span class="number">0</span>,<span class="string">&quot;提交人&quot;</span>,<span class="string">&quot;Tetuka&quot;</span>)</span><br><span class="line">res=df.values.tolist()</span><br><span class="line"><span class="comment">#3.0-3.5</span></span><br><span class="line">df=pd.DataFrame(list1)</span><br><span class="line">df=df[(df.评分!=<span class="string">&quot;-&quot;</span>)]</span><br><span class="line">df[<span class="string">&quot;评分&quot;</span>]=df[<span class="string">&quot;评分&quot;</span>].astype(<span class="built_in">float</span>)</span><br><span class="line">df[<span class="string">&quot;票房&quot;</span>]=df[<span class="string">&quot;票房&quot;</span>].astype(<span class="built_in">int</span>)</span><br><span class="line">df=df[(df.评分&gt;=<span class="number">3.0</span>) &amp; (df.评分&lt;=<span class="number">3.5</span>)]</span><br><span class="line">n1=df[<span class="string">&quot;票房&quot;</span>].<span class="built_in">sum</span>()</span><br><span class="line">res.append([<span class="string">&quot;Tetuka&quot;</span>,<span class="string">&quot;3.0-3.5&quot;</span>,<span class="built_in">int</span>(n1)])</span><br><span class="line"></span><br><span class="line"><span class="comment">#9.0-9.5</span></span><br><span class="line">df=pd.DataFrame(list1)</span><br><span class="line">df=df[(df.评分!=<span class="string">&quot;-&quot;</span>)]</span><br><span class="line">df[<span class="string">&quot;票房&quot;</span>]=df[<span class="string">&quot;票房&quot;</span>].astype(<span class="built_in">int</span>)</span><br><span class="line">df[<span class="string">&quot;评分&quot;</span>]=df[<span class="string">&quot;评分&quot;</span>].astype(<span class="built_in">float</span>)</span><br><span class="line">df=df[(df.评分&gt;=<span class="number">9.0</span>) &amp; (df.评分&lt;=<span class="number">9.5</span>)]</span><br><span class="line">n2=df[<span class="string">&quot;票房&quot;</span>].<span class="built_in">sum</span>()</span><br><span class="line">res.append([<span class="string">&quot;Tetuka&quot;</span>,<span class="string">&quot;9.0-9.5&quot;</span>,<span class="built_in">int</span>(n2)])</span><br><span class="line"></span><br><span class="line"> <span class="comment">#无评分</span></span><br><span class="line">df=pd.DataFrame(list1)</span><br><span class="line">df[<span class="string">&quot;票房&quot;</span>]=df[<span class="string">&quot;票房&quot;</span>].astype(<span class="built_in">int</span>)</span><br><span class="line">df=df[(df.评分==<span class="string">&quot;-&quot;</span>)]</span><br><span class="line">n3=df[<span class="string">&quot;票房&quot;</span>].<span class="built_in">sum</span>()</span><br><span class="line">res.append([<span class="string">&quot;Tetuka&quot;</span>,<span class="string">&quot;无评分&quot;</span>,<span class="built_in">int</span>(n3)])</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+
+<p>mysql运行结果<br>![[Pasted image 20250612112951.png]]</p>
+<h1 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h1><p>python代码段</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用提醒:</span></span><br><span class="line"><span class="comment"># 1. xbot包提供软件自动化、数据表格、Excel、日志、AI等功能</span></span><br><span class="line"><span class="comment"># 2. package包提供访问当前应用数据的功能，如获取元素、访问全局变量、获取资源文件等功能</span></span><br><span class="line"><span class="comment"># 3. 当此模块作为流程独立运行时执行main函数</span></span><br><span class="line"><span class="comment"># 4. 可视化流程中可以通过&quot;调用模块&quot;的指令使用此模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> xbot,pymysql</span><br><span class="line"><span class="keyword">from</span> xbot <span class="keyword">import</span> <span class="built_in">print</span>, sleep</span><br><span class="line"><span class="keyword">from</span> .<span class="keyword">import</span> package</span><br><span class="line"><span class="keyword">from</span> .package <span class="keyword">import</span> variables <span class="keyword">as</span> glv</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">recountry</span>(<span class="params">c</span>):</span><br><span class="line">    data = &#123;</span><br><span class="line">    <span class="string">&quot;https://s.w.org/images/core/emoji/12.0.0-1/svg/1f1e8-1f1f3.svg&quot;</span>:<span class="string">&quot;中国&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://s.w.org/images/core/emoji/12.0.0-1/svg/1f1fa-1f1f8.svg&quot;</span>:<span class="string">&quot;美国&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://s.w.org/images/core/emoji/12.0.0-1/svg/1f1ee-1f1f3.svg&quot;</span>:<span class="string">&quot;印度&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://s.w.org/images/core/emoji/12.0.0-1/svg/1f1ef-1f1f5.svg&quot;</span>:<span class="string">&quot;日本&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://s.w.org/images/core/emoji/12.0.0-1/svg/1f1ec-1f1e7.svg&quot;</span>:<span class="string">&quot;英国&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://s.w.org/images/core/emoji/12.0.0-1/svg/1f1eb-1f1f7.svg&quot;</span>:<span class="string">&quot;法国&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://s.w.org/images/core/emoji/12.0.0-1/svg/1f1eb-1f1ee.svg&quot;</span>:<span class="string">&quot;芬兰&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> c <span class="keyword">in</span> data:</span><br><span class="line">        <span class="keyword">return</span> data[c]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">args</span>):</span><br><span class="line">    webpage = xbot.web.create(url=<span class="string">&quot;http://www.boxofficecn.com/the-red-box-office&quot;</span>)</span><br><span class="line">    res = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>):</span><br><span class="line">        web1 = webpage.find_all_by_xpath(<span class="string">&#x27;//tbody/tr&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> web1:</span><br><span class="line">            mname = j.children()[<span class="number">1</span>].get_text().split(<span class="string">&quot;（&quot;</span>)[<span class="number">0</span>]</span><br><span class="line">            year = j.children()[<span class="number">0</span>].get_text().replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">            country = recountry(j.children()[<span class="number">0</span>].children()[<span class="number">0</span>].get_attribute(<span class="string">&quot;src&quot;</span>))</span><br><span class="line">            score = j.children()[<span class="number">1</span>].get_text().split(<span class="string">&quot;（&quot;</span>)[<span class="number">1</span>].replace(<span class="string">&quot;）&quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;-&quot;</span>,<span class="string">&quot;0&quot;</span>)</span><br><span class="line">            director = j.children()[<span class="number">2</span>].get_text()</span><br><span class="line">            mbo = j.children()[<span class="number">3</span>].get_text().replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;&amp;&quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;↗&quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">            res.append([mname,year,country,score,director,mbo,<span class="string">&quot;Tetuka&quot;</span>])</span><br><span class="line">        nextpage = webpage.find_by_xpath(<span class="string">&quot;//div[@id=&#x27;tablepress-4_paginate&#x27;]/a[2]&quot;</span>)</span><br><span class="line">        nextpage.click()</span><br><span class="line">    <span class="built_in">print</span>(res)</span><br><span class="line">    webpage.close()</span><br><span class="line"></span><br><span class="line">     <span class="comment">#数据写入数据库</span></span><br><span class="line">    conn=pymysql.connect(host=<span class="string">&quot;192.168.48.129&quot;</span>,user=<span class="string">&quot;root&quot;</span>,password=<span class="string">&quot;root123456&quot;</span>,</span><br><span class="line">    database=<span class="string">&quot;test&quot;</span>,charset=<span class="string">&quot;utf8&quot;</span>)</span><br><span class="line">    insertdata=conn.cursor()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> res:</span><br><span class="line">        sql=<span class="string">f&quot;insert into movie values(&#x27;<span class="subst">&#123;i[<span class="number">0</span>]&#125;</span>&#x27;,&#x27;<span class="subst">&#123;i[<span class="number">1</span>]&#125;</span>&#x27;,&#x27;<span class="subst">&#123;i[<span class="number">2</span>]&#125;</span>&#x27;,&#x27;<span class="subst">&#123;i[<span class="number">3</span>]&#125;</span>&#x27;,&#x27;<span class="subst">&#123;i[<span class="number">4</span>]&#125;</span>&#x27;,&#x27;<span class="subst">&#123;i[<span class="number">5</span>]&#125;</span>&#x27;,&#x27;<span class="subst">&#123;i[<span class="number">6</span>]&#125;</span>&#x27;)&quot;</span></span><br><span class="line">        insertdata.execute(sql)</span><br><span class="line">    conn.commit()</span><br><span class="line">    insertdata.close()</span><br><span class="line">    conn.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>mysql运行结果<br>![[Pasted image 20250612164350.png]]</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://music.163.com/song/media/outer/url?id=27669791.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://music.163.com/song/media/outer/url?id=860113.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">第一题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">第二题</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+
+
+
+
