@@ -2492,7 +2492,7 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>上传代码仓库到Gitee和Github</title>
     <url>/2025/06/11/myblog/%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E5%88%B0Gitee%E5%92%8CGithub/</url>
     <content><![CDATA[<h1 id="Linux上传到Gitee"><a href="#Linux上传到Gitee" class="headerlink" title="Linux上传到Gitee"></a>Linux上传到Gitee</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>如果你的系统尚未安装 Git，请先执行以下命令进行安装</p>
 <h3 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu/Debian系统 </span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update </span><br><span class="line"><span class="built_in">sudo</span> apt-get install git </span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS/RHEL系统 </span></span><br><span class="line"><span class="built_in">sudo</span> yum update </span><br><span class="line"><span class="built_in">sudo</span> yum install git </span><br><span class="line"></span><br><span class="line"><span class="comment"># Arch Linux系统 </span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S git</span><br></pre></td></tr></table></figure>
@@ -2513,6 +2513,14 @@
 <h4 id="复用已有密钥（没弄）"><a href="#复用已有密钥（没弄）" class="headerlink" title="复用已有密钥（没弄）"></a>复用已有密钥（没弄）</h4><h2 id="将代码上传到远程仓库（gitee）"><a href="#将代码上传到远程仓库（gitee）" class="headerlink" title="将代码上传到远程仓库（gitee）"></a>将代码上传到远程仓库（gitee）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入克隆的仓库目录</span></span><br><span class="line"><span class="built_in">cd</span> 你的仓库名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件后，添加到暂存区</span></span><br><span class="line">git add 修改的文件 <span class="comment">#可以提交单个文件</span></span><br><span class="line">git add * <span class="comment">#也可以提交所有文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交修改</span></span><br><span class="line">git commit -m <span class="string">&quot;修改说明&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送到Gitee</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>gitee</tag>
+        <tag>git</tag>
+      </tags>
   </entry>
   <entry>
     <title></title>
@@ -2580,6 +2588,71 @@
         <tag>Oracle</tag>
         <tag>Kettle</tag>
         <tag>ETL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>帆软FineReport</title>
+    <url>/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.16%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AFFineReport/</url>
+    <content><![CDATA[<p>帆软 FineReport 是一款由帆软公司自主研发的企业级报表工具，主要用于解决企业内部数据展示、数据分析和报表管理等需求。它提供了直观的拖拽式设计界面，支持多种数据源连接，并能够生成各种复杂格式的报表。以下是其主要特点和功能的概述：</p>
+<h3 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a><strong>核心功能</strong></h3><ol>
+<li><p><strong>多数据源整合</strong><br> 支持连接各类数据库（如 Oracle、MySQL、SQL Server）、Excel 文件、CSV 文件，甚至可以整合不同数据源的数据到同一张报表中。</p>
+</li>
+<li><p><strong>丰富的报表模板</strong><br> 提供多种预设模板，包括表格报表、图表报表、交叉表、中国式复杂报表等，满足不同场景需求。</p>
+</li>
+<li><p><strong>强大的计算能力</strong><br> 内置丰富的函数库，支持复杂的公式计算、聚合分析和数据处理，如行列计算、分组统计、同比环比等。</p>
+</li>
+<li><p><strong>数据可视化</strong><br> 支持多种图表类型（柱状图、折线图、饼图、雷达图等），并提供交互式图表功能，如钻取、联动、参数筛选等。</p>
+</li>
+<li><p><strong>权限管理与安全</strong><br> 提供细致的权限控制，可按用户、角色、部门分配不同的报表查看、编辑和导出权限，保障数据安全。</p>
+</li>
+<li><p><strong>定时调度与分发</strong><br> 支持设置定时任务自动生成报表，并通过邮件、短信、FTP 等方式将报表分发给指定人员。</p>
+</li>
+<li><p><strong>移动端适配</strong><br> 报表可自动适配手机、平板等移动设备，支持触摸操作和离线查看，方便移动办公。</p>
+</li>
+</ol>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a><strong>应用场景</strong></h3><p>FineReport 适用于各类有数据报表需求的企业，尤其是中大型企业和集团化公司，可帮助其整合分散的数据资源，提升决策效率。</p>
+<ul>
+<li><strong>企业经营分析</strong>：制作财务报表、销售分析、库存管理等。</li>
+<li><strong>数据监控</strong>：实时展示关键业务指标（KPI），支持预警功能。</li>
+<li><strong>数据填报</strong>：设计在线表单，收集和汇总分散的数据。</li>
+<li><strong>复杂报表制作</strong>：处理含有合并单元格、多层表头的中国式复杂报表。</li>
+</ul>
+<h1 id="一些操作"><a href="#一些操作" class="headerlink" title="一些操作"></a>一些操作</h1><p>在需要⾃动提交的控件上找到事件 添加条件 编辑后 加⼊如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">_g().parameterCommit()</span><br></pre></td></tr></table></figure>
+
+<h1 id="作业练习"><a href="#作业练习" class="headerlink" title="作业练习"></a>作业练习</h1><p>连接数据库：服务器-定义数据库连接-新建JDBC<br>![[Pasted image 20250616194010.png]]</p>
+<h2 id="1-使⽤数据集参数实现-emp-参数的各种操作"><a href="#1-使⽤数据集参数实现-emp-参数的各种操作" class="headerlink" title="1.使⽤数据集参数实现 emp 参数的各种操作"></a>1.使⽤数据集参数实现 emp 参数的各种操作</h2><p>默认显⽰所有数据：参数⾯板中， para 下⾯的点击查询前不显⽰报表内容的勾去掉<br>为空查询全部</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span> </span><br><span class="line">$&#123;if(len(部门)<span class="operator">=</span><span class="operator">=</span><span class="number">0</span>,&quot;&quot;,&quot;and deptno=&#x27;&quot;<span class="operator">+</span>部门<span class="operator">+</span>&quot;&#x27;&quot; )&#125; </span><br><span class="line">$&#123;if(len(岗位)<span class="operator">=</span><span class="operator">=</span><span class="number">0</span>,&quot;&quot;,&quot;and job in (&#x27;&quot;<span class="operator">+</span>岗位<span class="operator">+</span>&quot;&#x27;)&quot;)&#125;</span><br></pre></td></tr></table></figure>
+<p>![[Pasted image 20250616193641.png]]</p>
+<p>多选框与部门编号关联<br>![[Pasted image 20250616193739.png]]</p>
+<p>在部⻔编号上添加超级链接 ⽹络报表 对话框 添加参数：部⻔编号 &#x3D;$$$<br>点击部门编号跳转到对应部门信息<br>![[Pasted image 20250616193829.png]]</p>
+<h2 id="2-完成销量表"><a href="#2-完成销量表" class="headerlink" title="2.完成销量表"></a>2.完成销量表</h2><p>![[Pasted image 20250616194745.png]]</p>
+<p>点击地区超链接查询相关数据并在饼图上显示<br>点击图表中的销售员图形区域超级链接该销售员各种产品的销量<br>![[Pasted image 20250616194814.png]]</p>
+<h2 id="3-运货费预警与悬浮变⾊"><a href="#3-运货费预警与悬浮变⾊" class="headerlink" title="3.运货费预警与悬浮变⾊"></a>3.运货费预警与悬浮变⾊</h2><p>使⽤数据： FRDemo 中的数据：订单<br>题⽬要求： </p>
+<ol>
+<li>参数查询框 ⼀个复选框控件，可选 择发货⽇期、到货⽇期。 </li>
+<li>点击查询 发货⽇期、到货⽇期列根据选择的其他信息情况 展⽰ 运货费根据输⼊的预警值，⼤于等于输⼊值背景变红 ⿏标悬浮⾏变⾊ 注意数据格 式设置 效果如图所⽰ , 注意需⽤⼀张模板实现</li>
+</ol>
+<p>![[Pasted image 20250616195732.png]]</p>
+<h1 id="4-成绩区间展示"><a href="#4-成绩区间展示" class="headerlink" title="4.成绩区间展示"></a>4.成绩区间展示</h1><p>数据来源：FRdemo 中STSCORE </p>
+<ol>
+<li>班级和学号控件都是复选，选择班级联动学号控件，参数为空时显⽰全部 </li>
+<li>默认显⽰英语成绩，成绩在 60~80 分期间（⼤于等于60 ，⼩于80）， 点击可选择显⽰不同的分数区间 </li>
+<li>低于 60 分的分数加粗变红显⽰</li>
+</ol>
+<p>准备三个数据集ds1、ds2、ds3（模板数据集-数据库查询）</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">--ds1 学生分数详情</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stscore</span><br><span class="line"><span class="keyword">where</span> course<span class="operator">=</span><span class="string">&#x27;English&#x27;</span></span><br><span class="line">$&#123;if(len(classno) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>,&quot;&quot;,&quot;and classno in (&#x27;&quot; <span class="operator">+</span> classno <span class="operator">+</span> &quot;&#x27;)&quot;)&#125; </span><br><span class="line">$&#123;if(len(sno) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>,&quot;&quot;,&quot;and studentno in (&#x27;&quot; <span class="operator">+</span> sno <span class="operator">+</span> &quot;&#x27;)&quot;)&#125;</span><br><span class="line">$&#123;if(len(s1) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>,&quot;and grade &gt;= 60&quot;,&quot;and grade &gt;=&quot; <span class="operator">+</span> s1)&#125;</span><br><span class="line">$&#123;if(len(s2) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>,&quot;and grade &lt; 80 &quot;,&quot;and grade &lt; &quot; <span class="operator">+</span> s2)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">--ds2 查询班级</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> classno <span class="keyword">from</span> stscore</span><br><span class="line"></span><br><span class="line"><span class="comment">--ds3 根据班级查学号</span></span><br><span class="line"><span class="keyword">select</span> studentno <span class="keyword">from</span> stscore <span class="keyword">where</span> classno <span class="keyword">in</span> (<span class="string">&#x27;$&#123;classno&#125;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>界面设计及超级链接动态参数设计<br>![[Pasted image 20250616201130.png]]</p>
+<p>默认显示60~80<br>![[Pasted image 20250616201235.png]]</p>
+<p>不及格分数加粗变红显示<br>![[Pasted image 20250616201315.png]]</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>帆软</tag>
+        <tag>FineReport</tag>
       </tags>
   </entry>
 </search>
