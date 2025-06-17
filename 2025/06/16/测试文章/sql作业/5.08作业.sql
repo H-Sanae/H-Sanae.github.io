@@ -1,0 +1,76 @@
+-- 上机练习8
+
+-- 1.把10号部门翻译成“十号部门”，20号部门翻译成“二十号部门”，30号部门翻译成“三十号部门”
+select deptno, case deptno 
+       when 10 then '十号部门' 
+       when 20 then '二十号部门' 
+	     when 30 then '三十号部门' 
+	     else '其他部门' 
+end 部门 from emp
+  
+-- 2.给所有的10号部门员工加薪10% 20号部门的员工加薪20% 30号员工加薪30% ,其他部门加薪5%
+select ename,deptno,sal,case 
+       when deptno=10 then sal*1.1 
+       when deptno=20 then sal*1.2 
+	     when deptno=30 then sal*1.3 
+	     else sal*1.05 
+end new_sal from emp
+
+-- 3.统计工资级别相应的数量（1600以下 C级,1600-3000 B级,3000以上 A级）
+select ename,sal,case
+       when sal<1600 then 'C级'
+       when sal between 1600 and 3000 then 'B级'
+       when sal>3000 then 'A级'
+       else null
+end 工资级别 from emp
+
+-- 4.实现两种方法的行转列
+-- 聚合case
+select deptno, 
+       max(case when job='SALESMAN' then sal end) salesman, 
+       max(case when job='MANAGER' then sal end) manager, 
+       max(case when job='CLERK' then sal end) clerk 
+from emp group by deptno
+
+-- pivot
+select * from (select deptno,job,sal from emp) 
+	     pivot (
+		         max(sal) for job in ('SALESMAN','MANAGER','CLERK')
+	     )
+
+-- 上机练习9
+
+--1.按照部门编号升序查找所有部门名称，用、隔开
+select listagg(dname,'、') within group(order by deptno) from dept
+
+--2.按照工资降序查找每个部门的员工姓名，用、隔开
+select deptno,listagg(ename,'、') within group(order by sal desc) 
+from emp group by deptno order by deptno
+
+--3.使用工资偏移计算环比 （sal-lastsal）/sal*100%
+select ename,sal,lag(sal,1,5000)over(order by sal) lastsal,concat(
+       to_char(round((sal-lag(sal,1,5000)over(order by sal))/lag(sal,1,5000)over(order by sal)*100,2),'990.99') ,'%'
+) from emp
+
+--4.查询员工表中工资最高的前三名
+select ename, sal from(
+    select ename, sal from emp order by sal desc
+)
+where rownum <= 3;
+
+--5.查询员工表中每个部门的工资第2~3名的员工信息
+select * from(
+       select emp.*,dense_rank()over(partition by deptno order by sal desc) rnk from emp
+)
+where rnk between 2 and 3 
+
+--6.查询员工姓名、部门及部门平均工资,以及部门内最高工资
+select ename,deptno,sal,
+       round(avg(sal)over(partition by deptno)) 部门平均工资,
+       max(sal)over(partition by deptno) 部门最高工资
+from emp
+
+--7.每种工作累计求工资和
+select job,sal from emp order by job,sal
+select job,sum(sal) from emp group by job order by job
+select job,sum(sal)over(partition by job order by sal,ename) from emp

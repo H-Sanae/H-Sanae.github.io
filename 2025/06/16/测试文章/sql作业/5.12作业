@@ -1,0 +1,7 @@
+select job,sal from emp order by job,sal
+
+select job,sum(sal) from emp group by job order by job
+
+select job,sum(sal)over(partition by DEPTNO order by sal,ename) from emp
+
+SELECT * FROM EMP
