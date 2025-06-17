@@ -1,147 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>测试文章</title>
-    <url>/2025/06/16/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[
-
-<p>测试</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>GitHub+Hexo博客创建</title>
-    <url>/2025/06/07/myblog/GitHub+Hexo%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><h2 id="从0开始到部署到github"><a href="#从0开始到部署到github" class="headerlink" title="从0开始到部署到github"></a>从0开始到部署到github</h2><ul>
-<li><a href="https://huahuipj.github.io/2021/08/20/shi-yong-github-bu-shu-yi-ge-jian-dan-de-bo-ke/">huahuipj.github.io</a></li>
-<li><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165856718216782391857659%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165856718216782391857659&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-82729029-null-null.142%5Ev33%5Eexperiment_2_v1,185%5Ev2%5Econtrol&utm_term=hexo&spm=1018.2226.3001.4187">hexo史上最全搭建教程</a></li>
-<li><a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></li>
-</ul>
-<h2 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h2><h3 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1. 安装git"></a>1. 安装git</h3><h3 id="2-安装nodejs"><a href="#2-安装nodejs" class="headerlink" title="2. 安装nodejs"></a>2. 安装nodejs</h3><h3 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3. 安装hexo"></a>3. 安装hexo</h3><p>前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹Blog，然后<code>cd</code>到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。</p>
-<p>输入命令安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>查看版本命令：<code>hexo -v</code></p>
-<p>初始化hexo</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init myblog</span><br></pre></td></tr></table></figure>
-<p>这个myblog可以自己取什么名字都行，会在当前文件夹（Blog）目录下创建一个myblog文件夹</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> myblog <span class="comment">#进入这个myblog文件夹</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<p>新建完成后，指定文件夹目录下有：</p>
-<ul>
-<li>node_modules: 依赖包</li>
-<li>public：存放生成的页面</li>
-<li>scaffolds：生成文章的一些模板</li>
-<li>source：用来存放你的文章</li>
-<li>themes：主题</li>
-<li>_config.yml: 博客的配置文件</li>
-</ul>
-<p>打开hexo的服务，在浏览器输入 localhost:4000 就可以看到你生成的博客了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>使用ctrl+c可以把服务关掉</p>
-<h3 id="4-GitHub创建个人仓库"><a href="#4-GitHub创建个人仓库" class="headerlink" title="4. GitHub创建个人仓库"></a>4. GitHub创建个人仓库</h3><p>创建一个和你用户名相同的仓库，后面加.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名</p>
-<h3 id="5-生成SSH添加到GitHub"><a href="#5-生成SSH添加到GitHub" class="headerlink" title="5. 生成SSH添加到GitHub"></a>5. 生成SSH添加到GitHub</h3><p>回到你的git bash中</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
-<p>这里的 yourname 输入你的GitHub用户名，youremail 输入你GitHub的邮箱（双引号保留）</p>
-<p>然后创建SSH，一路回车(应该有3次回车)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
-<p>终会生成一个文件在用户目录下，打开用户目录，找到<code>.ssh\id_rsa.pub</code>文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key<br>将刚复制的内容粘贴到key那里，title随便填，保存</p>
-<p>测试是否成功</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com <span class="comment"># 注意邮箱地址不用改</span></span><br></pre></td></tr></table></figure>
-<p>如果提示Are you sure you want to continue connecting (yes&#x2F;no)? 输入yes，然后会看到：<br>Hi H-Sanae! You’ve successfully authenticated, but GitHub does not provide shell access.<br>看到这个信息说明SSH已配置成功！</p>
-<h3 id="6-将hexo部署到GitHub"><a href="#6-将hexo部署到GitHub" class="headerlink" title="6. 将hexo部署到GitHub"></a>6. 将hexo部署到GitHub</h3><p>打开站点配置文件 <code>_config.yml</code>，翻到最后，修改为:<br>(YourgithubName就是你的GitHub账户)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p><code>branch</code> 填你刚刚创建<code>GitHub</code>仓库的默认分支名称，看下是<code>master</code>还是<code>main</code>，不要填错了，还要注意一下，冒号后面加一个空格</p>
-<p>这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>然后</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>到此完成，过一会儿就可以在<code>http://yourname.github.io</code> 这个网站看到你的博客了！</p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>因为从hexo提交代码时会把你以前的所有代码都删掉，在上传代码到github之前，要记得先把以前所有代码下载下来（虽然github有版本管理，但备份一下总是好的）。</p>
-<h1 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h1><p><a href="http://localhost:4000/">http://localhost:4000</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean   #清除缓存文件 db.json 和已生成的静态文件 public</span><br><span class="line">hexo g       #生成网站静态文件到默认设置的 public 文件夹(hexo generate 的缩写)</span><br><span class="line">hexo d       #自动生成网站静态文件，并部署到设定的仓库(hexo deploy 的缩写)</span><br></pre></td></tr></table></figure>
-
-<p>常用命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;postName&quot;</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">&quot;pageName&quot;</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，&#x27;ctrl + c&#x27;关闭server）</span></span><br><span class="line">hexo deploy <span class="comment">#部署到GitHub</span></span><br><span class="line">hexo <span class="built_in">help</span>  <span class="comment"># 查看帮助</span></span><br><span class="line">hexo version  <span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
-
-<p>缩写</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>组合命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s -g #生成并本地预览</span><br><span class="line">hexo d -g #生成并上传</span><br></pre></td></tr></table></figure>
-
-<h1 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h1><p><a href="https://github.com/Fechin/hexo-theme-diaspora">diaspora主题</a></p>
-<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><p><a href="https://blog.csdn.net/qq_36759224/article/details/85420403">Hexo博客优化之博客美化系列</a></p>
-<h2 id="根目录全局配置文件-config-yml"><a href="#根目录全局配置文件-config-yml" class="headerlink" title="根目录全局配置文件_config.yml"></a>根目录全局配置文件_config.yml</h2><p>1、所有的配置“:”符号后面都要带空格，否则执行本地测试直接失败。<br>2、language是设置语言。zh-Hans是中文。<br>3、如果设置zh-Hans后仍出现乱码问题。需要更改文件的字符编码集为UTF-8，方法很多。</p>
-<h1 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h1><p>定位到我们的hexo根目录，执行命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &#x27;my-first-blog&#x27;</span><br></pre></td></tr></table></figure>
-<p>hexo会帮我们在<code>_posts</code>下生成相关md文件<br>我们只需要打开这个文件就可以开始写博客了<br>当然你也可以直接自己新建md文件，用这个命令的好处是帮我们自动生成了时间<br>一般完整格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: postName #文章页面上的显示名称，一般是中文</span><br><span class="line">date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改</span><br><span class="line">categories: 默认分类 #分类</span><br><span class="line">tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格</span><br><span class="line">description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面</span><br><span class="line">---</span><br><span class="line">以下是正文</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Obsidian+Hexo图片管理方案</title>
-    <url>/2025/06/17/myblog/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><p>主要参考：<a href="https://phakeandy.github.io/2024/05/03/Hexo-Obsidian%EF%BC%9A%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">Hexo + Obsidian：解决图片无法显示问题 | andy’s blog</a></p>
-<h1 id="Obsidian配置"><a href="#Obsidian配置" class="headerlink" title="Obsidian配置"></a>Obsidian配置</h1><p>可选参考：<a href="https://blog.csdn.net/qq_52357217/article/details/127562163">如何让Obsidian的图片存储形式设置为 .&#x2F;${filename}.assets</a></p>
-<h2 id="设置obsidian仓库"><a href="#设置obsidian仓库" class="headerlink" title="设置obsidian仓库"></a>设置obsidian仓库</h2><p>此方法只对一个文章仓库有效，即将hexo博客根目录同时设置为obsidian的文章根目录，方法为使用obsidian打开博客根目录（_config.yml文件所在目录，有一个source文件夹）<br><img src="/../../images/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/file-20250617212712587.png"></p>
-<h2 id="obsidian安装插件-Custom-Attachment-Location"><a href="#obsidian安装插件-Custom-Attachment-Location" class="headerlink" title="obsidian安装插件 Custom Attachment Location"></a>obsidian安装插件 Custom Attachment Location</h2><p>设置→第三方插件→关闭安全模式→社区插件市场→浏览→输入Custom Attachment Location→点击安装并启动</p>
-<h3 id="设置-Location-for-New-Attachments"><a href="#设置-Location-for-New-Attachments" class="headerlink" title="设置 Location for New Attachments"></a>设置 Location for New Attachments</h3><p>设置为<code>source/images/$&#123;filename&#125;</code><br>即将粘贴在文章中的图片保存在文章根目录（也是博客根目录）下的source文件夹下的images文件夹下的一个文件夹中（以当前笔记文件名命名）</p>
-<p>tips:<br>.&#x2F;为当前笔记所在目录，${filename}为当前笔记文件名<br>设置为 .&#x2F;${filename} 即将图片放在当前笔记目录下的同名文件内<br>.&#x2F;assets&#x2F;${filename} 将图片放在当前笔记目录下的assets目录下的同名目录（在笔记目录下设置一个assets文件夹用于存放各笔记的图片，防止同目录下笔记过多导致图片文件夹也多）笔者本来打算这样管理文章图片的，但目前并没有找到使其与hexo兼容的方法，故放弃，改用以上方法</p>
-<h2 id="obsidian设置文件与链接"><a href="#obsidian设置文件与链接" class="headerlink" title="obsidian设置文件与链接"></a>obsidian设置文件与链接</h2><p><img src="/../../images/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/file-20250617214538889.png"><br>以上配置完成后即可使图片正常在网页中显示<br>图片链接类似如下：<br><code>\![]\(../../images/文章名称/图片名称.png)</code></p>
-<p>在博客目录下打开git终端，使用<code>hexo s -g</code>命令后可在<code>http://127.0.0.1:4000/</code>里验证图片是否显示</p>
-<h2 id="Hexo端配置（可选，与上文无关）"><a href="#Hexo端配置（可选，与上文无关）" class="headerlink" title="Hexo端配置（可选，与上文无关）"></a>Hexo端配置（可选，与上文无关）</h2><p><a href="https://hexo.io/zh-cn/docs/asset-folders">资源文件夹 | Hexo</a><br>修改 <code>_config.yml</code> 文件中的这个选项，这样在使用命令生成博客md文件时可以生成一个同名的资源目录，用于存放同名文章使用的资产，此法也可以实现图片的显示，但似乎只有通过命令生成的才有效，且只能在<code>/source/_posts/</code>下保存</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true  </span><br><span class="line">marked: # 如果原本有就更改下面的这些选项，如果没有就添加  </span><br><span class="line">  prependRoot: true  </span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
-<p>该配置完成后使用<code>hexo new post &lt;文章名&gt;</code>就会在 <code>/source/_posts/</code> 路径下新建 <code>&lt;文章名&gt;.md</code> 文件和同名资产文件夹，然后在obsidian中选择打开刚刚生成的md文件写作时也能成功匹配粘贴的图片。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
-        <tag>obsidian</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>上传代码仓库到Gitee和Github</title>
-    <url>/2025/06/11/myblog/%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E5%88%B0Gitee%E5%92%8CGithub/</url>
-    <content><![CDATA[<h1 id="Linux上传到Gitee"><a href="#Linux上传到Gitee" class="headerlink" title="Linux上传到Gitee"></a>Linux上传到Gitee</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>如果你的系统尚未安装 Git，请先执行以下命令进行安装</p>
-<h3 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu/Debian系统 </span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update </span><br><span class="line"><span class="built_in">sudo</span> apt-get install git </span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS/RHEL系统 </span></span><br><span class="line"><span class="built_in">sudo</span> yum update </span><br><span class="line"><span class="built_in">sudo</span> yum install git </span><br><span class="line"></span><br><span class="line"><span class="comment"># Arch Linux系统 </span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S git</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置-Git-基本信息"><a href="#配置-Git-基本信息" class="headerlink" title="配置 Git 基本信息"></a>配置 Git 基本信息</h3><p>安装完成后，需要配置你的用户名和邮箱，这将显示在你的提交记录中</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的用户名&quot;</span> </span><br><span class="line">git config --global user.email <span class="string">&quot;你的邮箱地址&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="在Gitee上创建仓库"><a href="#在Gitee上创建仓库" class="headerlink" title="在Gitee上创建仓库"></a>在Gitee上创建仓库</h3><p>忽略</p>
-<h3 id="SSH方式"><a href="#SSH方式" class="headerlink" title="SSH方式"></a>SSH方式</h3><p>SSH 方式可以避免每次推送都输入用户名和密码，提高效率：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成SSH密钥（如果没有） </span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的邮箱地址&quot;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看公钥 </span></span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub </span><br><span class="line"><span class="comment"># 将输出的公钥复制到Gitee的SSH公钥设置中</span></span><br></pre></td></tr></table></figure>
-
-<p>验证连接</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
-<p>看到欢迎信息即表示成功</p>
-<p>在下一步之前，需要有一个代码仓库，可以先从git上克隆一个到本机（空仓库也行），或者自行<code>git init</code>命令将文件夹变为一个git仓库</p>
-<p>设置完成后，进入代码仓库文件夹，将这个远程仓库地址改为 SSH 形式：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote set-url origin git@gitee.com:你的用户名/你的仓库名.git</span><br></pre></td></tr></table></figure>
-<h4 id="复用已有密钥（没弄）"><a href="#复用已有密钥（没弄）" class="headerlink" title="复用已有密钥（没弄）"></a>复用已有密钥（没弄）</h4><h2 id="将代码上传到远程仓库（gitee）"><a href="#将代码上传到远程仓库（gitee）" class="headerlink" title="将代码上传到远程仓库（gitee）"></a>将代码上传到远程仓库（gitee）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入克隆的仓库目录</span></span><br><span class="line"><span class="built_in">cd</span> 你的仓库名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件后，添加到暂存区</span></span><br><span class="line">git add 修改的文件 <span class="comment">#可以提交单个文件</span></span><br><span class="line">git add * <span class="comment">#也可以提交所有文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交修改</span></span><br><span class="line">git commit -m <span class="string">&quot;修改说明&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送到Gitee</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-        <tag>gitee</tag>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>5.16总结：Linux基础</title>
     <url>/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5Linux/5.16%E6%80%BB%E7%BB%93%EF%BC%9ALinux%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<p>查看ip命令：ifconfig<br>IP: 192.168.48.129<br>![[Pasted image 20250516101428.png]]</p>
@@ -1318,7 +1177,8 @@
   <entry>
     <title>帆软企业大屏</title>
     <url>/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.18%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E4%BC%81%E4%B8%9A%E5%A4%A7%E5%B1%8F/</url>
-    <content><![CDATA[<p>print(“你好”)<br><img src="/../../../images/6.18%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E4%BC%81%E4%B8%9A%E5%A4%A7%E5%B1%8F/Pasted%20image%2020250606220214.png"></p>
+    <content><![CDATA[<p>print(“你好”)<br>我再测试</p>
+
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1558,6 +1418,139 @@
         <tag>Pandas</tag>
         <tag>爬虫</tag>
         <tag>json</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub+Hexo博客创建</title>
+    <url>/2025/06/07/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/GitHub+Hexo%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><h2 id="从0开始到部署到github"><a href="#从0开始到部署到github" class="headerlink" title="从0开始到部署到github"></a>从0开始到部署到github</h2><ul>
+<li><a href="https://huahuipj.github.io/2021/08/20/shi-yong-github-bu-shu-yi-ge-jian-dan-de-bo-ke/">huahuipj.github.io</a></li>
+<li><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165856718216782391857659%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165856718216782391857659&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-82729029-null-null.142%5Ev33%5Eexperiment_2_v1,185%5Ev2%5Econtrol&utm_term=hexo&spm=1018.2226.3001.4187">hexo史上最全搭建教程</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></li>
+</ul>
+<h2 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h2><h3 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1. 安装git"></a>1. 安装git</h3><h3 id="2-安装nodejs"><a href="#2-安装nodejs" class="headerlink" title="2. 安装nodejs"></a>2. 安装nodejs</h3><h3 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3. 安装hexo"></a>3. 安装hexo</h3><p>前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹Blog，然后<code>cd</code>到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。</p>
+<p>输入命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>查看版本命令：<code>hexo -v</code></p>
+<p>初始化hexo</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init myblog</span><br></pre></td></tr></table></figure>
+<p>这个myblog可以自己取什么名字都行，会在当前文件夹（Blog）目录下创建一个myblog文件夹</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> myblog <span class="comment">#进入这个myblog文件夹</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>新建完成后，指定文件夹目录下有：</p>
+<ul>
+<li>node_modules: 依赖包</li>
+<li>public：存放生成的页面</li>
+<li>scaffolds：生成文章的一些模板</li>
+<li>source：用来存放你的文章</li>
+<li>themes：主题</li>
+<li>_config.yml: 博客的配置文件</li>
+</ul>
+<p>打开hexo的服务，在浏览器输入 localhost:4000 就可以看到你生成的博客了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>使用ctrl+c可以把服务关掉</p>
+<h3 id="4-GitHub创建个人仓库"><a href="#4-GitHub创建个人仓库" class="headerlink" title="4. GitHub创建个人仓库"></a>4. GitHub创建个人仓库</h3><p>创建一个和你用户名相同的仓库，后面加.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名</p>
+<h3 id="5-生成SSH添加到GitHub"><a href="#5-生成SSH添加到GitHub" class="headerlink" title="5. 生成SSH添加到GitHub"></a>5. 生成SSH添加到GitHub</h3><p>回到你的git bash中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这里的 yourname 输入你的GitHub用户名，youremail 输入你GitHub的邮箱（双引号保留）</p>
+<p>然后创建SSH，一路回车(应该有3次回车)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
+<p>终会生成一个文件在用户目录下，打开用户目录，找到<code>.ssh\id_rsa.pub</code>文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key<br>将刚复制的内容粘贴到key那里，title随便填，保存</p>
+<p>测试是否成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com <span class="comment"># 注意邮箱地址不用改</span></span><br></pre></td></tr></table></figure>
+<p>如果提示Are you sure you want to continue connecting (yes&#x2F;no)? 输入yes，然后会看到：<br>Hi H-Sanae! You’ve successfully authenticated, but GitHub does not provide shell access.<br>看到这个信息说明SSH已配置成功！</p>
+<h3 id="6-将hexo部署到GitHub"><a href="#6-将hexo部署到GitHub" class="headerlink" title="6. 将hexo部署到GitHub"></a>6. 将hexo部署到GitHub</h3><p>打开站点配置文件 <code>_config.yml</code>，翻到最后，修改为:<br>(YourgithubName就是你的GitHub账户)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p><code>branch</code> 填你刚刚创建<code>GitHub</code>仓库的默认分支名称，看下是<code>master</code>还是<code>main</code>，不要填错了，还要注意一下，冒号后面加一个空格</p>
+<p>这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>然后</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>到此完成，过一会儿就可以在<code>http://yourname.github.io</code> 这个网站看到你的博客了！</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>因为从hexo提交代码时会把你以前的所有代码都删掉，在上传代码到github之前，要记得先把以前所有代码下载下来（虽然github有版本管理，但备份一下总是好的）。</p>
+<h1 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h1><p><a href="http://localhost:4000/">http://localhost:4000</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean   #清除缓存文件 db.json 和已生成的静态文件 public</span><br><span class="line">hexo g       #生成网站静态文件到默认设置的 public 文件夹(hexo generate 的缩写)</span><br><span class="line">hexo d       #自动生成网站静态文件，并部署到设定的仓库(hexo deploy 的缩写)</span><br></pre></td></tr></table></figure>
+
+<p>常用命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;postName&quot;</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">&quot;pageName&quot;</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，&#x27;ctrl + c&#x27;关闭server）</span></span><br><span class="line">hexo deploy <span class="comment">#部署到GitHub</span></span><br><span class="line">hexo <span class="built_in">help</span>  <span class="comment"># 查看帮助</span></span><br><span class="line">hexo version  <span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
+
+<p>缩写</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>组合命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s -g #生成并本地预览</span><br><span class="line">hexo d -g #生成并上传</span><br></pre></td></tr></table></figure>
+
+<h1 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h1><p><a href="https://github.com/Fechin/hexo-theme-diaspora">diaspora主题</a></p>
+<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><p><a href="https://blog.csdn.net/qq_36759224/article/details/85420403">Hexo博客优化之博客美化系列</a></p>
+<h2 id="根目录全局配置文件-config-yml"><a href="#根目录全局配置文件-config-yml" class="headerlink" title="根目录全局配置文件_config.yml"></a>根目录全局配置文件_config.yml</h2><p>1、所有的配置“:”符号后面都要带空格，否则执行本地测试直接失败。<br>2、language是设置语言。zh-Hans是中文。<br>3、如果设置zh-Hans后仍出现乱码问题。需要更改文件的字符编码集为UTF-8，方法很多。</p>
+<h1 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h1><p>定位到我们的hexo根目录，执行命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &#x27;my-first-blog&#x27;</span><br></pre></td></tr></table></figure>
+<p>hexo会帮我们在<code>_posts</code>下生成相关md文件<br>我们只需要打开这个文件就可以开始写博客了<br>当然你也可以直接自己新建md文件，用这个命令的好处是帮我们自动生成了时间<br>一般完整格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: postName #文章页面上的显示名称，一般是中文</span><br><span class="line">date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改</span><br><span class="line">categories: 默认分类 #分类</span><br><span class="line">tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格</span><br><span class="line">description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面</span><br><span class="line">---</span><br><span class="line">以下是正文</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Obsidian+Hexo图片管理方案</title>
+    <url>/2025/06/17/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><p>主要参考：<a href="https://phakeandy.github.io/2024/05/03/Hexo-Obsidian%EF%BC%9A%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">Hexo + Obsidian：解决图片无法显示问题 | andy’s blog</a></p>
+<h1 id="Obsidian配置"><a href="#Obsidian配置" class="headerlink" title="Obsidian配置"></a>Obsidian配置</h1><p>可选参考：<a href="https://blog.csdn.net/qq_52357217/article/details/127562163">如何让Obsidian的图片存储形式设置为 .&#x2F;${filename}.assets</a></p>
+<h2 id="设置obsidian仓库"><a href="#设置obsidian仓库" class="headerlink" title="设置obsidian仓库"></a>设置obsidian仓库</h2><p>此方法只对一个文章仓库有效，即将hexo博客根目录同时设置为obsidian的文章根目录，方法为使用obsidian打开博客根目录（_config.yml文件所在目录，有一个source文件夹）<br><img src="/../../images/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/file-20250617212712587.png"></p>
+<h2 id="obsidian安装插件-Custom-Attachment-Location"><a href="#obsidian安装插件-Custom-Attachment-Location" class="headerlink" title="obsidian安装插件 Custom Attachment Location"></a>obsidian安装插件 Custom Attachment Location</h2><p>设置→第三方插件→关闭安全模式→社区插件市场→浏览→输入Custom Attachment Location→点击安装并启动</p>
+<h3 id="设置-Location-for-New-Attachments"><a href="#设置-Location-for-New-Attachments" class="headerlink" title="设置 Location for New Attachments"></a>设置 Location for New Attachments</h3><p>设置为<code>source/images/$&#123;filename&#125;</code><br>即将粘贴在文章中的图片保存在文章根目录（也是博客根目录）下的source文件夹下的images文件夹下的一个文件夹中（以当前笔记文件名命名）</p>
+<p>tips:<br>.&#x2F;为当前笔记所在目录，${filename}为当前笔记文件名<br>设置为 .&#x2F;${filename} 即将图片放在当前笔记目录下的同名文件内<br>.&#x2F;assets&#x2F;${filename} 将图片放在当前笔记目录下的assets目录下的同名目录（在笔记目录下设置一个assets文件夹用于存放各笔记的图片，防止同目录下笔记过多导致图片文件夹也多）笔者本来打算这样管理文章图片的，但目前并没有找到使其与hexo兼容的方法，故放弃，改用以上方法</p>
+<h2 id="obsidian设置文件与链接"><a href="#obsidian设置文件与链接" class="headerlink" title="obsidian设置文件与链接"></a>obsidian设置文件与链接</h2><p><img src="/../../images/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/file-20250617214538889.png"><br>以上配置完成后即可使图片正常在网页中显示<br>图片链接类似如下：<br><code>\![]\(../../images/文章名称/图片名称.png)</code></p>
+<p>在博客目录下打开git终端，使用<code>hexo s -g</code>命令后可在<code>http://127.0.0.1:4000/</code>里验证图片是否显示</p>
+<h2 id="Hexo端配置（可选，与上文无关）"><a href="#Hexo端配置（可选，与上文无关）" class="headerlink" title="Hexo端配置（可选，与上文无关）"></a>Hexo端配置（可选，与上文无关）</h2><p><a href="https://hexo.io/zh-cn/docs/asset-folders">资源文件夹 | Hexo</a><br>修改 <code>_config.yml</code> 文件中的这个选项，这样在使用命令生成博客md文件时可以生成一个同名的资源目录，用于存放同名文章使用的资产，此法也可以实现图片的显示，但似乎只有通过命令生成的才有效，且只能在<code>/source/_posts/</code>下保存</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true  </span><br><span class="line">marked: # 如果原本有就更改下面的这些选项，如果没有就添加  </span><br><span class="line">  prependRoot: true  </span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
+<p>该配置完成后使用<code>hexo new post &lt;文章名&gt;</code>就会在 <code>/source/_posts/</code> 路径下新建 <code>&lt;文章名&gt;.md</code> 文件和同名资产文件夹，然后在obsidian中选择打开刚刚生成的md文件写作时也能成功匹配粘贴的图片。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>上传代码仓库到Gitee和Github</title>
+    <url>/2025/06/11/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E5%88%B0Gitee%E5%92%8CGithub/</url>
+    <content><![CDATA[<h1 id="Linux上传到Gitee"><a href="#Linux上传到Gitee" class="headerlink" title="Linux上传到Gitee"></a>Linux上传到Gitee</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>如果你的系统尚未安装 Git，请先执行以下命令进行安装</p>
+<h3 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Ubuntu/Debian系统 </span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update </span><br><span class="line"><span class="built_in">sudo</span> apt-get install git </span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS/RHEL系统 </span></span><br><span class="line"><span class="built_in">sudo</span> yum update </span><br><span class="line"><span class="built_in">sudo</span> yum install git </span><br><span class="line"></span><br><span class="line"><span class="comment"># Arch Linux系统 </span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S git</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Git-基本信息"><a href="#配置-Git-基本信息" class="headerlink" title="配置 Git 基本信息"></a>配置 Git 基本信息</h3><p>安装完成后，需要配置你的用户名和邮箱，这将显示在你的提交记录中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的用户名&quot;</span> </span><br><span class="line">git config --global user.email <span class="string">&quot;你的邮箱地址&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在Gitee上创建仓库"><a href="#在Gitee上创建仓库" class="headerlink" title="在Gitee上创建仓库"></a>在Gitee上创建仓库</h3><p>忽略</p>
+<h3 id="SSH方式"><a href="#SSH方式" class="headerlink" title="SSH方式"></a>SSH方式</h3><p>SSH 方式可以避免每次推送都输入用户名和密码，提高效率：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成SSH密钥（如果没有） </span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的邮箱地址&quot;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看公钥 </span></span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub </span><br><span class="line"><span class="comment"># 将输出的公钥复制到Gitee的SSH公钥设置中</span></span><br></pre></td></tr></table></figure>
+
+<p>验证连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
+<p>看到欢迎信息即表示成功</p>
+<p>在下一步之前，需要有一个代码仓库，可以先从git上克隆一个到本机（空仓库也行），或者自行<code>git init</code>命令将文件夹变为一个git仓库</p>
+<p>设置完成后，进入代码仓库文件夹，将这个远程仓库地址改为 SSH 形式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote set-url origin git@gitee.com:你的用户名/你的仓库名.git</span><br></pre></td></tr></table></figure>
+<h4 id="复用已有密钥（没弄）"><a href="#复用已有密钥（没弄）" class="headerlink" title="复用已有密钥（没弄）"></a>复用已有密钥（没弄）</h4><h2 id="将代码上传到远程仓库（gitee）"><a href="#将代码上传到远程仓库（gitee）" class="headerlink" title="将代码上传到远程仓库（gitee）"></a>将代码上传到远程仓库（gitee）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入克隆的仓库目录</span></span><br><span class="line"><span class="built_in">cd</span> 你的仓库名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件后，添加到暂存区</span></span><br><span class="line">git add 修改的文件 <span class="comment">#可以提交单个文件</span></span><br><span class="line">git add * <span class="comment">#也可以提交所有文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交修改</span></span><br><span class="line">git commit -m <span class="string">&quot;修改说明&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送到Gitee</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>gitee</tag>
+        <tag>git</tag>
       </tags>
   </entry>
 </search>

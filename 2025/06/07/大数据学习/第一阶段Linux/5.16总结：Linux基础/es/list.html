@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆瓣网列表页</title>
+    <style>
+        body{ width: 800px; margin: 0 auto; }
+        h1{ color: rgb(35, 140, 205);}
+        a{ background-color: rgb(35, 140, 205);
+        color: white;  text-decoration: none; border-radius: 8px;
+            padding: 3px 5px;
+    }
+    table{width: 800px;}
+    table,tr,td{ border: 2px solid black; border-collapse: collapse;}
+    td{ line-height: 35px; text-align: center;}
+    .tou{ background-color: rgb(35, 140, 205); color: white; font-size: 18px; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <h1>欢迎使用豆瓣网</h1>
+    <p><a href="/" >首页</a> <a href="/list">电影类型列表</a> <a href="/add">添加电影类型</a>
+        <a href="/addMovie">添加电影</a> <a href="/zhu" target="_blank">查看柱状图</a> <a href="/bing" target="_blank">查看饼状图</a>
+    </p>
+<!-- {{info}} -->
+    <table>
+        <tr class="tou"><td>编号</td><td>名称</td><td>内容</td><td>创建日期</td><td>操作</td></tr>
+        {% for i in info %}
+        <tr><td>{{i[0]}}</td><td>{{i[1]}}</td><td>{{i[2]}}</td><td>{{i[4]}}</td>
+            <td><a href="/update/{{i[0]}}">修改</a> <a href="/delete/{{i[0]}}">删除</a> <a href="/movieList/{{i[0]}}">查看</a></td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
