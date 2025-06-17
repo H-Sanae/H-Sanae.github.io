@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Obsidian+Hexo图片管理方案 - 宅邦邦</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="参考教程主要参考：Hexo + Obsidian：解决图片无法显示问题 | andy’s blog
+Obsidian配置可选参考：如何让Obsidian的图片存储形式设置为 .&amp;#x2F;${fil,"> 
+    <meta name="author" content="邦邦"> 
+    <link rel="alternative" href="atom.xml" title="宅邦邦" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Obsidian+Hexo图片管理方案 - 宅邦邦"/>
+    <meta name="twitter:description" content="参考教程主要参考：Hexo + Obsidian：解决图片无法显示问题 | andy’s blog
+Obsidian配置可选参考：如何让Obsidian的图片存储形式设置为 .&amp;#x2F;${fil,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="宅邦邦"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Obsidian+Hexo图片管理方案 - 宅邦邦"/>
+    <meta property="og:description" content="参考教程主要参考：Hexo + Obsidian：解决图片无法显示问题 | andy’s blog
+Obsidian配置可选参考：如何让Obsidian的图片存储形式设置为 .&amp;#x2F;${fil,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">宅邦邦</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://h-sanae.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Obsidian+Hexo图片管理方案</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Obsidian+Hexo图片管理方案</h1>
+        <div class="stuff">
+            <span>六月 17, 2025</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/obsidian/" rel="tag">obsidian</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><p>主要参考：<a target="_blank" rel="noopener" href="https://phakeandy.github.io/2024/05/03/Hexo-Obsidian%EF%BC%9A%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">Hexo + Obsidian：解决图片无法显示问题 | andy’s blog</a></p>
+<h1 id="Obsidian配置"><a href="#Obsidian配置" class="headerlink" title="Obsidian配置"></a>Obsidian配置</h1><p>可选参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52357217/article/details/127562163">如何让Obsidian的图片存储形式设置为 .&#x2F;${filename}.assets</a></p>
+<h2 id="设置obsidian仓库"><a href="#设置obsidian仓库" class="headerlink" title="设置obsidian仓库"></a>设置obsidian仓库</h2><p>此方法只对一个文章仓库有效，即将hexo博客根目录同时设置为obsidian的文章根目录，方法为使用obsidian打开博客根目录（_config.yml文件所在目录，有一个source文件夹）<br><img src="/../../images/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/file-20250617212712587.png"></p>
+<h2 id="obsidian安装插件-Custom-Attachment-Location"><a href="#obsidian安装插件-Custom-Attachment-Location" class="headerlink" title="obsidian安装插件 Custom Attachment Location"></a>obsidian安装插件 Custom Attachment Location</h2><p>设置→第三方插件→关闭安全模式→社区插件市场→浏览→输入Custom Attachment Location→点击安装并启动</p>
+<h3 id="设置-Location-for-New-Attachments"><a href="#设置-Location-for-New-Attachments" class="headerlink" title="设置 Location for New Attachments"></a>设置 Location for New Attachments</h3><p>设置为<code>source/images/$&#123;filename&#125;</code><br>即将粘贴在文章中的图片保存在文章根目录（也是博客根目录）下的source文件夹下的images文件夹下的一个文件夹中（以当前笔记文件名命名）</p>
+<p>tips:<br>.&#x2F;为当前笔记所在目录，${filename}为当前笔记文件名<br>设置为 .&#x2F;${filename} 即将图片放在当前笔记目录下的同名文件内<br>.&#x2F;assets&#x2F;${filename} 将图片放在当前笔记目录下的assets目录下的同名目录（在笔记目录下设置一个assets文件夹用于存放各笔记的图片，防止同目录下笔记过多导致图片文件夹也多）笔者本来打算这样管理文章图片的，但目前并没有找到使其与hexo兼容的方法，故放弃，改用以上方法</p>
+<h2 id="obsidian设置文件与链接"><a href="#obsidian设置文件与链接" class="headerlink" title="obsidian设置文件与链接"></a>obsidian设置文件与链接</h2><p><img src="/../../images/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/file-20250617214538889.png"><br>以上配置完成后即可使图片正常在网页中显示<br>图片链接类似如下：<br><code>\![]\(../../images/文章名称/图片名称.png)</code></p>
+<p>在博客目录下打开git终端，使用<code>hexo s -g</code>命令后可在<code>http://127.0.0.1:4000/</code>里验证图片是否显示</p>
+<h2 id="Hexo端配置（可选，与上文无关）"><a href="#Hexo端配置（可选，与上文无关）" class="headerlink" title="Hexo端配置（可选，与上文无关）"></a>Hexo端配置（可选，与上文无关）</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders">资源文件夹 | Hexo</a><br>修改 <code>_config.yml</code> 文件中的这个选项，这样在使用命令生成博客md文件时可以生成一个同名的资源目录，用于存放同名文章使用的资产，此法也可以实现图片的显示，但似乎只有通过命令生成的才有效，且只能在<code>/source/_posts/</code>下保存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true  </span><br><span class="line">marked: # 如果原本有就更改下面的这些选项，如果没有就添加  </span><br><span class="line">  prependRoot: true  </span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
+<p>该配置完成后使用<code>hexo new post &lt;文章名&gt;</code>就会在 <code>/source/_posts/</code> 路径下新建 <code>&lt;文章名&gt;.md</code> 文件和同名资产文件夹，然后在obsidian中选择打开刚刚生成的md文件写作时也能成功匹配粘贴的图片。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://music.163.com/song/media/outer/url?id=27669791.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://music.163.com/song/media/outer/url?id=860113.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">参考教程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Obsidian%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">Obsidian配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEobsidian%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">设置obsidian仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#obsidian%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6-Custom-Attachment-Location"><span class="toc-number">2.2.</span> <span class="toc-text">obsidian安装插件 Custom Attachment Location</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-Location-for-New-Attachments"><span class="toc-number">2.2.1.</span> <span class="toc-text">设置 Location for New Attachments</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#obsidian%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%8E%E9%93%BE%E6%8E%A5"><span class="toc-number">2.3.</span> <span class="toc-text">obsidian设置文件与链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E7%AB%AF%E9%85%8D%E7%BD%AE%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%8C%E4%B8%8E%E4%B8%8A%E6%96%87%E6%97%A0%E5%85%B3%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">Hexo端配置（可选，与上文无关）</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+
+
+
+

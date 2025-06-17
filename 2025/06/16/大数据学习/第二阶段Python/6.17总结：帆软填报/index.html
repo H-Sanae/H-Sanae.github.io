@@ -70,55 +70,55 @@
         </div>
         <div class="content markdown">
             <h2 id="1-添加员工信息"><a href="#1-添加员工信息" class="headerlink" title="1.添加员工信息"></a>1.添加员工信息</h2><p>1.设计界⾯ 在属性⾯板的控件设置 每⼀个选择合适的类型 下拉框需要选择数据字典， 控件可以设置约束<br>2.⼯具栏 模版 报表填报属性 添加内置 sql ，选择数据表，选择对应单元格，确定<br>3.预览的时候选择下拉箭头下的填报预览，输⼊信息后点击左上⻆的提交，则提⽰成 功，去数据库查询验证是否插⼊成功</p>
-
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617104843783.png" class="">
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617104949161.png" class="">
 <h2 id="2-增删改员⼯信息导航功能完成"><a href="#2-增删改员⼯信息导航功能完成" class="headerlink" title="2.增删改员⼯信息导航功能完成"></a>2.增删改员⼯信息导航功能完成</h2><p>数据量⻓的情况可以修改⽹⻚⼤⼩ ⼯具栏 模版 ⻚⾯设置 修改尺⼨⼤些 , 设计⻚⾯ 在数 据单元格选择控件类型 , 报表填报属性选择智能 , 选择填报预览</p>
-
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617111315393.png" class="">
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617111406343.png" class="">
 
 <h2 id="3-增删改员⼯信息单元格按钮完成，给出提⽰，并且添加自动刷新"><a href="#3-增删改员⼯信息单元格按钮完成，给出提⽰，并且添加自动刷新" class="headerlink" title="3.增删改员⼯信息单元格按钮完成，给出提⽰，并且添加自动刷新"></a>3.增删改员⼯信息单元格按钮完成，给出提⽰，并且添加自动刷新</h2><p>设置回调函数</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (fr_submitinfo.<span class="property">success</span>) &#123; </span><br><span class="line">	<span class="variable constant_">FR</span>.<span class="property">Msg</span>.<span class="title function_">toast</span>(<span class="string">&#x27;当前行删除成功&#x27;</span>); </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">	<span class="variable constant_">FR</span>.<span class="property">Msg</span>.<span class="title function_">toast</span>(<span class="string">&#x27;当前行删除失败，错误信息为：&#x27;</span> + fr_submitinfo.<span class="property">failinfo</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>删除7777</p>
-
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617113946322.png" class="">
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617114022395.png" class="">
 
 <p>修改</p>
-
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617114837781.png" class="">
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617140939533.png" class="">
 
 <p>添加点击事件（自动刷新）</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">_g</span>().<span class="title function_">refreshAllSheets</span>()</span><br></pre></td></tr></table></figure>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617141705325.png" class="">
 <h2 id="4-填报操作-C"><a href="#4-填报操作-C" class="headerlink" title="4. 填报操作-C"></a>4. 填报操作-C</h2><p>使⽤数据： FRDemo 中的数据表员⼯⾏程安排表（以姓名、⽇期、地点为 联合主键）<br>题⽬要求：<br>1 ）参数栏可选择登录⼈员：⼈事员 A 、⼈事员 B 、⼈事经理；<br>2 ） 选择⼈事员 A 、⼈事员 B 登录时，⻚⾯显⽰对应⼈事员的个⼈⾏程安排表 可在空⽩⾏提交 数据，其中姓名默认为登录⼈不可编辑，⽇期默认为当天可编辑，地点 ( 单选 ) 可下拉选择 ⽆锡总部、南京总部，⼯作内容可⾃由编辑，参会⼈员（多选）可下拉复选⼈事员 A 、⼈ 事员 B 、⼈事经理，点击提交可填报数据⼊库，若记录已存在则做数据更新，填报后⾃动 参数刷新⻚⾯； 可针对已有数据做更新、删除，仅地点、⼯作内容、参会⼈员可编辑， 设置与上述⼀致，点击更新可做数据更新，点击删除可做数据删除；<br>3 ）选择⼈事经理 登录时，除 2 ）中的内容，还可查看⼈事员 A 、⼈事员 B 的⾏程安排表 仅⽤⼀张模板实现</p>
 <p>制作界面</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617161547561.png" class="">
 
 <p>人事经理显示人员行程安排表，人事员A、B不显示<br>人员行程安排表添加条件属性 $姓名!&#x3D;”人事经理”</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617190414758.png" class="">
 
 <p>增删改自动提交<br>参与人员下拉复选框需设置返回值为字符串</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617191226508.png" class="">
 <h2 id="5-填报实操-F"><a href="#5-填报实操-F" class="headerlink" title="5.填报实操-F"></a>5.填报实操-F</h2><p>弹出框添加和修改员⼯信息<br>数据来源： FRdemo 中 员⼯信息表 展⽰所有部⻔职位信息<br>1).“ 点击增加⼈员 ” ，传参部⻔、职位打开对话框，其中⼈员 ID 需⾃动取当前表⾥ ID 最⼤ 值＋ 1 ，仅姓名处可⾃由编辑，提交时校验是否为空，提交后新增该条数据<br>2).“ 点击修改⼈员明细 ” ，传参部⻔、职位打开对话框，仅⼯资处可⾃由编辑，提交后修 改该⼈员⼯资数据<br>3). 两个对话框在提交完成后都会⾃动关闭对话框<br>4). 模板完成后，增加姓名为本⼈的记录，并修改⼯资为 10000 ，在结果⽂档中截图体现<br>5). 最多可使⽤ 3 张模板</p>
 <p>首页模板制作</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617191544614.png" class="">
 
 <p>新增人员弹出框模板制作</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617191849377.png" class="">
 
 <p>修改人员信息模板制作</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617191753466.png" class="">
 
 <p>新增人员、修改人员 添加网络报表链接</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617192115473.png" class="">
 
 <p>展⽰所有部⻔职位信息</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617192234918.png" class="">
 
 <p>新增人员弹出框</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617192416846.png" class="">
 
 <p>修改人员弹出框</p>
-
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617192437100.png" class="">
 
 <p>刷新父窗口（弹出框提交后返回父窗口）<br>弹出框模板界面-模板-模板Web属性-填报页面设置-事件设置-填报成功-添加如下代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.parent.location.reload();</span><br></pre></td></tr></table></figure>
