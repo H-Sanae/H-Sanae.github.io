@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/favicon.png">
+    <title>电影类型列表页</title>
+    <style>
+        /* 全局样式设置 */
+        body {
+            /* 设置页面字体 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* 背景图片路径 */
+            /* background-image: url("static/pbg1.jpg"); */
+            background-size: cover;
+            /* 背景图片覆盖整个页面 */
+            background-position: center;
+            /* 背景图片居中显示 */
+            display: flex;
+            /* 使用 Flexbox 布局 */
+            flex-direction: column;
+            /* 垂直排列子元素 */
+            align-items: center;
+            /* 水平居中对齐子元素 */
+            justify-content: flex-start;
+            /* 垂直顶部对齐子元素 */
+            min-height: 100vh;
+            /* 最小高度为视口高度 */
+            margin: 0;
+            /* 清除默认边距 */
+            padding: 20px;
+            /* 添加内边距 */
+            box-sizing: border-box;
+            /* 盒模型包含内边距和边框 */
+        }
+
+        h1 {
+            /* 标题颜色 - 蓝色 */
+            color: #238ccd;
+            /* 添加文字阴影 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            /* 底部外边距 */
+            margin-bottom: 20px;
+        }
+
+        /* 导航链接容器样式 */
+        .nav-links {
+            /* 使用 Flexbox 布局 */
+            display: flex;
+            /* 水平居中对齐链接 */
+            justify-content: center;
+            /* 链接之间的间距 */
+            gap: 15px;
+            /* 底部外边距 */
+            margin-bottom: 30px;
+            /* 小屏幕下自动换行 */
+            flex-wrap: wrap;
+        }
+
+        /* 导航链接样式 */
+        .nav-links a {
+            /* 背景色 - 蓝色 */
+            background-color: #238ccd;
+            /* 文字颜色 - 白色 */
+            color: white;
+            /* 去除下划线 */
+            text-decoration: none;
+            border-radius: 15px;
+            /* 圆角边框 */
+            padding: 10px 20px;
+            /* 内边距 */
+            transition: background-color 0.3s ease;
+            /* 背景色过渡动画 */
+        }
+
+        /* 悬停时背景色变深 */
+        /* 导航链接悬停效果 */
+        .nav-links a:hover {
+            background-color: #1a6fa3;
+            font-weight: 600;
+        }
+
+        /*高亮当前页*/
+        .nav-links a.active {
+            background-color: #1a6fa3;
+            font-weight: 600;
+        }
+
+        /* 列表容器样式 */
+        .movie-list {
+            /* 半透明白色背景 */
+            background-color: rgba(255, 255, 255, 0.9);
+            /* 内边距 */
+            padding: 20px;
+            /* 圆角边框 */
+            border-radius: 10px;
+            /* 添加阴影效果 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* 宽度为父容器的100% */
+            width: 100%;
+            /* 最大宽度限制 */
+            max-width: 800px;
+            /* 盒模型包含内边距和边框 */
+            box-sizing: border-box;
+        }
+
+        /* 表格样式优化 */
+        table {
+            /* 宽度为父容器的100% */
+            width: 100%;
+            /* 合并边框 */
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            /* 单元格内边距 */
+            padding: 12px;
+            /* 文本居中对齐 */
+            text-align: center;
+            /* 底部边框 */
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            /* 表头背景色 - 蓝色 */
+            background-color: #238ccd;
+            /* 表头文字颜色 - 白色 */
+            color: white;
+            /* 表头文字粗细 */
+            font-weight: 600;
+        }
+
+        /* 行悬停时背景色变浅 */
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* 操作按钮基础样式 */
+        .action-btn {
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 0 3px;
+            transition: background-color 0.3s ease;
+            color: white;
+            /* 文字颜色统一为白色 */
+        }
+
+        /* 修改按钮：绿色 */
+        .update-btn {
+            background-color: #4CAF50;
+            /* 绿色 */
+        }
+
+        .update-btn:hover {
+            background-color: #45a049;
+            /* 深绿色 */
+        }
+
+        /* 删除按钮：红色 */
+        .delete-btn {
+            background-color: #ff4444;
+            /* 红色 */
+        }
+
+        .delete-btn:hover {
+            background-color: #ff1a1a;
+            /* 深红色 */
+        }
+
+        /* 查看按钮：灰色 */
+        .view-btn {
+            background-color: #238ccd;
+            /* 灰色 */
+        }
+
+        .view-btn:hover {
+            background-color: #1a6fa3;
+            /* 深灰色 */
+        }
+
+        /* 响应式设计 - 小屏幕设备 */
+        @media (max-width: 600px) {
+            .nav-links {
+                /* 缩小链接间距 */
+                gap: 10px;
+            }
+
+            .nav-links a {
+                /* 减小链接内边距 */
+                padding: 8px 15px;
+                /* 减小链接文字大小 */
+                font-size: 14px;
+            }
+
+            th,
+            td {
+                /* 减小单元格内边距 */
+                padding: 8px;
+                /* 减小文字大小 */
+                font-size: 14px;
+            }
+
+            .action-btn {
+                /* 减小按钮内边距 */
+                padding: 3px 8px;
+                /* 减小按钮文字大小 */
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页面标题 -->
+    <h1>欢迎使用豆瓣网</h1>
+
+    <!-- 导航链接区域 -->
+    <div class="nav-links">
+        <a href="/">首页</a>
+        <a href="/list" class="active">电影类型列表</a>
+        <a href="/add">添加电影类型</a>
+        <a href="/addMovie">添加电影</a>
+        <a href="/zhu" target="_blank">查看柱状图</a>
+        <a href="bing" target="_blank">查看饼状图</a>
+    </div>
+
+    <!-- 电影列表容器 -->
+    <div class="movie-list">
+        <table>
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>内容</th>
+                <th>创建日期</th>
+                <th>操作</th>
+            </tr>
+            {% for i in info %}
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[4]}}</td>
+                <td>
+                    <a href="/update/{{i[0]}}" class="action-btn update-btn">修改</a>
+                    <!-- 添加确认提示的删除按钮 -->
+                    <a href="/delete/{{i[0]}}" class="action-btn delete-btn"
+                        onclick="return confirm('确认要删除该电影类型吗？删除后相关数据将永久删除！')">
+                        删除
+                    </a>
+                    <a href="" class="action-btn view-btn">查看</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
