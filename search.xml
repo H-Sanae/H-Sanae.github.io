@@ -1579,4 +1579,22 @@
         <tag>FineReport</tag>
       </tags>
   </entry>
+  <entry>
+    <title>post目录测试文章</title>
+    <url>/2025/06/18/post%E7%9B%AE%E5%BD%95%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>测试粘贴图片</p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>post测试文章2</title>
+    <url>/2025/06/18/post%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A02/</url>
+    <content><![CDATA[<p>在以下显示图片</p>
+]]></content>
+  </entry>
 </search>
