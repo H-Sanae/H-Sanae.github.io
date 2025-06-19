@@ -1,202 +1,185 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>6.6总结：电影表增删改查、模糊搜索 | Tetuka的个人笔记</title><meta name="author" content="Tetuka"><meta name="copyright" content="Tetuka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="查看不同电影类型的电影列表![[Pasted image 20250606215523.png]]![[Pasted image 20250606215547.png]] 实现电影的添加![[Pasted image 20250606215717.png]]![[Pasted image 20250606215732.png]]![[Pasted image 20250606215752.png]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6.6总结：电影表增删改查、模糊搜索">
+<meta property="og:url" content="https://h-sanae.github.io/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.6%E6%80%BB%E7%BB%93%EF%BC%9A%E7%94%B5%E5%BD%B1%E8%A1%A8%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E3%80%81%E6%A8%A1%E7%B3%8A%E6%90%9C%E7%B4%A2/index.html">
+<meta property="og:site_name" content="Tetuka的个人笔记">
+<meta property="og:description" content="查看不同电影类型的电影列表![[Pasted image 20250606215523.png]]![[Pasted image 20250606215547.png]] 实现电影的添加![[Pasted image 20250606215717.png]]![[Pasted image 20250606215732.png]]![[Pasted image 20250606215752.png]">
+<meta property="og:locale">
+<meta property="og:image" content="https://h-sanae.github.io/img/lita3.png">
+<meta property="article:published_time" content="2025-06-07T08:44:21.000Z">
+<meta property="article:modified_time" content="2025-06-07T09:07:20.107Z">
+<meta property="article:author" content="Tetuka">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://h-sanae.github.io/img/lita3.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "6.6总结：电影表增删改查、模糊搜索",
+  "url": "https://h-sanae.github.io/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.6%E6%80%BB%E7%BB%93%EF%BC%9A%E7%94%B5%E5%BD%B1%E8%A1%A8%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E3%80%81%E6%A8%A1%E7%B3%8A%E6%90%9C%E7%B4%A2/",
+  "image": "https://h-sanae.github.io/img/lita3.png",
+  "datePublished": "2025-06-07T08:44:21.000Z",
+  "dateModified": "2025-06-07T09:07:20.107Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tetuka",
+      "url": "https://h-sanae.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/dbb.png"><link rel="canonical" href="https://h-sanae.github.io/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.6%E6%80%BB%E7%BB%93%EF%BC%9A%E7%94%B5%E5%BD%B1%E8%A1%A8%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E3%80%81%E6%A8%A1%E7%B3%8A%E6%90%9C%E7%B4%A2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
-<!DOCTYPE html>
-<html lang="zh-Hans" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>6.6总结：电影表增删改查、模糊搜索 - 宅邦邦</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="查看不同电影类型的电影列表![[Pasted image 20250606215523.png]]![[Pasted image 20250606215547.png]]
-实现电影的添加![[Pas,"> 
-    <meta name="author" content="邦邦"> 
-    <link rel="alternative" href="atom.xml" title="宅邦邦" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    
-    
-    
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="6.6总结：电影表增删改查、模糊搜索 - 宅邦邦"/>
-    <meta name="twitter:description" content="查看不同电影类型的电影列表![[Pasted image 20250606215523.png]]![[Pasted image 20250606215547.png]]
-实现电影的添加![[Pas,"/>
-    
-    
-    
-    
-    <meta property="og:site_name" content="宅邦邦"/>
-    <meta property="og:type" content="object"/>
-    <meta property="og:title" content="6.6总结：电影表增删改查、模糊搜索 - 宅邦邦"/>
-    <meta property="og:description" content="查看不同电影类型的电影列表![[Pasted image 20250606215523.png]]![[Pasted image 20250606215547.png]]
-实现电影的添加![[Pas,"/>
-    
-<link rel="stylesheet" href="/css/diaspora.css">
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
 
-    <script>window.searchDbPath = "/search.xml";</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
-<meta name="generator" content="Hexo 7.3.0"></head>
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
 
-<body class="loading">
-    <span id="config-title" style="display:none">宅邦邦</span>
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://h-sanae.github.io"></a>
-    <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">6.6总结：电影表增删改查、模糊搜索</h3>
-    <div class="social">
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
 
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">6.6总结：电影表增删改查、模糊搜索</h1>
-        <div class="stuff">
-            <span>六月 07, 2025</span>
-            
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-
-        </div>
-        <div class="content markdown">
-            <p>查看不同电影类型的电影列表<br>![[Pasted image 20250606215523.png]]<br>![[Pasted image 20250606215547.png]]</p>
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '6.6总结：电影表增删改查、模糊搜索',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> lobe-chat</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/lita3.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/dbb.png" alt="Logo"><span class="site-name">Tetuka的个人笔记</span></a><a class="nav-page-title" href="/"><span class="site-name">6.6总结：电影表增删改查、模糊搜索</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> lobe-chat</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">6.6总结：电影表增删改查、模糊搜索</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-06-07T08:44:21.000Z" title="Created 2025-06-07 16:44:21">2025-06-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-06-07T09:07:20.107Z" title="Updated 2025-06-07 17:07:20">2025-06-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>查看不同电影类型的电影列表<br>![[Pasted image 20250606215523.png]]<br>![[Pasted image 20250606215547.png]]</p>
 <p>实现电影的添加<br>![[Pasted image 20250606215717.png]]<br>![[Pasted image 20250606215732.png]]<br>![[Pasted image 20250606215752.png]]</p>
 <p>实现电影的修改<br>![[Pasted image 20250606215903.png]]<br>![[Pasted image 20250606215925.png]]<br>![[Pasted image 20250606215942.png]]</p>
 <p>删除<br>![[Pasted image 20250606220057.png]]<br>![[Pasted image 20250606220115.png]]<br>![[Pasted image 20250606220127.png]]</p>
 <p>电影类型列表⻚添加模糊搜索电影功能<br>![[Pasted image 20250606220151.png]]<br>![[Pasted image 20250606220214.png]]</p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title="0" data-url="http://music.163.com/song/media/outer/url?id=27669791.mp3"></li>
-                        
-                    
-                        
-                            <li title="1" data-url="http://music.163.com/song/media/outer/url?id=860113.mp3"></li>
-                        
-                    
-                </ul>
-            
-        </div>
-        
-        
-    <div id="gitalk-container" class="comment link"
-		data-enable="false"
-        data-ae="false"
-        data-ci=""
-        data-cs=""
-        data-r=""
-        data-o=""
-        data-a=""
-        data-d="false"
-    >查看评论</div>
-
-
-    </div>
-    
-        <div class="side">
-            
-        </div>
-    
-</div>
-
-
-    </div>
-</div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-
-
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
-
-
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-</html>
-
-<!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/love.js"></script>
-
-
-
-
-
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post-share"><div class="social-share" data-image="/img/lita3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/5.28%E6%80%BB%E7%BB%93%EF%BC%9APython%E5%9F%BA%E7%A1%80/" title="5.28总结：Python基础"><img class="cover" src="/img/lita2.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-07</div><div class="info-item-2">5.28总结：Python基础</div></div><div class="info-2"><div class="info-item-1">VS操作ctrl+&#x2F;  注释tab  缩进shift+tab  往回缩进 数据类型数字型：bool int float非数字型：str list tuple set dict日期型：time datetimetype(n) 查看变量n的类型 12345678910111213141516171819name=&quot;hello&quot; age=10.5 xb=False #区分大小写print(name,end=&quot;&quot;) #小明学号为00001，年龄为18岁，身高为1.79米 sno=1 age=18 sname=&quot;小明&quot; high=1.786 print(type(name)) #查看name的数据类型#print打印时，字符数据类型可以使用+与&quot;&quot;连接#其他类型则最好使用f&quot;&#123;变量&#125;其他内容&quot;print(sname+&quot;你好&quot;)print(sname,&quot;你好&quot;) #以空格分隔print(f&quot;&#123;sname&...</div></div></div></a><a class="pagination-related" href="/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/5.30%E6%80%BB%E7%BB%93%EF%BC%9A%E5%87%BD%E6%95%B0/" title="5.30总结：函数"><img class="cover" src="/img/lita5.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-07</div><div class="info-item-2">5.30总结：函数</div></div><div class="info-2"><div class="info-item-1">命名法驼峰命名法：首字母小写，后面的首字母大写  helloWorld帕斯卡命名法：每个首字母都大写（常用于类名）  HelloWorld系统命名法：单词都小写，以下划线_划分  hello_world  函数函数代码块以  def  关键词开头 return [ 表达式 ]  结束函数并返回⼀个或多个值给调⽤⽅，不带表达式的 return 相 当于返回 None ，多个值为元组 12345678910111213141516171819202122232425# 声明 def sayHello(): 	print(&quot;你好&quot;) # 调用 	sayHello()# 根据两个数求和 def getSum(n1,n2=18): # n2设置默认值，有默认值的参数必须写在最后	he=n1+n2 	return he 	res=getSum(5,3) res=getSum(5) print(f&quot;结果是：&#123;result&#125;&quot;) # 根据两个数求和和差和积 def getJiSuan(n1,n2): 	he=n1+n2 	cha=n1-...</div></div></div></a><a class="pagination-related" href="/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/5.29%E6%80%BB%E7%BB%93%EF%BC%9A%E5%85%83%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E6%8E%A8%E5%AF%BC%E5%BC%8F/" title="5.29总结：元组、集合、字典、推导式"><img class="cover" src="/img/lita3.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-07</div><div class="info-item-2">5.29总结：元组、集合、字典、推导式</div></div><div class="info-2"><div class="info-item-1">tuple （元组）只读的列表元组（tuple）是 Python 中一种不可变的序列类型，用于存储有序、可重复的元素。它与列表（list）类似，但关键区别在于 元组一旦创建，内容不可修改（不可变性）。 12345678tuple1 = (1,2,34,5,6) #元组定义print(type(tuple1)) #类型为tupleprint(tuple1[3]) #访问元素for i in tuple1: #遍历元组	print(i)#想对元组操作，需要将其转为列表list1=list(tupe1)  set （集合）无序，去掉重复数据集合（set）是 Python 中一种无序、不重复的容器类型，基于哈希表实现，常用于快速成员检测、去重和数学集合运算（如并集、交集）。 12345678set1 = set()  #创建空集合，必须使用set(),使用&#123;&#125;会创建一个空字典set1 = &#123;1,2,3,4,5,5,4,3,2,1&#125;  #集合定义print(type(set1)) #类型为setprint(set1)  #只有&#123;1,2,3,...</div></div></div></a><a class="pagination-related" href="/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.3%E6%80%BB%E7%BB%93%EF%BC%9A%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81/" title="6.3总结：文件读写、封装、继承、多态"><img class="cover" src="/img/lita4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-07</div><div class="info-item-2">6.3总结：文件读写、封装、继承、多态</div></div><div class="info-2"><div class="info-item-1">文件读写文本文件写12345678910# 写文件时若路径没有该文件会新建文件with open(&quot;D:\\wtest.txt&quot;, mode=&#x27;w&#x27;, encoding=&#x27;UTF-8&#x27;) as f : 	f.write(&quot;ccccccccccccccc\n&quot;)  #不会自动换行，需要自行加\n换行	f.write(&quot;ccccccccccccccc\n&quot;) # with语句会自动管理文件的生命周期，在代码块结束后自动关闭文件，无需手动调用f.close()#如果直接通过open()打开文件且不使用with语句，必须手动调用f.close()关闭文件f=open(&quot;file.txt&quot;, &quot;w&quot;) f.write(&quot;Hello, World!&quot;) f.close() # 必须手动关闭 文本文件读1234with open(&quot;/root/python/test.txt&quot;, mode=&#x27;r&#x27;,...</div></div></div></a><a class="pagination-related" href="/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.4%E6%80%BB%E7%BB%93%EF%BC%9A%E8%BF%9E%E6%8E%A5MySQL%E3%80%81%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/" title="6.4总结：连接MySQL、三层架构"><img class="cover" src="/img/lita2.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-07</div><div class="info-item-2">6.4总结：连接MySQL、三层架构</div></div><div class="info-2"><div class="info-item-1">time &amp; datetime 库Python 中处理时间的标准库提供获取系统时间并格式化输出功能提供系统级精确计时功能，⽤于程序性能分析 time库包含三类函数时间获取： localtime()时间格式化： strftime()   strptime()程序计时： sleep()   perf_counter() 12345678910111213141516171819202122import time # 日期类型与字符串直接互相转化 # 日期转字符串t1= time.localtime() print(time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;,t1)) # 字符串转日期timeStr = &#x27;2018-01-26 12:55:20&#x27; t2=time.strptime(timeStr, &quot;%Y-%m-%d %H:%M:%S&quot;) #测试程序执行时间差 t_start = time.perf_counter()  # 程序从开始到这条代码的运行时间print(&quot;测试&quot;...</div></div></div></a><a class="pagination-related" href="/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5Python/6.5%E6%80%BB%E7%BB%93%EF%BC%9Ahtml%E8%AF%AD%E8%A8%80%E3%80%81%E5%89%8D%E5%90%8E%E7%AB%AF%E7%BB%93%E5%90%88%20app.py/" title="6.5总结：html语言、前后端结合 app.py"><img class="cover" src="/img/lita6.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-07</div><div class="info-item-2">6.5总结：html语言、前后端结合 app.py</div></div><div class="info-2"><div class="info-item-1">1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253&lt;html&gt;&lt;/html&gt;  #根标签&lt;head&gt;&lt;/head&gt;  #头标签&lt;title&gt;&lt;/title&gt;  #头标题标签，在&lt;head&gt;标签⾥设置&lt;meta charset=&quot;utf-8&quot;&gt;  #常⽤于指定⻚⾯编码，在&lt;head&gt;标签内&lt;body&gt;&lt;/body&gt;  #⻚⾯的内容基本上写在此标签内&lt;h1&gt;&lt;/h1&gt; h1...h6  #标题标签&lt;p&gt;&lt;/p&gt;  #段落标签&lt;a href=&quot;https://www.baidu.com&quot; target=&quot;_blank&quot;&gt;百度&lt;/a&gt;  #超级链接标签&lt;table&gt;&lt;t...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tetuka</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/H-Sanae/H-Sanae.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1466753498@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/06/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.19%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E6%8A%A5%E8%A1%A8%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E3%80%81Tomcat%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/" title="帆软报表平台管理、Tomcat 服务器部署"><img src="/img/lita4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="帆软报表平台管理、Tomcat 服务器部署"/></a><div class="content"><a class="title" href="/2025/06/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.19%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E6%8A%A5%E8%A1%A8%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E3%80%81Tomcat%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/" title="帆软报表平台管理、Tomcat 服务器部署">帆软报表平台管理、Tomcat 服务器部署</a><time datetime="2025-06-19T14:32:42.117Z" title="Updated 2025-06-19 22:32:42">2025-06-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/07/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/GitHub+Hexo%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA/" title="GitHub+Hexo博客创建"><img src="/img/lita2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GitHub+Hexo博客创建"/></a><div class="content"><a class="title" href="/2025/06/07/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/GitHub+Hexo%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA/" title="GitHub+Hexo博客创建">GitHub+Hexo博客创建</a><time datetime="2025-06-19T14:17:04.474Z" title="Updated 2025-06-19 22:17:04">2025-06-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/17/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/" title="Obsidian+Hexo图片管理方案"><img src="/img/lita2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Obsidian+Hexo图片管理方案"/></a><div class="content"><a class="title" href="/2025/06/17/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/Hexo+Obsidian%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/" title="Obsidian+Hexo图片管理方案">Obsidian+Hexo图片管理方案</a><time datetime="2025-06-18T14:50:43.740Z" title="Updated 2025-06-18 22:50:43">2025-06-18</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/lita3.png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Tetuka</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.0-b2</a></span></div><div class="footer_custom_text">感谢阅读</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="输入以搜索内容..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
