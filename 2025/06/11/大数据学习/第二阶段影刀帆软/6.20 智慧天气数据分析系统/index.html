@@ -1,0 +1,546 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>6.20 智慧天气数据分析系统 | Tetuka的个人笔记</title><meta name="author" content="Tetuka"><meta name="copyright" content="Tetuka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="6.11 项目介绍在实习期间，我参与开发了智慧天气数据分析系统。系统面向气象研究人员、环保部门和公众用户，实现了多源气象数据采集、历史数据分析和气象灾害预警功能。项目采用Python+Flask+MySQL+Nginx架构，前端使用HTML+CSS+JavaScript构建响应式界面，后端通过Flask处理API请求和业务逻辑，MySQL存储气象历史数据和分析结果，并且引入了机器学习算法（随机森林">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6.20 智慧天气数据分析系统">
+<meta property="og:url" content="https://h-sanae.github.io/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Tetuka的个人笔记">
+<meta property="og:description" content="6.11 项目介绍在实习期间，我参与开发了智慧天气数据分析系统。系统面向气象研究人员、环保部门和公众用户，实现了多源气象数据采集、历史数据分析和气象灾害预警功能。项目采用Python+Flask+MySQL+Nginx架构，前端使用HTML+CSS+JavaScript构建响应式界面，后端通过Flask处理API请求和业务逻辑，MySQL存储气象历史数据和分析结果，并且引入了机器学习算法（随机森林">
+<meta property="og:locale">
+<meta property="og:image" content="https://h-sanae.github.io/img/lita3.png">
+<meta property="article:published_time" content="2025-06-11T07:59:50.918Z">
+<meta property="article:modified_time" content="2025-06-23T08:10:03.214Z">
+<meta property="article:author" content="Tetuka">
+<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="Oracle">
+<meta property="article:tag" content="帆软">
+<meta property="article:tag" content="FineReport">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://h-sanae.github.io/img/lita3.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "6.20 智慧天气数据分析系统",
+  "url": "https://h-sanae.github.io/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/",
+  "image": "https://h-sanae.github.io/img/lita3.png",
+  "datePublished": "2025-06-11T07:59:50.918Z",
+  "dateModified": "2025-06-23T08:10:03.214Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tetuka",
+      "url": "https://h-sanae.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/dbb.png"><link rel="canonical" href="https://h-sanae.github.io/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '6.20 智慧天气数据分析系统',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> 上不上AI评分系统</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/lita3.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/dbb.png" alt="Logo"><span class="site-name">Tetuka的个人笔记</span></a><a class="nav-page-title" href="/"><span class="site-name">6.20 智慧天气数据分析系统</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> 上不上AI评分系统</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">6.20 智慧天气数据分析系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-06-11T07:59:50.918Z" title="Created 2025-06-11 15:59:50">2025-06-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-06-23T08:10:03.214Z" title="Updated 2025-06-23 16:10:03">2025-06-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="6-11-项目介绍"><a href="#6-11-项目介绍" class="headerlink" title="6.11 项目介绍"></a>6.11 项目介绍</h1><p>在实习期间，我参与开发了智慧天气数据分析系统。系统面向气象研究人员、环保部门和公众用户，实现了多源气象数据采集、历史数据分析和气象灾害预警功能。<br>项目采用Python+Flask+MySQL+Nginx架构，前端使用HTML+CSS+JavaScript构建响应式界面，后端通过Flask处理API请求和业务逻辑，MySQL存储气象历史数据和分析结果，并且引入了机器学习算法（随机森林和支持向量机）优化气象预测准确率。<br>我负责的模块包括：数据采集和数据清理、基于机器学习的气象预测算法、结合历史数据的气象灾害预警模型、ECharts可视化仪表盘（包含温度变化曲线、降水统计图和分布热力图）、系统部署采用Docker容器化技术，通过Nginx实现负载均衡和静态资源分发。</p>
+<h1 id="6-20-帆软大屏开发"><a href="#6-20-帆软大屏开发" class="headerlink" title="6.20 帆软大屏开发"></a>6.20 帆软大屏开发</h1><h2 id="数据表"><a href="#数据表" class="headerlink" title="数据表"></a>数据表</h2><h3 id="ER图"><a href="#ER图" class="headerlink" title="ER图"></a>ER图</h3><img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623140010552.png" class="">
+
+<h3 id="1-气象站点表-dim-weather-station"><a href="#1-气象站点表-dim-weather-station" class="headerlink" title="1. 气象站点表 (dim_weather_station)"></a><strong>1. 气象站点表 (dim_weather_station)</strong></h3><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+<th>键类型</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>station_id</td>
+<td>VARCHAR2(10)</td>
+<td>气象站唯一编码</td>
+<td>主键</td>
+<td>GX001</td>
+</tr>
+<tr>
+<td>station_name</td>
+<td>VARCHAR2(50)</td>
+<td>气象站名称</td>
+<td></td>
+<td>南宁站</td>
+</tr>
+<tr>
+<td>city</td>
+<td>VARCHAR2(20)</td>
+<td>所属城市</td>
+<td></td>
+<td>南宁</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>NUMBER</td>
+<td>纬度坐标</td>
+<td></td>
+<td>22.82</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>NUMBER</td>
+<td>经度坐标</td>
+<td></td>
+<td>108.36</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>作用</strong>：存储气象站点基本信息，作为其他表的外键关联基础。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1. 气象站点维度表 (主维度表)</span></span><br><span class="line"><span class="keyword">CREATE TABLE</span> dim_weather_station (</span><br><span class="line">    station_id     VARCHAR2(<span class="number">10</span>) <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">    station_name   VARCHAR2(<span class="number">50</span>),</span><br><span class="line">    city           VARCHAR2(<span class="number">20</span>),</span><br><span class="line">    latitude       NUMBER,</span><br><span class="line">    longitude      NUMBER</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-实时天气观测表-fact-weather-observation"><a href="#2-实时天气观测表-fact-weather-observation" class="headerlink" title="2. 实时天气观测表 (fact_weather_observation)"></a><strong>2. 实时天气观测表 (fact_weather_observation)</strong></h3><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+<th>键类型</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>observation_id</td>
+<td>NUMBER</td>
+<td>观测记录ID</td>
+<td>主键</td>
+<td>1</td>
+</tr>
+<tr>
+<td>station_id</td>
+<td>VARCHAR2(10)</td>
+<td>气象站ID</td>
+<td>外键</td>
+<td>GX001</td>
+</tr>
+<tr>
+<td>observation_time</td>
+<td>TIMESTAMP</td>
+<td>观测时间</td>
+<td></td>
+<td>2025-06-20 14:00</td>
+</tr>
+<tr>
+<td>temperature</td>
+<td>NUMBER</td>
+<td>温度(℃)</td>
+<td></td>
+<td>28.5</td>
+</tr>
+<tr>
+<td>humidity</td>
+<td>NUMBER</td>
+<td>湿度(%)</td>
+<td></td>
+<td>65</td>
+</tr>
+<tr>
+<td>precipitation</td>
+<td>NUMBER</td>
+<td>降水量(mm)</td>
+<td></td>
+<td>0.0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>作用</strong>：存储实时天气数据，每分钟更新一次。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 2. 实时天气观测表 (主事实表)</span></span><br><span class="line"><span class="keyword">CREATE TABLE</span> fact_weather_observation (</span><br><span class="line">    observation_id   NUMBER <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">    station_id       VARCHAR2(<span class="number">10</span>) <span class="keyword">REFERENCES</span> dim_weather_station(station_id),</span><br><span class="line">    observation_time <span class="type">TIMESTAMP</span>,</span><br><span class="line">    temperature      NUMBER,</span><br><span class="line">    humidity         NUMBER,</span><br><span class="line">    precipitation    NUMBER</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-天气预报表-fact-weather-forecast"><a href="#3-天气预报表-fact-weather-forecast" class="headerlink" title="3. 天气预报表 (fact_weather_forecast)"></a><strong>3. 天气预报表 (fact_weather_forecast)</strong></h3><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+<th>键类型</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>forecast_id</td>
+<td>NUMBER</td>
+<td>预报记录ID</td>
+<td>主键</td>
+<td>1</td>
+</tr>
+<tr>
+<td>station_id</td>
+<td>VARCHAR2(10)</td>
+<td>气象站ID</td>
+<td>外键</td>
+<td>GX001</td>
+</tr>
+<tr>
+<td>forecast_time</td>
+<td>TIMESTAMP</td>
+<td>预报时间点</td>
+<td></td>
+<td>2025-06-21 08:00</td>
+</tr>
+<tr>
+<td>temp_high</td>
+<td>NUMBER</td>
+<td>预测最高温(℃)</td>
+<td></td>
+<td>32</td>
+</tr>
+<tr>
+<td>temp_low</td>
+<td>NUMBER</td>
+<td>预测最低温(℃)</td>
+<td></td>
+<td>25</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>作用</strong>：存储未来天气预报数据。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 3. 天气预报表</span></span><br><span class="line"><span class="keyword">CREATE TABLE</span> fact_weather_forecast (</span><br><span class="line">    forecast_id     NUMBER <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">    station_id      VARCHAR2(<span class="number">10</span>) <span class="keyword">REFERENCES</span> dim_weather_station(station_id),</span><br><span class="line">    forecast_time   <span class="type">TIMESTAMP</span>,</span><br><span class="line">	weather         VARCHAR2(<span class="number">20</span>),</span><br><span class="line">    temp_high       NUMBER,</span><br><span class="line">    temp_low        NUMBER</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-历史天气统计表-fact-historical-summary"><a href="#4-历史天气统计表-fact-historical-summary" class="headerlink" title="4. 历史天气统计表 (fact_historical_summary)"></a><strong>4. 历史天气统计表 (fact_historical_summary)</strong></h3><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+<th>键类型</th>
+<th>关联点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>summary_id</td>
+<td>BIGINT</td>
+<td>主键（自增）</td>
+<td>主键</td>
+<td>3001</td>
+</tr>
+<tr>
+<td>station_id</td>
+<td>VARCHAR(10)</td>
+<td>关联气象站</td>
+<td>外键</td>
+<td>GX001</td>
+</tr>
+<tr>
+<td>date</td>
+<td>DATE</td>
+<td>统计日期</td>
+<td>非空</td>
+<td>2025-06-19</td>
+</tr>
+<tr>
+<td>avg_temp</td>
+<td>DECIMAL(4,1)</td>
+<td>日均温(℃)</td>
+<td></td>
+<td>29.1</td>
+</tr>
+<tr>
+<td>max_temp</td>
+<td>TINYINT</td>
+<td>日最高温(℃)</td>
+<td></td>
+<td>35</td>
+</tr>
+<tr>
+<td>min_temp</td>
+<td>TINYINT</td>
+<td>日最低温(℃)</td>
+<td></td>
+<td>24</td>
+</tr>
+<tr>
+<td>total_rainfall</td>
+<td>DECIMAL(6,1)</td>
+<td>累计降水量(mm)</td>
+<td></td>
+<td>12.5</td>
+</tr>
+<tr>
+<td>rainfall_hours</td>
+<td>NUMBER(3)</td>
+<td>降雨时长(小时)</td>
+<td></td>
+<td>2</td>
+</tr>
+<tr>
+<td>avg_humidity</td>
+<td>NUMBER(3)</td>
+<td>平均湿度(%)</td>
+<td></td>
+<td>60</td>
+</tr>
+<tr>
+<td>min_humidity</td>
+<td>NUMBER(3)</td>
+<td>最小湿度(%)</td>
+<td></td>
+<td>30</td>
+</tr>
+<tr>
+<td>weather_condition</td>
+<td>VARCHAR2(20)</td>
+<td>主要天气状况</td>
+<td></td>
+<td>晴&#x2F;雨&#x2F;多云等</td>
+</tr>
+<tr>
+<td>extreme_weather</td>
+<td>VARCHAR2(50)</td>
+<td>极端天气事件</td>
+<td></td>
+<td>雷暴&#x2F;冰雹&#x2F;大雾等</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>作用</strong>：存储历史天气统计数据，按日汇总。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 4. 历史天气统计表</span></span><br><span class="line"><span class="keyword">CREATE TABLE</span> fact_historical_summary (</span><br><span class="line">    summary_id        NUMBER <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">    station_id        VARCHAR2(<span class="number">10</span>) <span class="keyword">REFERENCES</span> dim_weather_station(station_id),</span><br><span class="line">    summary_date      <span class="type">DATE</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">    <span class="comment">-- 温度指标</span></span><br><span class="line">    avg_temp          NUMBER(<span class="number">4</span>,<span class="number">1</span>),   <span class="comment">-- 日平均温度</span></span><br><span class="line">    max_temp          NUMBER(<span class="number">4</span>,<span class="number">1</span>),   <span class="comment">-- 日最高温度</span></span><br><span class="line">    min_temp          NUMBER(<span class="number">4</span>,<span class="number">1</span>),   <span class="comment">-- 日最低温度</span></span><br><span class="line">    <span class="comment">-- 降水指标</span></span><br><span class="line">    total_rainfall    NUMBER(<span class="number">6</span>,<span class="number">1</span>),   <span class="comment">-- 日总降水量(mm)</span></span><br><span class="line">    rainfall_hours    NUMBER(<span class="number">3</span>),     <span class="comment">-- 降雨时长(小时)</span></span><br><span class="line">    <span class="comment">-- 湿度指标</span></span><br><span class="line">    avg_humidity      NUMBER(<span class="number">3</span>),     <span class="comment">-- 平均湿度(%)</span></span><br><span class="line">    min_humidity      NUMBER(<span class="number">3</span>),     <span class="comment">-- 最小湿度(%)</span></span><br><span class="line">    <span class="comment">-- 天气现象</span></span><br><span class="line">    weather_condition VARCHAR2(<span class="number">20</span>),  <span class="comment">-- 主要天气状况(晴/雨/多云等)</span></span><br><span class="line">    extreme_weather   VARCHAR2(<span class="number">50</span>),  <span class="comment">-- 极端天气事件(雷暴/冰雹/大雾等)</span></span><br><span class="line">    <span class="comment">-- 约束</span></span><br><span class="line">    <span class="keyword">CONSTRAINT</span> uk_hist_unique <span class="keyword">UNIQUE</span> (station_id, summary_date)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-气象灾害预警表-dim-weather-alert"><a href="#5-气象灾害预警表-dim-weather-alert" class="headerlink" title="5. 气象灾害预警表 (dim_weather_alert)"></a><strong>5. 气象灾害预警表 (dim_weather_alert)</strong></h3><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>描述</th>
+<th>键类型</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>alert_id</td>
+<td>VARCHAR2(20)</td>
+<td>预警ID</td>
+<td>主键</td>
+<td>ALERT001</td>
+</tr>
+<tr>
+<td>station_id</td>
+<td>VARCHAR2(10)</td>
+<td>气象站ID</td>
+<td>外键</td>
+<td>GX001</td>
+</tr>
+<tr>
+<td>alert_type</td>
+<td>VARCHAR2(20)</td>
+<td>预警类型</td>
+<td></td>
+<td>暴雨预警</td>
+</tr>
+<tr>
+<td>issue_time</td>
+<td>TIMESTAMP</td>
+<td>发布时间</td>
+<td></td>
+<td>2025-06-20 13:30</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>作用</strong>：存储气象灾害预警信息。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 5. 气象灾害预警表</span></span><br><span class="line"><span class="keyword">CREATE TABLE</span> dim_weather_alert (</span><br><span class="line">    alert_id        VARCHAR2(<span class="number">20</span>) <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">    station_id      VARCHAR2(<span class="number">10</span>) <span class="keyword">REFERENCES</span> dim_weather_station(station_id),</span><br><span class="line">    alert_type      VARCHAR2(<span class="number">20</span>),</span><br><span class="line">    issue_time      <span class="type">TIMESTAMP</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="大屏效果展示"><a href="#大屏效果展示" class="headerlink" title="大屏效果展示"></a>大屏效果展示</h2><img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623143803341.png" class="">
+
+<h3 id="实时天气（左上滚动屏）"><a href="#实时天气（左上滚动屏）" class="headerlink" title="实时天气（左上滚动屏）"></a>实时天气（左上滚动屏）</h3><p><strong>数据库查询语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    s.station_name <span class="keyword">AS</span> &quot;气象站名称&quot;,</span><br><span class="line">    s.city <span class="keyword">AS</span> &quot;所在城市&quot;,</span><br><span class="line">    o.observation_time <span class="keyword">AS</span> &quot;观测时间&quot;,</span><br><span class="line">    o.temperature <span class="keyword">AS</span> &quot;温度(℃)&quot;,</span><br><span class="line">    o.humidity <span class="keyword">AS</span> &quot;湿度(%)&quot;,</span><br><span class="line">    o.precipitation <span class="keyword">AS</span> &quot;降水量(mm)&quot;</span><br><span class="line"><span class="keyword">FROM</span> fact_weather_observation o</span><br><span class="line"><span class="keyword">JOIN</span> dim_weather_station s <span class="keyword">ON</span> o.station_id <span class="operator">=</span> s.station_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> o.observation_time <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>滚动效果</strong>:添加事件（初始化后）写入如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="title function_">_g</span>().<span class="title function_">getWidgetByName</span>(<span class="string">&#x27;实时天气数据&#x27;</span>).<span class="title function_">startMarquee</span>()</span><br><span class="line">&#125;, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="天气预报（右上角滚动屏）"><a href="#天气预报（右上角滚动屏）" class="headerlink" title="天气预报（右上角滚动屏）"></a>天气预报（右上角滚动屏）</h3><p><strong>数据库查询语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    f.forecast_id <span class="keyword">AS</span> &quot;预报ID&quot;,</span><br><span class="line">    s.city <span class="keyword">AS</span> &quot;城市&quot;,</span><br><span class="line">    f.forecast_time <span class="keyword">AS</span> &quot;预报时间&quot;,</span><br><span class="line">    f.weather <span class="keyword">AS</span> &quot;天气&quot;,</span><br><span class="line">    f.temp_high <span class="keyword">AS</span> &quot;最高温度&quot;,</span><br><span class="line">    f.temp_low <span class="keyword">AS</span> &quot;最低温度&quot;</span><br><span class="line"><span class="keyword">FROM</span> fact_weather_forecast f</span><br><span class="line"><span class="keyword">JOIN</span> dim_weather_station s <span class="keyword">ON</span> f.station_id <span class="operator">=</span> s.station_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> f.forecast_time <span class="keyword">ASC</span></span><br></pre></td></tr></table></figure>
+
+<p>气象灾害预警（右下角滚动屏）<br><strong>数据库查询语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    a.alert_id <span class="keyword">AS</span> &quot;预警ID&quot;,</span><br><span class="line">    s.city <span class="keyword">AS</span> &quot;城市&quot;,</span><br><span class="line">    a.alert_type <span class="keyword">AS</span> &quot;预警类型&quot;,</span><br><span class="line">    a.issue_time <span class="keyword">AS</span> &quot;发布时间&quot;</span><br><span class="line"><span class="keyword">FROM</span> dim_weather_alert a</span><br><span class="line"><span class="keyword">JOIN</span> dim_weather_station s <span class="keyword">ON</span> a.station_id <span class="operator">=</span> s.station_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> a.issue_time <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="地图"><a href="#地图" class="headerlink" title="地图"></a>地图</h3><p>设置图表切换属性为按钮，实现点击切换展示降雨量、湿度、温度、气象站点</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623150321708.png" class="">
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623150159539.png" class="">
+<p>地图根据值设置渐变效果</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623151106016.png" class="">
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623150225574.png" class="">
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623145643973.png" class="">
+<p>其中降雨量、湿度、温度使用实时天气数据的查询语句结果，气象站点使用以下查询数据库语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    station_id <span class="keyword">AS</span> &quot;站点ID&quot;,</span><br><span class="line">    station_name <span class="keyword">AS</span> &quot;气象站名称&quot;,</span><br><span class="line">    city <span class="keyword">AS</span> &quot;所属城市&quot;,</span><br><span class="line">    longitude <span class="keyword">AS</span> &quot;经度坐标&quot;,</span><br><span class="line">    latitude <span class="keyword">AS</span> &quot;纬度坐标&quot;,</span><br><span class="line">    longitude <span class="operator">||</span> <span class="string">&#x27;,&#x27;</span> <span class="operator">||</span> latitude <span class="keyword">AS</span> &quot;经纬度坐标&quot;</span><br><span class="line"><span class="keyword">FROM</span> dim_weather_station</span><br></pre></td></tr></table></figure>
+
+<h3 id="左下图表"><a href="#左下图表" class="headerlink" title="左下图表"></a>左下图表</h3><p>图表切换属性为轮播</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623150523402.png" class="">
+<p>自定义鼠标悬浮时的提示，可使用富文本</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623150833046.png" class="">
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623150538880.png" class="">
+
+<h3 id="中下方查询模块"><a href="#中下方查询模块" class="headerlink" title="中下方查询模块"></a>中下方查询模块</h3><p>默认展示某日历史数据，通过设置城市、日期、类型三个参数可查询展示对应数据</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623151331408.png" class="">
+<p>四个类型需分别设置四个表单放置在相同位置，通过类型下拉框选中的值（控件名stype）控制展示哪张表，每张表选中所有单元格并添加条件属性使行高为0（隐藏），条件公式为：$stype!&#x3D;”历史数据” （以历史数据查询结果表为例，当类型下拉控件为选择“历史数据”时，隐藏该表）</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623151611674.png" class="">
+<p>各表使用的数据库查询语句如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 历史数据表单中的数据集</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> fact_historical_summary h</span><br><span class="line"><span class="keyword">JOIN</span> dim_weather_station s <span class="keyword">ON</span> h.station_id <span class="operator">=</span> s.station_id</span><br><span class="line"><span class="keyword">WHERE</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line">$&#123;if(city <span class="operator">=</span><span class="operator">=</span> &quot;&quot;,&quot;&quot;,&quot; AND s.city IN (&#x27;&quot;<span class="operator">+</span>city<span class="operator">+</span>&quot;&#x27;)&quot;)&#125;</span><br><span class="line">$&#123;if(<span class="type">date</span> <span class="operator">=</span><span class="operator">=</span> &quot;&quot;,&quot;&quot;,&quot; AND h.summary_date = TO_DATE(&#x27;&quot;<span class="operator">+</span><span class="type">date</span><span class="operator">+</span>&quot;&#x27;,&#x27;YYYY-MM-DD&#x27;)&quot;)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 天气预报表单中的数据集</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> fact_weather_forecast f</span><br><span class="line"><span class="keyword">JOIN</span> dim_weather_station s <span class="keyword">ON</span> f.station_id <span class="operator">=</span> s.station_id</span><br><span class="line"><span class="keyword">WHERE</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line">$&#123;if(city <span class="operator">=</span><span class="operator">=</span> &quot;&quot;,&quot;&quot;,&quot; AND s.city IN (&#x27;&quot;<span class="operator">+</span>city<span class="operator">+</span>&quot;&#x27;)&quot;)&#125;</span><br><span class="line">$&#123;if(<span class="type">date</span> <span class="operator">=</span><span class="operator">=</span> &quot;&quot;,&quot;&quot;,&quot; AND TRUNC(f.forecast_time) = TO_DATE(&#x27;&quot;<span class="operator">+</span><span class="type">date</span><span class="operator">+</span>&quot;&#x27;,&#x27;YYYY-MM-DD&#x27;)&quot;)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 灾害预警表单中的数据集</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> dim_weather_alert a</span><br><span class="line"><span class="keyword">JOIN</span> dim_weather_station s <span class="keyword">ON</span> a.station_id <span class="operator">=</span> s.station_id</span><br><span class="line"><span class="keyword">WHERE</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line">$&#123;if(city <span class="operator">=</span><span class="operator">=</span> &quot;&quot;,&quot;&quot;,&quot; AND s.city IN (&#x27;&quot;<span class="operator">+</span>city<span class="operator">+</span>&quot;&#x27;)&quot;)&#125;</span><br><span class="line">$&#123;if(<span class="type">date</span> <span class="operator">=</span><span class="operator">=</span> &quot;&quot;,&quot;&quot;,&quot; AND TRUNC(a.issue_time) = TO_DATE(&#x27;&quot;<span class="operator">+</span><span class="type">date</span><span class="operator">+</span>&quot;&#x27;,&#x27;YYYY-MM-DD&#x27;)&quot;)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 气象站点表单中的数据集</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> dim_weather_station</span><br><span class="line"><span class="keyword">WHERE</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line">$&#123;if(city <span class="operator">=</span><span class="operator">=</span> &quot;&quot;,&quot;&quot;,&quot; AND city IN (&#x27;&quot;<span class="operator">+</span>city<span class="operator">+</span>&quot;&#x27;)&quot;)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>${if(city &#x3D;&#x3D; “”,””,” AND city IN (‘“+city+”‘)”)}<br>为确保以上语句生效需要设置城市下拉复选框的返回值分隔符为<code>&#39;,&#39;</code><br>否则可能需要改为${if(city &#x3D;&#x3D; “”,””,” AND s.city IN (‘“+city.replace(“,”,”‘,’”)+”‘)”)}</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623153627697.png" class="">
+
+<p><strong>没有数据提示</strong></p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623152445328.png" class="">
+<p>以历史数据为例，在数据栏下添加一栏合并居中的“没有数据”提示，并添加行高为0的条件属性，条件为：len(A2)!&#x3D;0 （即当A2有数据时，隐藏该提示）</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623152544229.png" class="">
+
+<h3 id="填报按钮"><a href="#填报按钮" class="headerlink" title="填报按钮"></a>填报按钮</h3><p>需要另外创建四个对应类型的填报表单，模板数据集同使用以上查询功能的查询语句<br>点击填报按钮后获取城市、日期、类型的值，并打开对应表单对话框<br>填报按钮的事件代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取当前选择的查询类型</span></span><br><span class="line"><span class="keyword">var</span> selectedType = <span class="variable language_">this</span>.<span class="property">options</span>.<span class="property">form</span>.<span class="title function_">getWidgetByName</span>(<span class="string">&quot;stype&quot;</span>).<span class="title function_">getValue</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 安全获取城市值（兼容单选/多选/空值）</span></span><br><span class="line"><span class="keyword">var</span> cityValue = <span class="variable language_">this</span>.<span class="property">options</span>.<span class="property">form</span>.<span class="title function_">getWidgetByName</span>(<span class="string">&quot;scity&quot;</span>).<span class="title function_">getValue</span>();</span><br><span class="line"><span class="keyword">var</span> cityParam = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理不同类型的返回值</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title class_">Array</span>.<span class="title function_">isArray</span>(cityValue)) &#123;</span><br><span class="line">    cityParam = cityValue.<span class="title function_">join</span>(<span class="string">&quot;,&quot;</span>); </span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cityValue &amp;&amp; <span class="keyword">typeof</span> cityValue === <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">    cityParam = cityValue;</span><br><span class="line">&#125; <span class="comment">// 空值保持为空字符串</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前选择的日期（直接使用字符串值）</span></span><br><span class="line"><span class="keyword">var</span> selectedDate = <span class="variable language_">this</span>.<span class="property">options</span>.<span class="property">form</span>.<span class="title function_">getWidgetByName</span>(<span class="string">&quot;sdate&quot;</span>).<span class="title function_">getValue</span>();</span><br><span class="line"><span class="keyword">var</span> dateParam = selectedDate || <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 确保日期格式正确（去除时间部分）</span></span><br><span class="line"><span class="keyword">if</span> (dateParam &amp;&amp; dateParam.<span class="property">length</span> &gt; <span class="number">10</span>) &#123;</span><br><span class="line">    dateParam = dateParam.<span class="title function_">substring</span>(<span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据查询类型打开对应表单</span></span><br><span class="line"><span class="keyword">var</span> formPath = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> formTitle = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>(selectedType) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;历史数据&quot;</span>:</span><br><span class="line">        formPath = <span class="string">&quot;历史数据填报.cpt&quot;</span>;</span><br><span class="line">        formTitle = <span class="string">&quot;历史数据填报&quot;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;天气预报&quot;</span>:</span><br><span class="line">        formPath = <span class="string">&quot;天气预报填报.cpt&quot;</span>; <span class="comment">// 确保添加了.cpt扩展名</span></span><br><span class="line">        formTitle = <span class="string">&quot;天气预报填报&quot;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;灾害预警&quot;</span>:</span><br><span class="line">        formPath = <span class="string">&quot;灾害预警填报.cpt&quot;</span>;</span><br><span class="line">        formTitle = <span class="string">&quot;灾害预警填报&quot;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;气象站点&quot;</span>:</span><br><span class="line">        formPath = <span class="string">&quot;气象站点填报.cpt&quot;</span>;</span><br><span class="line">        formTitle = <span class="string">&quot;气象站点填报&quot;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">        <span class="variable constant_">FR</span>.<span class="property">Msg</span>.<span class="title function_">alert</span>(<span class="string">&quot;提示&quot;</span>, <span class="string">&quot;请先选择查询类型&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 构建参数对象</span></span><br><span class="line"><span class="keyword">var</span> params = &#123;</span><br><span class="line">    <span class="attr">city</span>: cityParam,</span><br><span class="line">    <span class="attr">date</span>: dateParam</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开表单对话框</span></span><br><span class="line">	<span class="variable constant_">FR</span>.<span class="title function_">doHyperlinkByPost</span>(&#123;</span><br><span class="line">	    <span class="attr">url</span>: <span class="string">&quot;$&#123;servletURL&#125;?reportlet=&quot;</span> + formPath + <span class="string">&quot;&amp;op=write&quot;</span>,</span><br><span class="line">	    <span class="attr">para</span>: params, </span><br><span class="line">	    <span class="attr">target</span>: <span class="string">&quot;_dialog&quot;</span>,</span><br><span class="line">	    <span class="attr">feature</span>: &#123;</span><br><span class="line">	        <span class="attr">title</span>: formTitle,</span><br><span class="line">	        <span class="attr">width</span>: <span class="number">1200</span>,</span><br><span class="line">	        <span class="attr">height</span>: <span class="number">700</span></span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>每个表单需要在 模板-模板参数 中设置两个模板参数（city、date）</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623154347594.png" class="">
+
+<p>各表单设计（同6.17填报设计）</p>
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623160555535.png" class="">
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623160913523.png" class="">
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623160939609.png" class="">
+<img src="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/file-20250623161002164.png" class=""></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/SQL/">SQL</a><a class="post-meta__tags" href="/tags/Oracle/">Oracle</a><a class="post-meta__tags" href="/tags/%E5%B8%86%E8%BD%AF/">帆软</a><a class="post-meta__tags" href="/tags/FineReport/">FineReport</a></div><div class="post-share"><div class="social-share" data-image="/img/lita3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/06/13/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.13%E6%80%BB%E7%BB%93%EF%BC%9AKettle%E3%80%81ETL/" title="6.13总结：Kettle、ETL"><img class="cover" src="/img/lita2.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-13</div><div class="info-item-2">6.13总结：Kettle、ETL</div></div><div class="info-2"><div class="info-item-1">KettleKettle 是⼀款纯 Java 编写的开源 ETL ⼯具。 Kettle 是 PDI （ Pentaho Data Integeration ）的前⾝。表⽰抽取、转换、装⼊和加载数据， 翻译成中⽂是⽔壶的意思，希望把各种数据放到⼀个壶⾥，像⽔⼀样，以⼀种指定的格式流出，表达数据流的含义。 Kettle 共有两类设计模式，转换（ Transformation ）和作业（ Job ）；转换⽤于控制数据处理和流转，作业则⽤于转换集成和流程控制。  ETLETL 的 3 个字⺟分别代表 Extract （抽取）、 Transform （转换）和 Load （装载）。数据抽取：从数据源端的系统中，抽取⽬标端系统需要的数据。数据转换：从数据源端获取的数据按照业务需求，转换成⽬标端要求的数据形式，并对错误、不规范、不⼀致的数据（俗称”脏数据”）进⾏清洗和加⼯。数据装载：将转换后的数据装载到指定数据库或⽂件中。 作业练习1.处理等于 3000 抽取到 emp3000 ，不等于抽取到 empnot3000![[Pasted image 20250613113101.png]]![[P...</div></div></div></a><a class="pagination-related" href="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.16%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AFFineReport/" title="帆软FineReport"><img class="cover" src="/img/lita3.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-16</div><div class="info-item-2">帆软FineReport</div></div><div class="info-2"><div class="info-item-1">帆软 FineReport 是一款由帆软公司自主研发的企业级报表工具，主要用于解决企业内部数据展示、数据分析和报表管理等需求。它提供了直观的拖拽式设计界面，支持多种数据源连接，并能够生成各种复杂格式的报表。以下是其主要特点和功能的概述： 核心功能 多数据源整合 支持连接各类数据库（如 Oracle、MySQL、SQL Server）、Excel 文件、CSV 文件，甚至可以整合不同数据源的数据到同一张报表中。  丰富的报表模板 提供多种预设模板，包括表格报表、图表报表、交叉表、中国式复杂报表等，满足不同场景需求。  强大的计算能力 内置丰富的函数库，支持复杂的公式计算、聚合分析和数据处理，如行列计算、分组统计、同比环比等。  数据可视化 支持多种图表类型（柱状图、折线图、饼图、雷达图等），并提供交互式图表功能，如钻取、联动、参数筛选等。  权限管理与安全 提供细致的权限控制，可按用户、角色、部门分配不同的报表查看、编辑和导出权限，保障数据安全。  定时调度与分发 支持设置定时任务自动生成报表，并通过邮件、短信、FTP 等方式将报表分发给指定人员。  移动端适配 报表可自动适配手机...</div></div></div></a><a class="pagination-related" href="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.18%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E4%BC%81%E4%B8%9A%E5%A4%A7%E5%B1%8F%E5%BC%80%E5%8F%91/" title="帆软企业大屏开发"><img class="cover" src="/img/lita6.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-16</div><div class="info-item-2">帆软企业大屏开发</div></div><div class="info-2"><div class="info-item-1">大屏开发-数据可视化平台新建模板：文件-新建其他模板-新建决策报表-新建空白模板-确定布局方式：模板-PC端自适应属性-布局方式:绝对布局-报表缩放设置:双向自适应-设置方式:为该模板单独设置-字体:不自适应背景设置：组件设置-body-背景设置-自定义-选择图片-拉伸组件样式（背景）设置：属性-样式设置-自定义-主体填充-图片-选择图片-拉伸-不透明度100-外沿样式-内边距0添加数据：内置数据集-表设计:设置表结构（列名，数据类型），插入行:添加数据 添加图表轮播   界面设计   PC端预览   移动端开发-学生成绩设置移动端属性：模板-移动端属性-勾选设置为手机端模板-自适应属性自动匹配-确定 准备数据集 123456789101112131415显示班级 select * from stscore 折线图 select classno,course,avg(grade) from stscore where classno=&#x27;$&#123;班级&#125;&#x27; group by classno,course 列表 select * from stsco...</div></div></div></a><a class="pagination-related" href="/2025/06/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.19%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E6%8A%A5%E8%A1%A8%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E3%80%81Tomcat%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/" title="帆软报表平台管理、Tomcat 服务器部署"><img class="cover" src="/img/lita3.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-18</div><div class="info-item-2">帆软报表平台管理、Tomcat 服务器部署</div></div><div class="info-2"><div class="info-item-1">报表平台管理服务器-报表平台管理-登录，使⽤之前设置的账号密码，如： admin admin 修改 FineReport 数据决策系统平台 logo 和标题提前准备⼀张 logo 图⽚，上传，标题修改完回⻋，即完成  ⽤⼾权限设置新增⼀个⽤⼾，实现⼈员登录决策平台可以看到指定的⽬录，指定的⾸⻚添加首页：目录管理-首页管理-添加首页添加用户：用户管理-所有用户-添加用户（也可添加机构部门和角色（小组）  定时发送邮件在 FineReport 管理系统中创建⼀个名为 “test_schedule” 的定时任务，执⾏的报表 为 “销量表” ，每天早上 9 点执⾏⼀次邮件发送 将 “test_schedule” 定时任务授权 给 “test_user” ⽤⼾组，并设置 “test_user” ⽤⼾组可以查看、编辑、删除定时任务。 配置邮件信息：系统管理-邮箱-添加发件人密码为qq邮箱SMTP服务授权码（QQ邮箱-账号与安全-安全设置-生成授权码）   添加定时调度任务   定时任务授权权限管理-管理系统-选择角色-定时调度-解锁  把周杰伦选择到新建的 test_user ⻆⾊⾥⾯ 左上...</div></div></div></a><a class="pagination-related" href="/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5SQL/4.28%E6%80%BB%E7%BB%93%EF%BC%9A%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83%E3%80%81sql%E5%9F%BA%E7%A1%80/" title="4.28总结：安装环境、sql基础"><img class="cover" src="/img/lita6.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-07</div><div class="info-item-2">4.28总结：安装环境、sql基础</div></div><div class="info-2"><div class="info-item-1">安装环境PLSQL Developer 又称 sqlpuls用户名：scott密码：oracle 虚拟机环境：打开虚拟机Windows7 x64.vmx运行（win+r） cmd 输入 ipconfig 查看本机IP（IPv4）：192.168.48.128开始菜单 Net Manager 修改 本地-服务器命名-orcl 和 监听程序- LISTENER 的 主机名 为本机IP （192.168.48.128）进入 C:\oraclient\client64\bin\network\admin 以及 C:\oraclient\client64\network\admin 修改 listener.ora 和 tnsnames.ora 的 HOST（127.0.0.1）为本机IP 本机环境：安装sqlplus及汉化包帮助-注册-输入许可证信息将 instantclient_21_3 解压到D盘根目录进入 D:\instantclient_21_3\network\admin 修改 tnsnames.ora 的 HOST 为 虚拟机本机IP（192.168.48.128）添加环境变量...</div></div></div></a><a class="pagination-related" href="/2025/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5SQL/4.29%E6%80%BB%E7%BB%93%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E5%BB%BA%E8%A1%A8/" title="4.29总结：数据类型、建表"><img class="cover" src="/img/lita2.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-07</div><div class="info-item-2">4.29总结：数据类型、建表</div></div><div class="info-2"><div class="info-item-1">数据类型![[Pasted image 20250428191815.png]] 字符类型char：用于存储 固定长度 的字符串。最大长度为2000个字节。varchar2：用于存储字符串数据。会根据实际数据的长度自动调整，因此在大多数情况下都会使用varchar2类型。最大长度是4000个字节。中文（包括符号）占两个字节，英文占一个 12select length(&#x27;字符串a，&#x27;) from dual --结果5（不区分中文）select lengthb(&#x27;字符串a，&#x27;) from dual --结果9（区分中文）  **数值类型 **number：具有精度和范围两个参数。精度指定所有数字位的个数，范围指定小数的位数。 如number（7,2）总位数7位，其中2位是小数，小数点前有5位整数，小数位数不能超过总位数。字符类型原理上不能用于运算，因此需要运算的数据需要使用number类型 **日期时间类型 **date：可以存储日期和时间的组合数据。结合oracle提供的日期时间函数便地处理数据。日期可直接加减，不能乘除，加的是日期 1sel...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tetuka</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/H-Sanae/H-Sanae.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1466753498@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#6-11-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="toc-text">6.11 项目介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-20-%E5%B8%86%E8%BD%AF%E5%A4%A7%E5%B1%8F%E5%BC%80%E5%8F%91"><span class="toc-text">6.20 帆软大屏开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-text">数据表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ER%E5%9B%BE"><span class="toc-text">ER图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B0%94%E8%B1%A1%E7%AB%99%E7%82%B9%E8%A1%A8-dim-weather-station"><span class="toc-text">1. 气象站点表 (dim_weather_station)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%9E%E6%97%B6%E5%A4%A9%E6%B0%94%E8%A7%82%E6%B5%8B%E8%A1%A8-fact-weather-observation"><span class="toc-text">2. 实时天气观测表 (fact_weather_observation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%E8%A1%A8-fact-weather-forecast"><span class="toc-text">3. 天气预报表 (fact_weather_forecast)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8E%86%E5%8F%B2%E5%A4%A9%E6%B0%94%E7%BB%9F%E8%AE%A1%E8%A1%A8-fact-historical-summary"><span class="toc-text">4. 历史天气统计表 (fact_historical_summary)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B0%94%E8%B1%A1%E7%81%BE%E5%AE%B3%E9%A2%84%E8%AD%A6%E8%A1%A8-dim-weather-alert"><span class="toc-text">5. 气象灾害预警表 (dim_weather_alert)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%B1%8F%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-text">大屏效果展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E5%A4%A9%E6%B0%94%EF%BC%88%E5%B7%A6%E4%B8%8A%E6%BB%9A%E5%8A%A8%E5%B1%8F%EF%BC%89"><span class="toc-text">实时天气（左上滚动屏）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5%EF%BC%88%E5%8F%B3%E4%B8%8A%E8%A7%92%E6%BB%9A%E5%8A%A8%E5%B1%8F%EF%BC%89"><span class="toc-text">天气预报（右上角滚动屏）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9B%BE"><span class="toc-text">地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A6%E4%B8%8B%E5%9B%BE%E8%A1%A8"><span class="toc-text">左下图表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E4%B8%8B%E6%96%B9%E6%9F%A5%E8%AF%A2%E6%A8%A1%E5%9D%97"><span class="toc-text">中下方查询模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A1%AB%E6%8A%A5%E6%8C%89%E9%92%AE"><span class="toc-text">填报按钮</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/" title="6.20 智慧天气数据分析系统"><img src="/img/lita3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="6.20 智慧天气数据分析系统"/></a><div class="content"><a class="title" href="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.20%20%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/" title="6.20 智慧天气数据分析系统">6.20 智慧天气数据分析系统</a><time datetime="2025-06-23T08:10:03.214Z" title="Updated 2025-06-23 16:10:03">2025-06-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.16%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AFFineReport/" title="帆软FineReport"><img src="/img/lita3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="帆软FineReport"/></a><div class="content"><a class="title" href="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.16%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AFFineReport/" title="帆软FineReport">帆软FineReport</a><time datetime="2025-06-21T09:02:16.364Z" title="Updated 2025-06-21 17:02:16">2025-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.19%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E6%8A%A5%E8%A1%A8%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E3%80%81Tomcat%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/" title="帆软报表平台管理、Tomcat 服务器部署"><img src="/img/lita3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="帆软报表平台管理、Tomcat 服务器部署"/></a><div class="content"><a class="title" href="/2025/06/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.19%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E6%8A%A5%E8%A1%A8%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E3%80%81Tomcat%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/" title="帆软报表平台管理、Tomcat 服务器部署">帆软报表平台管理、Tomcat 服务器部署</a><time datetime="2025-06-19T14:32:42.117Z" title="Updated 2025-06-19 22:32:42">2025-06-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/lita3.png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Tetuka</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.0-b2</a></span></div><div class="footer_custom_text">感谢阅读</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="输入以搜索内容..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
