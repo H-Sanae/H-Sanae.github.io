@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Tetuka的个人笔记 | Tetuka的个人笔记</title><meta name="author" content="Tetuka"><meta name="copyright" content="Tetuka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="银行项目问答1银行主要的经营业务有哪些? 源系统有哪些?举几例 答:存款，信贷，电子银行，中间业务，理财业务，支付结算，银行卡，综合经营分析，风险分析。核心系统，信贷系统，中间业务，网银系统，卡前置系统  2说明哈尔滨银行项目的硬件配置 答:数据库服务器（IBM P720）：性能：4 核 CPU、32GB 内存，搭配双 300GB 硬盘 ，双口千兆网卡与 2 块 HBA 卡（适配存储网络），适合承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tetuka的个人笔记">
+<meta property="og:url" content="https://h-sanae.github.io/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/07-07-1/index.html">
+<meta property="og:site_name" content="Tetuka的个人笔记">
+<meta property="og:description" content="银行项目问答1银行主要的经营业务有哪些? 源系统有哪些?举几例 答:存款，信贷，电子银行，中间业务，理财业务，支付结算，银行卡，综合经营分析，风险分析。核心系统，信贷系统，中间业务，网银系统，卡前置系统  2说明哈尔滨银行项目的硬件配置 答:数据库服务器（IBM P720）：性能：4 核 CPU、32GB 内存，搭配双 300GB 硬盘 ，双口千兆网卡与 2 块 HBA 卡（适配存储网络），适合承">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://h-sanae.github.io/img/lita5.jpg">
+<meta property="article:published_time" content="2025-07-07T13:09:28.115Z">
+<meta property="article:modified_time" content="2025-07-07T13:06:53.978Z">
+<meta property="article:author" content="Tetuka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://h-sanae.github.io/img/lita5.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "url": "https://h-sanae.github.io/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/07-07-1/",
+  "image": "https://h-sanae.github.io/img/lita5.jpg",
+  "datePublished": "2025-07-07T13:09:28.115Z",
+  "dateModified": "2025-07-07T13:06:53.978Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tetuka",
+      "url": "https://h-sanae.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/dbb.png"><link rel="canonical" href="https://h-sanae.github.io/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/07-07-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Tetuka的个人笔记',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> 上不上AI评分系统</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/lita5.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/dbb.png" alt="Logo"><span class="site-name">Tetuka的个人笔记</span></a><a class="nav-page-title" href="/"><span class="site-name">Tetuka的个人笔记</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> 上不上AI评分系统</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无标题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-07T13:09:28.115Z" title="发表于 2025-07-07 21:09:28">2025-07-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-07T13:06:53.978Z" title="更新于 2025-07-07 21:06:53">2025-07-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="银行项目问答"><a href="#银行项目问答" class="headerlink" title="银行项目问答"></a>银行项目问答</h1><h2 id="1银行主要的经营业务有哪些-源系统有哪些-举几例"><a href="#1银行主要的经营业务有哪些-源系统有哪些-举几例" class="headerlink" title="1银行主要的经营业务有哪些? 源系统有哪些?举几例"></a>1银行主要的经营业务有哪些? 源系统有哪些?举几例</h2><blockquote>
+<p>答:存款，信贷，电子银行，中间业务，理财业务，支付结算，银行卡，综合经营分析，风险分析。核心系统，信贷系统，中间业务，网银系统，卡前置系统</p>
+</blockquote>
+<h2 id="2说明哈尔滨银行项目的硬件配置"><a href="#2说明哈尔滨银行项目的硬件配置" class="headerlink" title="2说明哈尔滨银行项目的硬件配置"></a>2说明哈尔滨银行项目的硬件配置</h2><blockquote>
+<p>答:数据库服务器（IBM P720）：性能：4 核 CPU、32GB 内存，搭配双 300GB 硬盘 ，双口千兆网卡与 2 块 HBA 卡（适配存储网络），适合承载银行核心交易数据，保障高并发下数据读写、事务处理稳定<br>应用服务器（HP DL380）：性能：4 核 CPU、128GB 内存（内存大，适配应用程序多线程、高负载），双 600GB 硬盘 ，侧重应用逻辑处理（如业务系统交易流程、用户交互响应）。<br>数据库 &#x2F; 应用服务器（虚拟机）：性能：2 核 CPU、8GB 内存、300GB 硬盘，配置精简，满足开发调试（代码编译、功能测试）、测试验证（模拟用户流程、功能冒烟测试 ）基础需求。</p>
+</blockquote>
+<h2 id="3介绍哈尔滨银行项目各个项目阶段以及项目周期内主要工作"><a href="#3介绍哈尔滨银行项目各个项目阶段以及项目周期内主要工作" class="headerlink" title="3介绍哈尔滨银行项目各个项目阶段以及项目周期内主要工作"></a>3介绍哈尔滨银行项目各个项目阶段以及项目周期内主要工作</h2><blockquote>
+<p>答:第一阶段：2014 年 8 月 21 日 —2015 年 5 月 31 日（含上线后维护）项目准备阶段<br>第一阶段项目阶段及主要工作<br>项目准备阶段<br>2014 年 8 月 21 日 —2014 年 8 月 31 日<br>甲方提供办公环境（工位、设备等），乙方确认项目团队人员及资质；<br>明确双方合作原则、沟通机制及制度规范；<br>提交《开发、测试环境软 &#x2F; 硬件规划及安装配置操作手册》《生产环境软 &#x2F; 硬件规划及安装配置操作手册》。<br>需求分析阶段<br>2014 年 8 月 25 日 —2014 年 11 月 14 日<br>乙方对甲方业务需求进行调研，覆盖数据源接入（核心、老信贷等 10 个系统共 350 张表）、报表需求（143 张报表）等；<br>输出《需求分析说明书》《源系统表清单》《建表和配置文件》；<br>业务规则经甲方确认后，作为后续开发依据。<br>设计阶段<br>2014 年 10 月 8 日 —2014 年 11 月 30 日<br>完成整体架构设计，包括缓冲层（SDM）、贴源层（ODM）、基础层（FDM）、汇总层（MDM）、报表层（RDM）的模型设计；<br>输出《架构设计说明书》《ETL 概要设计》《前端概要设计》。<br>开发阶段<br>2014 年 10 月 27 日 —2015 年 1 月 11 日<br>搭建调度平台（USE）、分发平台（FEX）、报表平台（RIDP）及报表工具（MSTR）环境；<br>开发 ETL 程序（数据抽取、转换、加载）、报表及数据服务（反抽、增量数据分发）；<br>输出《ETL 详细设计》《前端详细设计》《前端开发规范》《数据补录平台详细设计》及源代码。<br>测试阶段<br>2015 年 1 月 5 日 —2015 年 3 月 8 日<br>乙方执行单元测试，编写《单元测试方案及案例》《单元测试记录单》《单元测试报告》；<br>甲乙双方共同进行集成测试，输出《集成测试方案及案例》《集成测试记录单》《集成测试报告》；<br>甲方组织用户验收测试（UAT），验证功能及性能是否符合需求。<br>上线阶段<br>2015 年 3 月 9 日 —2015 年 3 月 20 日<br>制定《上线部署方案》，完成新数据平台的生产环境部署；<br>切换下游系统至新平台，停止老平台功能，实现老平台平稳下线；<br>输出《上线报告》。<br>现场维护阶段<br>2015 年 3 月 23 日 —2015 年 4 月 30 日<br>乙方安排 2 人提供 1.5 人月现场支持，解决上线后出现的问题，保障系统稳定运行。<br> 第二阶段项目阶段及主要工作<br>需求分析阶段<br>随项目启动开展<br>针对新信贷系统（不超过 130 张表）进行数据调研，明确新增或改造需求；<br>输出《需求分析说明书》《源系统表清单》《建表和配置文件》。<br>设计阶段<br>需求分析后开展<br>扩展整体架构模型，在汇总层（MDM）和报表层（RDM）增加新信贷系统相关内容；<br>输出《ETL 概要设计》（含新模型设计）。<br>开发阶段<br>设计完成后开展<br>修改汇总层、报表层 ETL 程序，开发 63 张改造后的信贷类报表；<br>开发新信贷系统的数据反抽及分发程序（支持稽核、反洗钱等下游系统）；<br>输出《ETL 详细设计》《前端详细设计》及源代码。<br>测试阶段<br>开发完成后开展<br>执行单元测试和集成测试，验证新功能及改造内容；<br>输出《单元测试报告》《集成测试报告》。<br>上线阶段<br>2015 年 8 月 31 日前完成<br>与新信贷系统同步上线，切换相关数据服务至新平台；<br>输出《上线部署方案》《上线报告》。<br>现场维护阶段<br>2015 年 9 月 1 日 —2015 年 9 月 30 日<br>乙方安排 2 人提供 1.5 人月现场支持，确保系统稳定运行。</p>
+</blockquote>
+<h2 id="4在需求调研阶段主要的工作内容有哪些，调研流程是什么"><a href="#4在需求调研阶段主要的工作内容有哪些，调研流程是什么" class="headerlink" title="4在需求调研阶段主要的工作内容有哪些，调研流程是什么"></a>4在需求调研阶段主要的工作内容有哪些，调研流程是什么</h2><blockquote>
+<p>答:<br>一、需求调研阶段的主要工作内容<br>根据《哈尔滨银行村镇银行 - 数据平台项目 - 工作范围说明书》，需求调研阶段是项目核心环节，主要工作围绕数据源接入、报表需求及业务规则确认展开，具体如下：<br>数据源接入调研<br>明确需接入的业务系统及对应数据表，第一阶段涉及核心系统（214 张表）、老信贷系统（46 张表）、农贷系统（17 张表）、二代支付系统（7 张表）、网银系统（30 张表）等 10 个系统，合计 350 张表；第二阶段新增新信贷系统（不超过 130 张表）。<br>收集各系统的表结构、数据字段含义、数据流转规则及现有数据质量问题，形成《源系统表清单》。<br>报表需求调研<br>梳理各业务部门的报表需求，第一阶段需开发 143 张报表（覆盖卡部、电子银行、计财、运营、风险等部门），第二阶段需改造 63 张信贷类报表，最终总报表数量约定为 200 张（可浮动 10%）。<br>明确每张报表的指标定义、统计维度、展示格式、数据来源及更新频率（如日报、月报），例如 “村镇银行 KPI 考核得分总表” 需明确考核指标的计算逻辑，“不良贷款分期管理汇总表” 需确认不良贷款的分类标准。<br>业务规则确认<br>与业务人员沟通确认数据计算规则（如存款计划完成率、不良贷款率的公式）、数据校验规则（如字段非空约束、数值范围）及特殊业务场景（如无业务发生的指标处理方式）。<br>对确认后的业务规则形成书面文档，由业务人员签字确认，作为后续开发的依据。<br>输出调研成果<br>编制《需求分析说明书》，汇总数据源信息、报表需求及业务规则；<br>生成《建表和配置文件》，明确数据平台所需数据表的结构设计。<br>二、需求调研阶段的流程<br>启动调研<br>乙方（宇信易诚）组建调研团队，明确调研范围（含系统、部门、报表类型），甲方协调业务部门配合，提供必要的业务资料（如现有报表样例、业务手册）。<br>需求收集<br>乙方通过访谈、问卷、研讨会等方式，与卡部、计财、风险、运营等部门的业务人员沟通，记录原始需求（如 “电子渠道交易占比分析” 需明确 “电子渠道” 包含的范围）。<br>收集现有系统的数据源信息，包括表结构、数据字典、历史数据样本等，核实数据可用性。<br>需求分析与梳理<br>乙方对收集的需求进行整理，剔除重复或不合理需求，明确需求优先级；<br>分析需求的可行性（如技术实现难度、数据支持能力），对无法满足的需求与甲方协商解决方案（如按空报表处理）。<br>业务规则确认<br>乙方将梳理后的需求及业务规则形成文档，提交甲方业务人员审核；<br>针对审核中提出的修改意见，双方协商调整并重新确认，直至业务人员签字认可。<br>成果交付与评审<br>乙方提交《需求分析说明书》《源系统表清单》《建表和配置文件》等文档，甲方组织相关部门（如 IT 部、业务部门）进行评审；<br>评审通过后，文档作为下一阶段（设计阶段）的输入依据；若需修改，按项目变更流程处理。</p>
+</blockquote>
+<h2 id="5数据缓冲层的作用-增量剥离操作的流程"><a href="#5数据缓冲层的作用-增量剥离操作的流程" class="headerlink" title="5数据缓冲层的作用,增量剥离操作的流程"></a>5数据缓冲层的作用,增量剥离操作的流程</h2><blockquote>
+<p>答:一、数据缓冲层（SDM）的作用<br>根据《哈尔滨银行村镇银行数据平台 - 总体设计说明书》，数据缓冲层（SDM）是数据平台逻辑架构中的首个数据处理环节，其核心作用是实现源系统数据的初步接收、暂存与增量剥离，为后续数据流转至贴源层（ODM）及其他层级提供基础支撑，具体功能如下：<br>源数据暂存：接收从各业务系统（如核心系统 CBS、信贷系统 CLM 等）采集的全量数据（以文本文件形式存储），作为数据进入平台后的临时存储区域，避免直接操作源系统对业务运行造成性能影响。<br>增量数据识别：通过对比当日采集的全量数据与历史存储数据，分离出新增或变更的增量数据，为后续 ETL 加工提供精准的数据源，减少无效数据处理，提升平台效率。<br>数据质量预处理：对采集的数据进行基础校验（如格式校验、完整性检查），过滤明显错误数据，为下游层级（如 ODM、FDM）的数据整合和转换奠定质量基础。<br>二、增量剥离操作的流程<br>增量剥离是数据缓冲层（SDM）的核心功能，结合文档中 ETL 加工流程描述，具体操作步骤如下：<br>源数据采集<br>从各业务系统（核心系统、老信贷系统、农贷系统等）抽取全量数据，以文本文件形式存储至 SDM 的指定目录。例如，核心系统每日生成包含账户、交易信息的全量数据文件，通过文件传输工具推送至 SDM。<br>历史数据比对<br>SDM 调用比对程序，将当日采集的全量数据与前一日存储在 SDM 中的历史全量数据进行字段级比对（如账户状态、交易金额、客户信息等）。<br>比对依据包括唯一标识（如账户 ID、交易流水号）和关键业务字段（如余额、状态码），识别出 “新增记录”（历史无此记录）和 “变更记录”（关键字段值发生变化）。<br>增量数据提取<br>从当日全量数据中剥离出上述识别的新增记录和变更记录，形成当日增量数据文件，单独存储在 SDM 的增量数据区域。<br>对于无变化的历史数据，仅保留历史存储版本，不纳入当日增量。<br>增量数据推送<br>通过调度平台（USE）触发推送任务，将 SDM 中的增量数据文件加载至贴源层（ODM），作为 ODM 更新 “当前最新数据” 的依据。<br>同时，SDM 保留当日全量数据作为次日比对的历史基准，形成循环迭代机制。</p>
+</blockquote>
+<h2 id="6实施工作主要内容有哪些"><a href="#6实施工作主要内容有哪些" class="headerlink" title="6实施工作主要内容有哪些"></a>6实施工作主要内容有哪些</h2><blockquote>
+<p>答:根据《哈尔滨银行村镇银行数据平台 - 总体设计说明书 - V1.0.docx》，数据平台项目的实施工作主要围绕系统环境搭建、数据处理流程建设、平台功能实现及配套保障措施展开，具体内容如下：<br>一、运行环境搭建<br>硬件环境部署<br>按设计配置安装服务器设备，包括：<br>ETL 服务器（IBM 720，CPU 4C、内存 16G、存储 300GB），用于数据抽取、转换和加载处理；<br>WEB 服务器（HP 380，CPU 4C、内存 16G、存储 300GB），支撑报表平台和前端应用；<br>开发测试环境服务器（虚拟化服务器，CPU 4C、内存 8G&#x2F;12G、存储 300GB），用于开发调试和测试验证。<br>软件环境配置<br>安装操作系统：ETL 服务器部署 AIX 7.x，应用服务器部署 RedHat Enterprise Linux 6.x；<br>部署数据库：在 AIX 系统上安装 Oracle 11g，作为 ODS 及数据平台各层级（SDM、ODM、FDM、MDM）的数据存储载体；<br>配置工具平台：安装调度平台（USEv2）、分发平台（FEX）、应用服务器（WebSphere 7.x）、报表工具（MSTR 9.3.1）及报表平台（RIDP），搭建完整的 ETL 和报表开发环境。<br>二、数据处理流程建设<br>数据采集与 ETL 加工<br>ETL1 阶段：从源系统（核心系统 CBS、信贷系统 CLM、农贷系统 FLM 等）采集全量数据，以文本文件形式存储至数据缓冲层（SDM）；对数据进行基础质量处理（如格式修正），并通过全量比对实现增量剥离，生成当日增量数据。<br>ETL2 阶段：读取贴源层（ODM）的每日增量数据，执行数据合并（整合不同源系统表信息）、转换（如码值标准化）、拉链处理（记录账户、借据等数据的历史状态及生效 &#x2F; 结束时间）、反抽（提取增量数据至文件接口区）及汇总（按分析需求聚合多粒度数据），加载至基础层（FDM）。<br>ETL3 阶段：基于基础层数据，按业务主题（如客户、产品、交易）汇总至汇总层（MDM），支撑报表分析。<br>数据存储与管理<br>按层级设计存储策略：<br>ODM（贴源层）：保留客户、产品等最新数据（不存历史），交易类数据保留 13 个月（超期归档 1 年）；<br>FDM（基础层）、MDM（汇总层）：永久保留客户、账户等历史数据（通过拉链记录），交易类及汇总数据保留 7 年（超期归档 3 年）；<br>数据分发平台：反抽的增量数据保留 7 天（超期归档，30 天物理删除）。<br>三、平台功能实现<br>核心功能模块部署<br>调度与监控：通过 USE 调度平台实现 ETL 作业的定时执行、顺序控制及状态监控；通过统一监控工具跟踪服务器（AIX）、数据库（Oracle）、ETL 接口的运行状态（如 CPU 使用率、表空间、作业成功率）。<br>报表开发与展示：基于 RIDP 报表平台和 MSTR 工具开发报表，支持管理层、决策层的 T+1 明细查询及综合分析（如经营指标、风险监控），解决原平台报表准确性和性能问题。<br>数据分发与共享：通过 FEX 分发平台将反抽的增量数据推送至下游系统（如反洗钱系统、1104 监管报送系统），实现数据共享。<br>接口开发<br>实现与源系统的数据采集接口（以文本文件形式接收数据），及向下游系统的数据服务接口（推送增量数据文件）。<br>四、配套保障措施<br>备份与恢复<br>数据库采用 “每日增量 + 每周全量” 备份（保留 1 个月），工具资料库和系统文件每周全量备份（保留 1 个月）；制定故障恢复策略（如白天故障恢复最近全量备份，ETL 过程中故障需重做 ETL）。<br>安全设计<br>网络隔离：通过防火墙隔离生产网与办公网，限制跨网访问；<br>访问控制：报表服务器与业务系统通过固定 IP 和端口通信，仅允许指定服务器访问；<br>日志审计：记录数据访问痕迹及系统操作日志（如 AIX 的 syslogd.log、Oracle 的 alert.log），支持安全追溯。<br>系统监控<br>监控对象包括 AIX 服务器（CPU、内存、进程等）、Oracle 数据库（日志、表空间、死锁等）、ETL 接口（与源系统的连接状态），确保平台稳定运行。</p>
+</blockquote>
+<h2 id="10简单描述哈尔滨银行业务源系统抽取流程"><a href="#10简单描述哈尔滨银行业务源系统抽取流程" class="headerlink" title="10简单描述哈尔滨银行业务源系统抽取流程"></a>10简单描述哈尔滨银行业务源系统抽取流程</h2><blockquote>
+<p>答:哈尔滨银行业务源系统数据抽取流程如下：<br>各业务系统（如核心系统 CBS、信贷系统 CLM、农贷系统 FLM 等）的数据以文本文件形式被采集到数据平台。<br>数据缓冲层（SDM）接收这些文本文件形式的源系统全量数据并暂存。<br>在 ETL1 阶段，对 SDM 中的数据进行加工，通过将源系统全量数据与 ODS 全量数据比对，实现增量剥离，找出变化和新产生的数据，随后加载到 ODS 数据库。</p>
+</blockquote>
+<h2 id="11说明哈尔滨银行项目数仓分层以及各层功能-该项目主题有哪些"><a href="#11说明哈尔滨银行项目数仓分层以及各层功能-该项目主题有哪些" class="headerlink" title="11说明哈尔滨银行项目数仓分层以及各层功能,该项目主题有哪些?"></a>11说明哈尔滨银行项目数仓分层以及各层功能,该项目主题有哪些?</h2><blockquote>
+<p>答:一、哈尔滨银行数据平台数仓分层及各层功能<br>根据《哈尔滨银行村镇银行数据平台 - 总体设计说明书 - V1.0.docx》，数据平台的数仓分为数据缓冲层（SDM）、贴源层（ODM）、基础层（FDM）、汇总层（MDM） 四个层级，各层功能如下：<br>数据缓冲层（SDM）<br>核心功能：接收从各业务源系统（如核心系统 CBS、信贷系统 CLM 等）采集的全量数据（以文本文件形式存储），实现数据的初步暂存与增量剥离。<br>具体操作：通过对比当日全量数据与历史数据，识别新增或变更的增量数据，为后续贴源层（ODM）提供精准的数据源，同时对数据进行基础质量校验（如格式过滤），减少下游处理压力。<br>贴源层（ODM，操作型数据存储）<br>核心功能：存储贴近业务源系统的明细数据，支持业务人员对 T+1 明细数据的查询需求。<br>数据特点：<br>保留客户、产品、账户等最新数据（不存储历史状态）；<br>交易类数据保留 13 个月（超期数据归档，归档数据保留 1 年）；<br>作为 ETL2 阶段的数据源，向基础层（FDM）提供每日增量数据。<br>基础层（FDM）<br>核心功能：对贴源层数据进行整合、转换和历史保留，构建标准化的基础数据模型。<br>具体操作：<br>数据合并：整合源系统不同表的信息（如将客户基本信息与账户信息合并）；<br>数据转换：按平台模型进行码值标准化（如统一状态码定义）；<br>数据拉链：记录账户、借据等数据的历史状态（含生效时间和结束时间），实现历史数据追溯；<br>数据保留：永久存储客户、账户等核心数据的历史信息，交易类数据保留 7 年（超期归档 3 年）。<br>汇总层（MDM）<br>核心功能：基于基础层数据，按业务主题进行多粒度汇总，支撑报表分析和决策需求。<br>具体操作：根据应用场景（如经营分析、风险监控）对数据进行汇总计算（如按区域、时间维度聚合交易数据），为报表层提供直接数据源；数据保留策略与基础层一致（汇总类数据保留 7 年，超期归档 3 年）。<br>二、项目涉及的业务主题<br>根据数仓设计目标及数据加工逻辑，项目覆盖的业务主题主要包括：<br>客户主题：围绕客户信息（基本信息、账户关联、业务办理记录等）构建，支持客户画像、客户分层分析。<br>账户主题：涵盖各类账户（存款账户、贷款账户等）的基本信息、状态变化及交易记录，通过数据拉链保留账户全生命周期历史。<br>交易主题：整合核心系统、网银系统等的交易数据（如存取款、转账、消费等），支持交易趋势、渠道占比等分析。<br>信贷主题：基于信贷系统（含老信贷、新信贷系统）数据，包含借据信息、还款记录、不良贷款分类等，支撑信贷风险监控和考核分析。<br>产品主题：覆盖银行各类产品（存款、贷款、中间业务产品等）的信息及销售数据，支持产品业绩分析。<br>渠道主题：整合网银、柜面、ATM 等渠道的交易数据，分析各渠道业务量及贡献度。</p>
+</blockquote>
+<h2 id="12哈尔滨银行项目抽取报表数量-数据量大小-数据存储周期"><a href="#12哈尔滨银行项目抽取报表数量-数据量大小-数据存储周期" class="headerlink" title="12哈尔滨银行项目抽取报表数量,数据量大小,数据存储周期"></a>12哈尔滨银行项目抽取报表数量,数据量大小,数据存储周期</h2><blockquote>
+<p>答:根据《哈尔滨银行村镇银行数据平台 - 总体设计说明书 - V1.0.docx》，相关信息如下：<br>一、抽取报表数量<br>文档中未直接提及项目抽取的具体报表数量，仅明确项目目标包括 “解决村镇银行用户对新增报表的需求”“替换老数据平台所有功能，老平台存量报表功能由新平台提供”，且需支撑监管报送、行内管理报表及下游系统数据服务。<br>二、数据量大小<br>月增量数据量：每月增量数据大约在 10G 左右。<br>总存储空间规划：<br>数据库表空间：200GB（含贴源层、基础层月增量 3G，汇总层、集市层月增量 9G）；<br>数据文件存储空间：100GB（含落地数据文件、反抽数据文件，保留周期 7 天）；<br>合计：300GB。<br>三、数据存储周期<br>贴源层（ODM）：<br>源系统数据文件保留 7 天；<br>客户、产品、账户等数据保留最新信息（不保留历史）；<br>交易类数据保留 13 个月，13 个月前数据归档，归档数据保留 1 年。<br>基础层（FDM）、汇总层（MDM）：<br>客户、产品、账户等数据永久保留（含历史信息）；<br>交易类数据、汇总类数据保留 7 年，7 年以前数据归档，归档数据保留 3 年。<br>数据分发平台：<br>反抽的增量数据保留 7 天；<br>7 天前数据归档，30 天前数据做物理删除。</p>
+</blockquote>
+<h2 id="13索引在什么情况下会失效-如何确认慢sql所在位置-以及定位后如何优化-举例说明"><a href="#13索引在什么情况下会失效-如何确认慢sql所在位置-以及定位后如何优化-举例说明" class="headerlink" title="13索引在什么情况下会失效?如何确认慢sql所在位置,以及定位后如何优化?举例说明"></a>13索引在什么情况下会失效?如何确认慢sql所在位置,以及定位后如何优化?举例说明</h2><blockquote>
+<p>答:一、索引失效的常见情况及项目场景举例<br>结合哈尔滨银行数据平台项目使用的 Oracle 11g 数据库及业务场景（如信贷数据查询、报表生成），索引失效主要有以下情况，均与项目中实际数据处理需求相关：<br>索引列被函数或表达式操作<br>当 SQL 对索引列使用函数（如to_char、substr）或数学运算时，索引无法被数据库识别，导致全表扫描。<br>项目举例：<br>信贷系统（CLM）的贷款表FDM_CLM_LOAN中，due_date（到期日）列建有索引，用于 “贷款到期提示查询表”（怀柔部门需求）。若查询语句为：<br>sql<br>select loan_id, cust_name from FDM_CLM_LOAN<br>where to_char(due_date, ‘yyyy-mm’) &#x3D; ‘2024-06’; – 用函数处理索引列<br>因to_char操作了due_date，索引失效，系统需扫描全表（约 5 万条贷款记录），导致报表生成延迟至分钟级。<br>使用like ‘%前缀’模糊查询<br>当like查询以%开头时，索引无法匹配前缀字符，失去作用。<br>项目举例：<br>核心业务系统（CBS）的企业客户表FDM_CBS_CORP中，corp_name（企业名称）列建有索引，用于 “对公存款前十户明细查询”（运营部门需求）。若查询语句为：<br>sql<br>select corp_id, deposit_amount from FDM_CBS_CORP<br>where corp_name like ‘%农业%’; – %在开头<br>因%前缀导致corp_name索引失效，系统全表扫描 10 万条企业记录，查询耗时从秒级增至 10 秒以上。<br>索引列使用!&#x3D;、not in等否定操作符<br>否定逻辑会使数据库认为全表扫描更高效，索引被忽略。<br>项目举例：<br>风险部门的 “不良贷款分期管理汇总表” 需查询状态非 “正常” 的贷款，FDM_CLM_LOAN的status（状态码，如 “01 - 正常”）列建有索引。若查询语句为：<br>sql<br>select loan_id, status from FDM_CLM_LOAN<br>where status !&#x3D; ‘01’; – 使用否定操作符<br>!&#x3D;导致status索引失效，全表扫描所有贷款记录，影响不良贷款监控的实时性。<br>or连接索引列与非索引列<br>若or两侧一列有索引、一列无索引，索引整体失效。<br>项目举例：<br>运营部门的 “各管辖行贷款情况一览表” 需查询 “贷款金额 &gt; 500 万”（有索引）或 “开户网点 &#x3D; 北京”（无索引）的记录，FDM_CLM_LOAN的amount列有索引，branch_id列无索引。查询语句为：<br>sql<br>select loan_id, amount from FDM_CLM_LOAN<br>where amount &gt; 5000000 or branch_id &#x3D; ‘1001’; – or连接索引与非索引列<br>因branch_id无索引，amount索引失效，全表扫描导致报表加载超时。<br>索引列与查询条件数据类型不匹配<br>索引列类型（如字符串）与查询值类型（如数字）不一致时，索引失效。<br>项目举例：<br>客户表FDM_CBS_CUSTOMER的cust_id（客户 ID，字符串类型）建有索引，用于 “个人客户账务信息表”（运营部门需求）。若查询语句为：<br>sql<br>select cust_name, balance from FDM_CBS_CUSTOMER<br>where cust_id &#x3D; 123456; – 123456为数字（实际应为字符串’123456’）<br>类型不匹配导致cust_id索引失效，全表扫描 20 万条客户记录。<br>二、慢 SQL 的定位方法（基于项目监控体系）<br>项目通过以下工具和流程定位慢 SQL，与文档中 “6.2 系统监控” 描述一致：<br>Oracle 数据库自带工具<br>查v$sql视图：筛选执行时间长（elapsed_time）或磁盘读多（disk_reads）的 SQL，例如：<br>sql<br>select sql_text, elapsed_time&#x2F;1000000 as “执行时间(秒)”<br>from v$sql where elapsed_time &gt; 5000000; – 筛选执行超5秒的SQL<br>分析alert.log日志：路径为&#x2F;u01&#x2F;app&#x2F;oracle&#x2F;diag&#x2F;rdbms&#x2F;hbank&#x2F;hbank&#x2F;alert&#x2F;alert_hbank.log，记录长时间运行的 SQL 及锁等待信息（如信贷数据加载时的表锁）。<br>ETL 调度平台（USE）日志<br>项目中 ETL 作业（如 “FDM 层贷款数据拉链处理”）通过 USE 监控，若某作业执行时间从 30 分钟增至 2 小时，可在 USE 平台查看作业对应的存储过程（如SP_FDM_CLM_LOAN_ZIP），提取其中耗时 SQL（如拉链逻辑中的关联查询）。<br>AIX 系统监控工具<br>用topas监控 CPU 和 I&#x2F;O：若某 Oracle 进程 CPU 占用率持续 90% 以上，结合ps -ef找到对应会话，通过v$session关联至具体 SQL。<br>查errpt日志：通过errpt -a查看服务器硬件或系统错误（如磁盘 I&#x2F;O 延迟导致 SQL 执行缓慢）。<br>三、慢 SQL 的优化方法及项目实例<br>针对定位的慢 SQL，结合项目数据特点（如分区存储、主题汇总）优化如下：<br>避免索引列被函数操作<br>优化前（索引失效）：<br>sql<br>select * from FDM_CLM_LOAN where to_char(due_date, ‘yyyy-mm’) &#x3D; ‘2024-06’;<br>优化后（利用索引）：<br>sql<br>select * from FDM_CLM_LOAN<br>where due_date &gt;&#x3D; to_date(‘2024-06-01’, ‘yyyy-mm-dd’)<br>  and due_date &lt; to_date(‘2024-07-01’, ‘yyyy-mm-dd’); – 范围查询<br>优化后通过due_date索引定位，查询时间从 15 秒缩至 0.5 秒，满足 “贷款到期提示查询表” 的实时性需求。<br>调整模糊查询方式<br>优化前（索引失效）：<br>sql<br>select * from FDM_CBS_CORP where corp_name like ‘%农业%’;<br>优化后（创建函数索引）：<br>sql<br>create index idx_corp_name_lower on FDM_CBS_CORP(lower(corp_name)); – 函数索引<br>select * from FDM_CBS_CORP where lower(corp_name) like ‘%农业%’;<br>利用函数索引匹配关键词，查询时间从 12 秒降至 2 秒，“对公存款前十户明细查询” 报表正常加载。<br>用union all替代or<br>优化前（索引失效）：<br>sql<br>select * from FDM_CLM_LOAN where amount &gt; 5000000 or branch_id &#x3D; ‘1001’;<br>优化后（拆分查询）：<br>sql<br>select * from FDM_CLM_LOAN where amount &gt; 5000000 – 走amount索引<br>union all<br>select * from FDM_CLM_LOAN where branch_id &#x3D; ‘1001’; – 为branch_id建索引<br>优化后报表生成时间从 40 秒降至 8 秒，解决 “各管辖行贷款情况一览表” 超时问题。<br>利用数据存储特性（如分区）<br>项目中交易表FDM_CBS_TRANSACTION按月份分区（如PART_202406），“日报表（对内）” 查询某一天交易时：<br>优化前（全表扫描所有分区）：<br>sql<br>select * from FDM_CBS_TRANSACTION where trans_date &#x3D; ‘2024-06-01’;<br>优化后（分区裁剪）：<br>sql<br>select * from FDM_CBS_TRANSACTION partition(PART_202406)<br>where trans_date &#x3D; ‘2024-06-01’; – 仅扫描目标分区<br>扫描数据量从 1000 万条降至 15 万条，查询时间缩短 95%。<br>通过以上优化，项目中因索引失效导致的 ETL 延迟、报表超时等问题得到解决，保障了数据平台的高效运行。</p>
+</blockquote>
+<h2 id="14异常压制在什么情况下使用-游标在什么情况下使用-举实际代码案例"><a href="#14异常压制在什么情况下使用-游标在什么情况下使用-举实际代码案例" class="headerlink" title="14异常压制在什么情况下使用?游标在什么情况下使用?举实际代码案例"></a>14异常压制在什么情况下使用?游标在什么情况下使用?举实际代码案例</h2><blockquote>
+<p>答:根据《哈尔滨银行村镇银行数据平台 - 总体设计说明书 - V1.0.docx》中对 ETL 过程、存储过程（命名规范为 SP_目标表名）及数据处理逻辑的描述，结合 Oracle 数据库在项目中的实际应用场景，异常压制和游标的使用场景及代码案例如下：<br>一、异常压制的使用场景及代码案例<br>异常压制（在 PL&#x2F;SQL 中通常通过EXCEPTION块捕获异常后不中断程序执行）主要用于ETL 数据加载或转换时，需忽略个别数据错误以保证整体流程继续执行的场景。例如，源系统数据存在少量格式错误（如日期格式不符），但无需终止整个 ETL 作业，仅需记录错误并继续处理其他数据。<br>项目中的典型场景：<br>在 ETL1 阶段（源系统数据抽取至 SDM 层），从核心系统（CBS）抽取账户数据时，部分记录的open_date（开户日期）格式不符合规范（如非yyyy-mm-dd），需压制 “格式错误” 异常，跳过错误记录并继续加载其他数据。<br>代码案例（存储过程SP_SDM_CBS_ACCOUNT）：<br>plsql<br>CREATE OR REPLACE PROCEDURE SP_SDM_CBS_ACCOUNT – 符合命名规范：SP_目标表名<br>IS<br>  v_account_id  VARCHAR2(20);<br>  v_open_date   DATE;<br>  – 定义游标读取源系统文件数据（模拟）<br>  CURSOR c_cbs_data IS<br>SELECT account_id, open_date_str<br>FROM SDM_CBS_ACCOUNT_RAW; – SDM层原始数据文件表<br>BEGIN<br> FOR rec IN c_cbs_data LOOP<br>BEGIN<br>– 尝试转换日期格式，可能抛出异常<br>v_open_date :&#x3D; TO_DATE(rec.open_date_str, ‘yyyy-mm-dd’);<br>– 插入正确数据至SDM层正式表<br>INSERT INTO SDM_CBS_ACCOUNT (account_id, open_date)<br>VALUES (rec.account_id, v_open_date);<br>EXCEPTION<br>WHEN OTHERS THEN<br>– 异常压制：不中断循环，仅记录错误日志<br>INSERT INTO ETL_ERROR_LOG (proc_name, error_msg, data_row)<br>VALUES (‘SP_SDM_CBS_ACCOUNT’,<br> ‘日期格式错误: ‘ || SQLERRM,<br> ‘account_id&#x3D;’ || rec.account_id);<br>END; – 局部异常块结束，继续处理下一条记录<br>END LOOP;<br>COMMIT;<br>END SP_SDM_CBS_ACCOUNT;<br>说明：通过EXCEPTION块捕获日期转换异常，压制该错误（不终止存储过程），仅记录错误信息至ETL_ERROR_LOG，确保其他正确数据正常加载，符合项目中 “SDM 层基础数据校验” 的需求。<br>二、游标的使用场景及代码案例<br>游标用于逐行处理查询结果集，尤其适用于 ETL 过程中需对多行数据进行逻辑判断或复杂转换的场景。例如，在数据拉链处理（FDM 层保留历史数据）时，需遍历 ODS 层的增量数据，逐行判断是否需要更新历史记录的生效 &#x2F; 结束时间。<br>项目中的典型场景：<br>在 ETL2 阶段（ODS 层增量数据加载至 FDM 层），处理账户表（FDM_CBS_ACCOUNT）的拉链逻辑：遍历 ODS 层当日增量账户数据，逐行检查 FDM 层是否存在历史记录，若存在则更新历史记录的结束时间，同时插入新记录作为当前生效状态。<br>代码案例（存储过程SP_FDM_CBS_ACCOUNT_ZIP）：<br>plsql<br>CREATE OR REPLACE PROCEDURE SP_FDM_CBS_ACCOUNT_ZIP – 数据拉链存储过程<br>IS<br>– 定义游标遍历ODS层增量账户数据<br>CURSOR c_ods_increment IS<br>SELECT account_id, status, balance<br>FROM ODM_CBS_ACCOUNT_INC; – ODM层当日增量数据<br>v_exists NUMBER; – 标记FDM层是否存在历史记录<br>BEGIN<br>FOR rec IN c_ods_increment LOOP – 游标循环逐行处理<br>– 检查FDM层是否有未失效的历史记录<br>SELECT COUNT(1) INTO v_exists<br>FROM FDM_CBS_ACCOUNT<br>WHERE account_id &#x3D; rec.account_id<br>AND end_date &#x3D; TO_DATE(‘9999-12-31’, ‘yyyy-mm-dd’); – 未失效记录的结束时间为最大值<br>IF v_exists &#x3D; 1 THEN<br>– 更新历史记录的结束时间为当前日期（标记失效）<br>UPDATE FDM_CBS_ACCOUNT<br>SET end_date &#x3D; TRUNC(SYSDATE) - 1<br>WHERE account_id &#x3D; rec.account_id<br>AND end_date &#x3D; TO_DATE(‘9999-12-31’, ‘yyyy-mm-dd’);<br>END IF;<br>– 插入新记录作为当前生效状态（生效时间为当前日期，结束时间为最大值）<br>INSERT INTO FDM_CBS_ACCOUNT (<br>account_id, status, balance, start_date, end_date<br>) VALUES (<br>rec.account_id, rec.status, rec.balance, TRUNC(SYSDATE), TO_DATE(‘9999-12-31’, ‘yyyy-mm-dd’)<br>);<br>END LOOP; – 游标循环结束<br>COMMIT;<br>END SP_FDM_CBS_ACCOUNT_ZIP;<br>说明：通过游标c_ods_increment逐行处理 ODS 层增量数据，实现 FDM 层账户信息的历史拉链存储（符合文档中 “数据拉链” 设计），确保每条账户记录的状态变化都被准确记录，支撑历史数据追溯需求。<br>总结</p>
+</blockquote>
+<h2 id="15如何处理不同类型的重复数据-各种类型数据缺失如何处理"><a href="#15如何处理不同类型的重复数据-各种类型数据缺失如何处理" class="headerlink" title="15如何处理不同类型的重复数据?各种类型数据缺失如何处理?"></a>15如何处理不同类型的重复数据?各种类型数据缺失如何处理?</h2><blockquote>
+<p>答:完全重复数据（物理重复）<br>指源系统中存在完全相同的记录（所有字段值一致），多因源系统数据冗余或抽取错误导致。<br>处理阶段：ETL1 阶段（数据采集至 SDM 层）。<br>处理方式：通过全量数据比对识别完全重复记录，仅保留一条有效记录。<br>文档中提到 ETL1 阶段 “将源系统全量数据与 ODS 全量数据进行比对，找出源系统中发生变化和新产生的数据”，此过程中会自动过滤完全重复的未变化数据，避免冗余存储。<br>逻辑重复数据（语义重复）<br>指同一实体（如同一客户、同一账户）在不同源系统或表中存在多条差异记录（部分字段不同），多因数据分散存储导致。<br>处理阶段：ETL2 阶段（ODS 层至 FDM 层的数据合并）。<br>处理方式：基于唯一标识（如客户 ID、账户 ID）关联合并，保留完整有效信息。<br>文档明确 ETL2 阶段需实现 “数据合并：源系统的数据需根据基础层模型的要求，将源系统不同表中的信息合并到一起”，例如：<br>核心系统（CBS）与网银系统（EBS）均存储客户手机号，合并时以最新更新的手机号为准；<br>信贷系统（CLM）与农贷系统（FLM）的客户地址信息，合并时取非空且最近更新的记录。<br>各种类型数据缺失的处理<br>文档中提到 ETL1 阶段 “对部分数据质量存在问题的数据进行处理”，结合数据平台各层级功能（如 SDM 层预处理、FDM 层标准化），数据缺失处理需根据字段重要性及业务规则分类处理：<br>关键字段缺失（如客户 ID、账户号等唯一标识）<br>处理原则：报错并记录，避免无效数据流入下游。<br>处理方式：在 ETL1 阶段（SDM 层数据校验）识别缺失后，将记录写入错误日志表（如ETL_ERROR_LOG），不加载至 ODS 层，并通过监控平台告警，由运维人员协调源系统补全。<br>文档中 “系统监控” 要求记录 “ETL 作业运行状况” 及错误信息，此类关键缺失属于需优先处理的异常。<br>非关键字段缺失（如客户职业、地址等辅助信息）<br>处理原则：按业务规则填充或标记，保证数据完整性。<br>处理方式：<br>默认值填充：如数值型字段（如 “月收入”）缺失时填 “0”，字符型字段（如 “职业”）缺失时填 “未知”；<br>关联补全：若其他源系统存在该字段信息（如从信贷系统 CLM 补全客户地址至核心系统 CBS 数据），通过 ETL2 阶段的 “数据合并” 补全；<br>空值保留：对不影响分析的字段（如 “备注”），直接保留空值，在 FDM 层模型中标记为 “允许空”。<br>业务指标数据缺失（如交易金额、贷款余额等）<br>处理原则：基于业务逻辑推断或追溯来源。<br>处理方式：<br>若为源系统抽取遗漏，通过 ETL1 阶段的 “全量比对” 识别（与历史数据比对发现新增缺失），重新抽取补全；<br>若为业务未发生（如某账户当月无交易），在汇总层（MDM）统计时按 “0” 或 “无记录” 处理，确保报表指标完整性（如 “月均交易金额” 缺失时计为 0）。</p>
+</blockquote>
+<h2 id="16简述拉链表的存储过程流程"><a href="#16简述拉链表的存储过程流程" class="headerlink" title="16简述拉链表的存储过程流程"></a>16简述拉链表的存储过程流程</h2><blockquote>
+<p>答:获取增量数据：从 ODS 层读取当日增量数据（如账户、借据的变更记录），这些数据是源系统经 ETL1 阶段比对后识别的新增或变更信息。<br>历史数据比对：将增量数据与基础层（FDM）中对应拉链表的当前有效记录（结束时间为最大值，如‘9999-12-31’）进行比对，识别字段变化（如账户状态、余额调整）。<br>生成拉链记录：对发生变化的历史记录，更新其结束时间为 “变更前一天”，标记为历史状态；将增量数据作为新记录插入拉链表，生效时间为 “变更当天”，结束时间设为最大值（表示当前有效）<br>加载至基础层：处理后的拉链表数据加载至 FDM 层，实现对数据全生命周期（每次状态变化）的留存，支持历史追溯。</p>
+</blockquote>
+</article><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/lita5.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tetuka</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/H-Sanae/H-Sanae.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1466753498@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE%E9%97%AE%E7%AD%94"><span class="toc-text">银行项目问答</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E9%93%B6%E8%A1%8C%E4%B8%BB%E8%A6%81%E7%9A%84%E7%BB%8F%E8%90%A5%E4%B8%9A%E5%8A%A1%E6%9C%89%E5%93%AA%E4%BA%9B-%E6%BA%90%E7%B3%BB%E7%BB%9F%E6%9C%89%E5%93%AA%E4%BA%9B-%E4%B8%BE%E5%87%A0%E4%BE%8B"><span class="toc-text">1银行主要的经营业务有哪些? 源系统有哪些?举几例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E8%AF%B4%E6%98%8E%E5%93%88%E5%B0%94%E6%BB%A8%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text">2说明哈尔滨银行项目的硬件配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E4%BB%8B%E7%BB%8D%E5%93%88%E5%B0%94%E6%BB%A8%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE%E5%90%84%E4%B8%AA%E9%A1%B9%E7%9B%AE%E9%98%B6%E6%AE%B5%E4%BB%A5%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%91%A8%E6%9C%9F%E5%86%85%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C"><span class="toc-text">3介绍哈尔滨银行项目各个项目阶段以及项目周期内主要工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E5%9C%A8%E9%9C%80%E6%B1%82%E8%B0%83%E7%A0%94%E9%98%B6%E6%AE%B5%E4%B8%BB%E8%A6%81%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E8%B0%83%E7%A0%94%E6%B5%81%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">4在需求调研阶段主要的工作内容有哪些，调研流程是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E6%95%B0%E6%8D%AE%E7%BC%93%E5%86%B2%E5%B1%82%E7%9A%84%E4%BD%9C%E7%94%A8-%E5%A2%9E%E9%87%8F%E5%89%A5%E7%A6%BB%E6%93%8D%E4%BD%9C%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-text">5数据缓冲层的作用,增量剥离操作的流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E5%AE%9E%E6%96%BD%E5%B7%A5%E4%BD%9C%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-text">6实施工作主要内容有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E7%AE%80%E5%8D%95%E6%8F%8F%E8%BF%B0%E5%93%88%E5%B0%94%E6%BB%A8%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1%E6%BA%90%E7%B3%BB%E7%BB%9F%E6%8A%BD%E5%8F%96%E6%B5%81%E7%A8%8B"><span class="toc-text">10简单描述哈尔滨银行业务源系统抽取流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11%E8%AF%B4%E6%98%8E%E5%93%88%E5%B0%94%E6%BB%A8%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE%E6%95%B0%E4%BB%93%E5%88%86%E5%B1%82%E4%BB%A5%E5%8F%8A%E5%90%84%E5%B1%82%E5%8A%9F%E8%83%BD-%E8%AF%A5%E9%A1%B9%E7%9B%AE%E4%B8%BB%E9%A2%98%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-text">11说明哈尔滨银行项目数仓分层以及各层功能,该项目主题有哪些?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12%E5%93%88%E5%B0%94%E6%BB%A8%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE%E6%8A%BD%E5%8F%96%E6%8A%A5%E8%A1%A8%E6%95%B0%E9%87%8F-%E6%95%B0%E6%8D%AE%E9%87%8F%E5%A4%A7%E5%B0%8F-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%91%A8%E6%9C%9F"><span class="toc-text">12哈尔滨银行项目抽取报表数量,数据量大小,数据存储周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13%E7%B4%A2%E5%BC%95%E5%9C%A8%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E5%A4%B1%E6%95%88-%E5%A6%82%E4%BD%95%E7%A1%AE%E8%AE%A4%E6%85%A2sql%E6%89%80%E5%9C%A8%E4%BD%8D%E7%BD%AE-%E4%BB%A5%E5%8F%8A%E5%AE%9A%E4%BD%8D%E5%90%8E%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96-%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E"><span class="toc-text">13索引在什么情况下会失效?如何确认慢sql所在位置,以及定位后如何优化?举例说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14%E5%BC%82%E5%B8%B8%E5%8E%8B%E5%88%B6%E5%9C%A8%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8-%E6%B8%B8%E6%A0%87%E5%9C%A8%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8-%E4%B8%BE%E5%AE%9E%E9%99%85%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B"><span class="toc-text">14异常压制在什么情况下使用?游标在什么情况下使用?举实际代码案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE-%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%BC%BA%E5%A4%B1%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86"><span class="toc-text">15如何处理不同类型的重复数据?各种类型数据缺失如何处理?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16%E7%AE%80%E8%BF%B0%E6%8B%89%E9%93%BE%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E6%B5%81%E7%A8%8B"><span class="toc-text">16简述拉链表的存储过程流程</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/7.8%20%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1%E9%97%AE%E7%AD%94/" title="7.8 银行业务问答"><img src="/img/lita3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7.8 银行业务问答"/></a><div class="content"><a class="title" href="/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/7.8%20%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1%E9%97%AE%E7%AD%94/" title="7.8 银行业务问答">7.8 银行业务问答</a><time datetime="2025-07-07T13:47:30.615Z" title="更新于 2025-07-07 21:47:30">2025-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/07-07-1/" title="无标题"><img src="/img/lita5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无标题"/></a><div class="content"><a class="title" href="/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/07-07-1/" title="无标题">无标题</a><time datetime="2025-07-07T13:06:53.978Z" title="更新于 2025-07-07 21:06:53">2025-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/7.7%20hadoop%E9%97%AE%E7%AD%94/" title="7.7 hadoop问答"><img src="/img/lita6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="7.7 hadoop问答"/></a><div class="content"><a class="title" href="/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/7.7%20hadoop%E9%97%AE%E7%AD%94/" title="7.7 hadoop问答">7.7 hadoop问答</a><time datetime="2025-07-07T11:14:52.288Z" title="更新于 2025-07-07 19:14:52">2025-07-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/lita5.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Tetuka</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.0-b2</a></span></div><div class="footer_custom_text">感谢阅读</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="输入以搜索内容..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
