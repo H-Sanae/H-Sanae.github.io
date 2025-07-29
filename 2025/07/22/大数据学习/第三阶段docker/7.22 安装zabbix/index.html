@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Zabbix安装介绍 | Tetuka的个人笔记</title><meta name="author" content="Tetuka"><meta name="copyright" content="Tetuka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Zabbix介绍Zabbix 是一款功能强大的企业级开源监控解决方案，专为实时监控IT基础设施（包括网络、服务器、应用程序和服务）的性能和可用性而设计。Zabbix特别适合需要深度监控和自定义监控需求的企业环境，其强大的灵活性和扩展性使其成为IT监控领域的领先解决方案之一。  官方文档：https:&#x2F;&#x2F;www.zabbix.com&#x2F;documentation 社区论坛：https:&#x2F;&#x2F;www.za">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zabbix安装介绍">
+<meta property="og:url" content="https://h-sanae.github.io/2025/07/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5docker/7.22%20%E5%AE%89%E8%A3%85zabbix/index.html">
+<meta property="og:site_name" content="Tetuka的个人笔记">
+<meta property="og:description" content="Zabbix介绍Zabbix 是一款功能强大的企业级开源监控解决方案，专为实时监控IT基础设施（包括网络、服务器、应用程序和服务）的性能和可用性而设计。Zabbix特别适合需要深度监控和自定义监控需求的企业环境，其强大的灵活性和扩展性使其成为IT监控领域的领先解决方案之一。  官方文档：https:&#x2F;&#x2F;www.zabbix.com&#x2F;documentation 社区论坛：https:&#x2F;&#x2F;www.za">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://h-sanae.github.io/img/lita2.png">
+<meta property="article:published_time" content="2025-07-22T01:18:12.788Z">
+<meta property="article:modified_time" content="2025-07-29T11:27:34.411Z">
+<meta property="article:author" content="Tetuka">
+<meta property="article:tag" content="Zabbix">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://h-sanae.github.io/img/lita2.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Zabbix安装介绍",
+  "url": "https://h-sanae.github.io/2025/07/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5docker/7.22%20%E5%AE%89%E8%A3%85zabbix/",
+  "image": "https://h-sanae.github.io/img/lita2.png",
+  "datePublished": "2025-07-22T01:18:12.788Z",
+  "dateModified": "2025-07-29T11:27:34.411Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tetuka",
+      "url": "https://h-sanae.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/dbb.png"><link rel="canonical" href="https://h-sanae.github.io/2025/07/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5docker/7.22%20%E5%AE%89%E8%A3%85zabbix/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Zabbix安装介绍',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> 上不上AI评分系统</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/lita2.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/dbb.png" alt="Logo"><span class="site-name">Tetuka的个人笔记</span></a><a class="nav-page-title" href="/"><span class="site-name">Zabbix安装介绍</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> 上不上AI评分系统</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Zabbix安装介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-22T01:18:12.788Z" title="发表于 2025-07-22 09:18:12">2025-07-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-29T11:27:34.411Z" title="更新于 2025-07-29 19:27:34">2025-07-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Zabbix介绍"><a href="#Zabbix介绍" class="headerlink" title="Zabbix介绍"></a>Zabbix介绍</h1><p>Zabbix 是一款功能强大的企业级开源监控解决方案，专为实时监控IT基础设施（包括网络、服务器、应用程序和服务）的性能和可用性而设计。Zabbix特别适合需要深度监控和自定义监控需求的企业环境，其强大的灵活性和扩展性使其成为IT监控领域的领先解决方案之一。</p>
+<ul>
+<li>官方文档：<a target="_blank" rel="noopener" href="https://www.zabbix.com/documentation">https://www.zabbix.com/documentation</a></li>
+<li>社区论坛：<a target="_blank" rel="noopener" href="https://www.zabbix.com/forum">https://www.zabbix.com/forum</a></li>
+<li>GitHub仓库：<a target="_blank" rel="noopener" href="https://github.com/zabbix/zabbix">https://github.com/zabbix/zabbix</a></li>
+</ul>
+<h3 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a><strong>核心功能</strong></h3><ul>
+<li><strong>实时监控</strong>：支持秒级数据采集</li>
+<li><strong>自动发现</strong>：自动发现网络设备、服务器和服务</li>
+<li><strong>告警通知</strong>：支持多种告警方式（邮件、短信、微信等）</li>
+<li><strong>可视化</strong>：提供丰富的图表和仪表盘</li>
+<li><strong>分布式监控</strong>：支持多级代理架构</li>
+</ul>
+<h3 id="主要组件"><a href="#主要组件" class="headerlink" title="主要组件"></a><strong>主要组件</strong></h3><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Zabbix Server</td>
+<td>核心服务，负责数据处理、触发告警</td>
+</tr>
+<tr>
+<td>Zabbix Agent</td>
+<td>安装在监控目标上的数据采集代理</td>
+</tr>
+<tr>
+<td>Zabbix Proxy</td>
+<td>分布式监控的中间代理</td>
+</tr>
+<tr>
+<td>Zabbix Web</td>
+<td>基于PHP的Web管理界面</td>
+</tr>
+<tr>
+<td>Zabbix Database</td>
+<td>存储配置和监控数据（支持MySQL等）</td>
+</tr>
+</tbody></table>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a><strong>适用场景</strong></h3><ul>
+<li><strong>IT基础设施监控</strong></li>
+<li><strong>云环境监控</strong></li>
+<li><strong>物联网设备监控</strong></li>
+<li><strong>业务服务可用性监控</strong></li>
+</ul>
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><p>传统方式（基于包管理器，适用于 CentOS 系统）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Apache 服务</span></span><br><span class="line">yum -y install httpd</span><br><span class="line">systemctl start httpd</span><br><span class="line"><span class="comment"># 安装 PHP 及 MySQL 依赖</span></span><br><span class="line">yum install -y php php-mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 Zabbix 源并安装组件</span></span><br><span class="line"><span class="comment"># 安装 Zabbix 源</span></span><br><span class="line">rpm -ivh https://repo.zabbix.com/zabbix/4.4/rhel/7/x86_64/zabbix-release-4.4-1.el7.noarch.rpm</span><br><span class="line"><span class="comment"># 安装 Zabbix 服务端、客户端等组件</span></span><br><span class="line">yum install -y zabbix-server-mysql zabbix-get zabbix-web zabbix-web-mysql zabbix-agent zabbix-sender</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置数据库（MySQL）</span></span><br><span class="line"><span class="comment"># 登录 MySQL（假设 root 密码为 root，根据实际情况修改）</span></span><br><span class="line">mysql -uroot -proot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 MySQL 终端执行以下命令：</span></span><br><span class="line"><span class="comment"># 创建 Zabbix 数据库（UTF-8 编码）</span></span><br><span class="line">create database zabbix character <span class="built_in">set</span> utf8 collate utf8_bin;</span><br><span class="line"><span class="comment"># 创建 Zabbix 用户并授权</span></span><br><span class="line">create user <span class="string">&#x27;zabbix&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified by <span class="string">&#x27;zabbix&#x27;</span>;</span><br><span class="line">grant all privileges on zabbix.* to <span class="string">&#x27;zabbix&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified by <span class="string">&#x27;zabbix&#x27;</span>;</span><br><span class="line">flush privileges;</span><br><span class="line"><span class="built_in">exit</span>;  <span class="comment"># 退出 MySQL</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入 Zabbix 初始数据</span></span><br><span class="line"><span class="comment"># 进入 Zabbix 数据库脚本目录</span></span><br><span class="line"><span class="built_in">cd</span> /usr/share/doc/zabbix-server-mysql-4.4.10/</span><br><span class="line"><span class="comment"># 解压初始 SQL 脚本（若未安装 unzip 需先执行 yum install unzip）</span></span><br><span class="line">gunzip create.sql.gz</span><br><span class="line"><span class="comment"># 导入数据到 Zabbix 数据库</span></span><br><span class="line">mysql -uzabbix -pzabbix --database=zabbix &lt; create.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 Zabbix 服务端</span></span><br><span class="line"><span class="comment"># 编辑 Zabbix 服务端配置文件</span></span><br><span class="line">vim /etc/zabbix/zabbix_server.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改数据库相关配置（根据实际情况调整）：</span></span><br><span class="line">DBHost=localhost</span><br><span class="line">DBName=zabbix</span><br><span class="line">DBUser=zabbix</span><br><span class="line">DBPassword=zabbix  <span class="comment"># 与数据库授权密码一致</span></span><br><span class="line">DBSocket=/var/lib/mysql/mysql.sock</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动并设置开机自启：</span></span><br><span class="line">systemctl start zabbix-server.service</span><br><span class="line">systemctl <span class="built_in">enable</span> zabbix-server.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 Web 服务（Apache）</span></span><br><span class="line"><span class="comment"># 编辑 Zabbix Web 配置，设置时区</span></span><br><span class="line">vi /etc/httpd/conf.d/zabbix.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 / 修改时区配置：</span></span><br><span class="line">php_value date.timezone Asia/Shanghai</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 Apache：</span></span><br><span class="line">systemctl restart httpd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装并启动 Zabbix Agent</span></span><br><span class="line">yum install -y zabbix-agent</span><br><span class="line">systemctl start zabbix-agent.service</span><br><span class="line">systemctl <span class="built_in">enable</span> zabbix-agent.service</span><br></pre></td></tr></table></figure>
+
+<h1 id="访问-Zabbix-界面"><a href="#访问-Zabbix-界面" class="headerlink" title="访问 Zabbix 界面"></a>访问 Zabbix 界面</h1><p>通过浏览器访问 Zabbix 登录页面：<br><a target="_blank" rel="noopener" href="http://192.168.200.120/zabbix">http://192.168.200.120/zabbix</a><br>传统方式：http:&#x2F;&#x2F;服务器IP&#x2F;zabbix<br>默认账号：Admin，默认密码：zabbix</p>
+<img src="/2025/07/22/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5docker/7.22%20%E5%AE%89%E8%A3%85zabbix/file-20250722112404188.png" class=""></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Zabbix/">Zabbix</a></div><div class="post-share"><div class="social-share" data-image="/img/lita2.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tetuka</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/H-Sanae/H-Sanae.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1466753498@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zabbix%E4%BB%8B%E7%BB%8D"><span class="toc-text">Zabbix介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-text">核心功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6"><span class="toc-text">主要组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">适用场景</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="toc-text">安装步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE-Zabbix-%E7%95%8C%E9%9D%A2"><span class="toc-text">访问 Zabbix 界面</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/7.7%20hadoop%E9%97%AE%E7%AD%94/" title="hadoop问答"><img src="/img/lita5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hadoop问答"/></a><div class="content"><a class="title" href="/2025/07/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/7.7%20hadoop%E9%97%AE%E7%AD%94/" title="hadoop问答">hadoop问答</a><time datetime="2025-07-29T12:03:01.918Z" title="更新于 2025-07-29 20:03:01">2025-07-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/27/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/6.27%20Hive%E5%A4%8D%E5%90%88%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/" title="Hive复合数据类型、相关函数"><img src="/img/lita3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hive复合数据类型、相关函数"/></a><div class="content"><a class="title" href="/2025/06/27/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/6.27%20Hive%E5%A4%8D%E5%90%88%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/" title="Hive复合数据类型、相关函数">Hive复合数据类型、相关函数</a><time datetime="2025-07-29T12:02:32.039Z" title="更新于 2025-07-29 20:02:32">2025-07-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/26/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/6.26%20Python%E8%BF%9E%E6%8E%A5Hive/" title="Python连接Hive"><img src="/img/lita4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python连接Hive"/></a><div class="content"><a class="title" href="/2025/06/26/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5Hadoop/6.26%20Python%E8%BF%9E%E6%8E%A5Hive/" title="Python连接Hive">Python连接Hive</a><time datetime="2025-07-29T12:02:24.551Z" title="更新于 2025-07-29 20:02:24">2025-07-29</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/lita2.png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Tetuka</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.0-b2</a></span></div><div class="footer_custom_text">感谢阅读</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="输入以搜索内容..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
