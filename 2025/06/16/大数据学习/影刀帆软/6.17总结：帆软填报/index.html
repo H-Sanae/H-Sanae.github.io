@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>6.17帆软FineReport填报功能 | Tetuka的个人笔记</title><meta name="author" content="Tetuka"><meta name="copyright" content="Tetuka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1.添加员工信息1.设计界⾯ 在属性⾯板的控件设置 每⼀个选择合适的类型 下拉框需要选择数据字典， 控件可以设置约束2.⼯具栏 模版 报表填报属性 添加内置 sql ，选择数据表，选择对应单元格，确定3.预览的时候选择下拉箭头下的填报预览，输⼊信息后点击左上⻆的提交，则提⽰成 功，去数据库查询验证是否插⼊成功   2.增删改员⼯信息导航功能完成数据量⻓的情况可以修改⽹⻚⼤⼩ ⼯具栏 模版 ⻚⾯设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6.17帆软FineReport填报功能">
+<meta property="og:url" content="https://h-sanae.github.io/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/index.html">
+<meta property="og:site_name" content="Tetuka的个人笔记">
+<meta property="og:description" content="1.添加员工信息1.设计界⾯ 在属性⾯板的控件设置 每⼀个选择合适的类型 下拉框需要选择数据字典， 控件可以设置约束2.⼯具栏 模版 报表填报属性 添加内置 sql ，选择数据表，选择对应单元格，确定3.预览的时候选择下拉箭头下的填报预览，输⼊信息后点击左上⻆的提交，则提⽰成 功，去数据库查询验证是否插⼊成功   2.增删改员⼯信息导航功能完成数据量⻓的情况可以修改⽹⻚⼤⼩ ⼯具栏 模版 ⻚⾯设置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://h-sanae.github.io/img/peppapig2.png">
+<meta property="article:published_time" content="2025-06-16T13:38:50.176Z">
+<meta property="article:modified_time" content="2025-06-17T11:35:02.108Z">
+<meta property="article:author" content="Tetuka">
+<meta property="article:tag" content="帆软">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://h-sanae.github.io/img/peppapig2.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "6.17帆软FineReport填报功能",
+  "url": "https://h-sanae.github.io/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/",
+  "image": "https://h-sanae.github.io/img/peppapig2.png",
+  "datePublished": "2025-06-16T13:38:50.176Z",
+  "dateModified": "2025-06-17T11:35:02.108Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tetuka",
+      "url": "https://h-sanae.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/dbb.png"><link rel="canonical" href="https://h-sanae.github.io/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '6.17帆软FineReport填报功能',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> 上不上AI评分系统</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/peppapig2.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/dbb.png" alt="Logo"><span class="site-name">Tetuka的个人笔记</span></a><a class="nav-page-title" href="/"><span class="site-name">6.17帆软FineReport填报功能</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-flask"></i><span> 实验室</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://121.199.61.105/"><i class="fa-fw fas fa-q"></i><span> 豆瓣网开发</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fuckornot.on.websim.com/"><i class="fa-fw fa fa-trophy"></i><span> 上不上AI评分系统</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://fontawesome.com/icons"><i class="fa-fw fa fa-check-circle"></i><span> font-awesome v6 图标</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">6.17帆软FineReport填报功能</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-16T13:38:50.176Z" title="发表于 2025-06-16 21:38:50">2025-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-06-17T11:35:02.108Z" title="更新于 2025-06-17 19:35:02">2025-06-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="1-添加员工信息"><a href="#1-添加员工信息" class="headerlink" title="1.添加员工信息"></a>1.添加员工信息</h2><p>1.设计界⾯ 在属性⾯板的控件设置 每⼀个选择合适的类型 下拉框需要选择数据字典， 控件可以设置约束<br>2.⼯具栏 模版 报表填报属性 添加内置 sql ，选择数据表，选择对应单元格，确定<br>3.预览的时候选择下拉箭头下的填报预览，输⼊信息后点击左上⻆的提交，则提⽰成 功，去数据库查询验证是否插⼊成功</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617104843783.png" class="">
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617104949161.png" class="">
+<h2 id="2-增删改员⼯信息导航功能完成"><a href="#2-增删改员⼯信息导航功能完成" class="headerlink" title="2.增删改员⼯信息导航功能完成"></a>2.增删改员⼯信息导航功能完成</h2><p>数据量⻓的情况可以修改⽹⻚⼤⼩ ⼯具栏 模版 ⻚⾯设置 修改尺⼨⼤些 , 设计⻚⾯ 在数 据单元格选择控件类型 , 报表填报属性选择智能 , 选择填报预览</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617111315393.png" class="">
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617111406343.png" class="">
+
+<h2 id="3-增删改员⼯信息单元格按钮完成，给出提⽰，并且添加自动刷新"><a href="#3-增删改员⼯信息单元格按钮完成，给出提⽰，并且添加自动刷新" class="headerlink" title="3.增删改员⼯信息单元格按钮完成，给出提⽰，并且添加自动刷新"></a>3.增删改员⼯信息单元格按钮完成，给出提⽰，并且添加自动刷新</h2><p>设置回调函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (fr_submitinfo.<span class="property">success</span>) &#123; </span><br><span class="line">	<span class="variable constant_">FR</span>.<span class="property">Msg</span>.<span class="title function_">toast</span>(<span class="string">&#x27;当前行删除成功&#x27;</span>); </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">	<span class="variable constant_">FR</span>.<span class="property">Msg</span>.<span class="title function_">toast</span>(<span class="string">&#x27;当前行删除失败，错误信息为：&#x27;</span> + fr_submitinfo.<span class="property">failinfo</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>删除7777</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617113946322.png" class="">
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617114022395.png" class="">
+
+<p>修改</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617114837781.png" class="">
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617140939533.png" class="">
+
+<p>添加点击事件（自动刷新）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">_g</span>().<span class="title function_">refreshAllSheets</span>()</span><br></pre></td></tr></table></figure>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617141705325.png" class="">
+<h2 id="4-填报操作-C"><a href="#4-填报操作-C" class="headerlink" title="4. 填报操作-C"></a>4. 填报操作-C</h2><p>使⽤数据： FRDemo 中的数据表员⼯⾏程安排表（以姓名、⽇期、地点为 联合主键）<br>题⽬要求：<br>1 ）参数栏可选择登录⼈员：⼈事员 A 、⼈事员 B 、⼈事经理；<br>2 ） 选择⼈事员 A 、⼈事员 B 登录时，⻚⾯显⽰对应⼈事员的个⼈⾏程安排表 可在空⽩⾏提交 数据，其中姓名默认为登录⼈不可编辑，⽇期默认为当天可编辑，地点 ( 单选 ) 可下拉选择 ⽆锡总部、南京总部，⼯作内容可⾃由编辑，参会⼈员（多选）可下拉复选⼈事员 A 、⼈ 事员 B 、⼈事经理，点击提交可填报数据⼊库，若记录已存在则做数据更新，填报后⾃动 参数刷新⻚⾯； 可针对已有数据做更新、删除，仅地点、⼯作内容、参会⼈员可编辑， 设置与上述⼀致，点击更新可做数据更新，点击删除可做数据删除；<br>3 ）选择⼈事经理 登录时，除 2 ）中的内容，还可查看⼈事员 A 、⼈事员 B 的⾏程安排表 仅⽤⼀张模板实现</p>
+<p>制作界面</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617161547561.png" class="">
+
+<p>人事经理显示人员行程安排表，人事员A、B不显示<br>人员行程安排表添加条件属性 $姓名!&#x3D;”人事经理”</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617190414758.png" class="">
+
+<p>增删改自动提交<br>参与人员下拉复选框需设置返回值为字符串</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617191226508.png" class="">
+<h2 id="5-填报实操-F"><a href="#5-填报实操-F" class="headerlink" title="5.填报实操-F"></a>5.填报实操-F</h2><p>弹出框添加和修改员⼯信息<br>数据来源： FRdemo 中 员⼯信息表 展⽰所有部⻔职位信息<br>1).“ 点击增加⼈员 ” ，传参部⻔、职位打开对话框，其中⼈员 ID 需⾃动取当前表⾥ ID 最⼤ 值＋ 1 ，仅姓名处可⾃由编辑，提交时校验是否为空，提交后新增该条数据<br>2).“ 点击修改⼈员明细 ” ，传参部⻔、职位打开对话框，仅⼯资处可⾃由编辑，提交后修 改该⼈员⼯资数据<br>3). 两个对话框在提交完成后都会⾃动关闭对话框<br>4). 模板完成后，增加姓名为本⼈的记录，并修改⼯资为 10000 ，在结果⽂档中截图体现<br>5). 最多可使⽤ 3 张模板</p>
+<p>首页模板制作</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617191544614.png" class="">
+
+<p>新增人员弹出框模板制作</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617191849377.png" class="">
+
+<p>修改人员信息模板制作</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617191753466.png" class="">
+
+<p>新增人员、修改人员 添加网络报表链接</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617192115473.png" class="">
+
+<p>展⽰所有部⻔职位信息</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617192234918.png" class="">
+
+<p>新增人员弹出框</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617192416846.png" class="">
+
+<p>修改人员弹出框</p>
+<img src="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.17%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E5%A1%AB%E6%8A%A5/file-20250617192437100.png" class="">
+
+<p>刷新父窗口（弹出框提交后返回父窗口）<br>弹出框模板界面-模板-模板Web属性-填报页面设置-事件设置-填报成功-添加如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.parent.location.reload();</span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B8%86%E8%BD%AF/">帆软</a></div><div class="post-share"><div class="social-share" data-image="/img/peppapig2.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.16%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AFFineReport/" title="帆软FineReport"><img class="cover" src="/img/peppapig1.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-16</div><div class="info-item-2">帆软FineReport</div></div><div class="info-2"><div class="info-item-1">帆软 FineReport 是一款由帆软公司自主研发的企业级报表工具，主要用于解决企业内部数据展示、数据分析和报表管理等需求。它提供了直观的拖拽式设计界面，支持多种数据源连接，并能够生成各种复杂格式的报表。以下是其主要特点和功能的概述： 核心功能 多数据源整合 支持连接各类数据库（如 Oracle、MySQL、SQL Server）、Excel 文件、CSV 文件，甚至可以整合不同数据源的数据到同一张报表中。  丰富的报表模板 提供多种预设模板，包括表格报表、图表报表、交叉表、中国式复杂报表等，满足不同场景需求。  强大的计算能力 内置丰富的函数库，支持复杂的公式计算、聚合分析和数据处理，如行列计算、分组统计、同比环比等。  数据可视化 支持多种图表类型（柱状图、折线图、饼图、雷达图等），并提供交互式图表功能，如钻取、联动、参数筛选等。  权限管理与安全 提供细致的权限控制，可按用户、角色、部门分配不同的报表查看、编辑和导出权限，保障数据安全。  定时调度与分发 支持设置定时任务自动生成报表，并通过邮件、短信、FTP 等方式将报表分发给指定人员。  移动端适配 报表可自动适配手机...</div></div></div></a><a class="pagination-related" href="/2025/06/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.18%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E4%BC%81%E4%B8%9A%E5%A4%A7%E5%B1%8F%E5%BC%80%E5%8F%91/" title="帆软企业大屏开发"><img class="cover" src="/img/peppapig5.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-16</div><div class="info-item-2">帆软企业大屏开发</div></div><div class="info-2"><div class="info-item-1">大屏开发-数据可视化平台新建模板：文件-新建其他模板-新建决策报表-新建空白模板-确定布局方式：模板-PC端自适应属性-布局方式:绝对布局-报表缩放设置:双向自适应-设置方式:为该模板单独设置-字体:不自适应背景设置：组件设置-body-背景设置-自定义-选择图片-拉伸组件样式（背景）设置：属性-样式设置-自定义-主体填充-图片-选择图片-拉伸-不透明度100-外沿样式-内边距0添加数据：内置数据集-表设计:设置表结构（列名，数据类型），插入行:添加数据 添加图表轮播   界面设计   PC端预览   移动端开发-学生成绩设置移动端属性：模板-移动端属性-勾选设置为手机端模板-自适应属性自动匹配-确定 准备数据集 123456789101112131415显示班级 select * from stscore 折线图 select classno,course,avg(grade) from stscore where classno=&#x27;$&#123;班级&#125;&#x27; group by classno,course 列表 select * from stsco...</div></div></div></a><a class="pagination-related" href="/2025/06/18/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/6.19%E6%80%BB%E7%BB%93%EF%BC%9A%E5%B8%86%E8%BD%AF%E6%8A%A5%E8%A1%A8%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E3%80%81Tomcat%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/" title="帆软报表平台管理、Tomcat 服务器部署"><img class="cover" src="/img/peppapig4.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-18</div><div class="info-item-2">帆软报表平台管理、Tomcat 服务器部署</div></div><div class="info-2"><div class="info-item-1">报表平台管理服务器-报表平台管理-登录，使⽤之前设置的账号密码，如： admin admin 修改 FineReport 数据决策系统平台 logo 和标题提前准备⼀张 logo 图⽚，上传，标题修改完回⻋，即完成  ⽤⼾权限设置新增⼀个⽤⼾，实现⼈员登录决策平台可以看到指定的⽬录，指定的⾸⻚添加首页：目录管理-首页管理-添加首页添加用户：用户管理-所有用户-添加用户（也可添加机构部门和角色（小组）  定时发送邮件在 FineReport 管理系统中创建⼀个名为 “test_schedule” 的定时任务，执⾏的报表 为 “销量表” ，每天早上 9 点执⾏⼀次邮件发送 将 “test_schedule” 定时任务授权 给 “test_user” ⽤⼾组，并设置 “test_user” ⽤⼾组可以查看、编辑、删除定时任务。 配置邮件信息：系统管理-邮箱-添加发件人密码为qq邮箱SMTP服务授权码（QQ邮箱-账号与安全-安全设置-生成授权码）   添加定时调度任务   定时任务授权权限管理-管理系统-选择角色-定时调度-解锁  把周杰伦选择到新建的 test_user ⻆⾊⾥⾯ 左上...</div></div></div></a><a class="pagination-related" href="/2025/06/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%BD%B1%E5%88%80%E5%B8%86%E8%BD%AF/%E6%99%BA%E6%85%A7%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/" title="智慧天气数据分析系统（测试项目）"><img class="cover" src="/img/peppapig5.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-11</div><div class="info-item-2">智慧天气数据分析系统（测试项目）</div></div><div class="info-2"><div class="info-item-1">项目介绍智慧天气数据分析系统面向气象研究人员、环保部门和公众用户，实现了多源气象数据采集、历史数据分析和气象灾害预警功能。 项目采用Python+Flask+MySQL+Nginx架构，前端使用HTML+CSS+JavaScript构建响应式界面，后端通过Flask处理API请求和业务逻辑，MySQL存储气象历史数据和分析结果，并且引入了机器学习算法（随机森林和支持向量机）优化气象预测准确率。 参与模块：数据采集和数据清理、基于机器学习的气象预测算法、结合历史数据的气象灾害预警模型、ECharts可视化仪表盘（包含温度变化曲线、降水统计图和分布热力图）、系统部署采用Docker容器化技术，通过Nginx实现负载均衡和静态资源分发。 帆软大屏开发数据表ER图  1. 气象站点表 (dim_weather_station)   字段名 类型 描述 键类型 示例值    station_id VARCHAR2(10) 气象站唯一编码 主键 GX001   station_name VARCHAR2(50) 气象站名称  南宁站   city VARCHAR2(20) 所属城市  南宁 ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/dbb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tetuka</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/H-Sanae/H-Sanae.github.io" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1466753498@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E5%91%98%E5%B7%A5%E4%BF%A1%E6%81%AF"><span class="toc-text">1.添加员工信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A2%9E%E5%88%A0%E6%94%B9%E5%91%98%E2%BC%AF%E4%BF%A1%E6%81%AF%E5%AF%BC%E8%88%AA%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90"><span class="toc-text">2.增删改员⼯信息导航功能完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A2%9E%E5%88%A0%E6%94%B9%E5%91%98%E2%BC%AF%E4%BF%A1%E6%81%AF%E5%8D%95%E5%85%83%E6%A0%BC%E6%8C%89%E9%92%AE%E5%AE%8C%E6%88%90%EF%BC%8C%E7%BB%99%E5%87%BA%E6%8F%90%E2%BD%B0%EF%BC%8C%E5%B9%B6%E4%B8%94%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0"><span class="toc-text">3.增删改员⼯信息单元格按钮完成，给出提⽰，并且添加自动刷新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%A1%AB%E6%8A%A5%E6%93%8D%E4%BD%9C-C"><span class="toc-text">4. 填报操作-C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%A1%AB%E6%8A%A5%E5%AE%9E%E6%93%8D-F"><span class="toc-text">5.填报实操-F</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/08/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96%E6%9D%82%E9%A1%B9/%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="什么是中间件"><img src="/img/peppapig1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是中间件"/></a><div class="content"><a class="title" href="/2025/08/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96%E6%9D%82%E9%A1%B9/%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="什么是中间件">什么是中间件</a><time datetime="2025-08-16T17:25:07.890Z" title="更新于 2025-08-17 01:25:07">2025-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE/8.4%20%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97%E3%80%81%E5%90%88%E5%B9%B6%EF%BC%88SparkSQL%EF%BC%89/" title="医药项目：数据清洗、合并"><img src="/img/peppapig5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="医药项目：数据清洗、合并"/></a><div class="content"><a class="title" href="/2025/08/04/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE/8.4%20%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97%E3%80%81%E5%90%88%E5%B9%B6%EF%BC%88SparkSQL%EF%BC%89/" title="医药项目：数据清洗、合并">医药项目：数据清洗、合并</a><time datetime="2025-08-16T17:09:28.639Z" title="更新于 2025-08-17 01:09:28">2025-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/Python/request%E5%92%8Cselenium%EF%BC%88Python%E7%88%AC%E8%99%AB%EF%BC%89/" title="request和selenium（Python爬虫）"><img src="/img/peppapig8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="request和selenium（Python爬虫）"/></a><div class="content"><a class="title" href="/2025/08/16/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/Python/request%E5%92%8Cselenium%EF%BC%88Python%E7%88%AC%E8%99%AB%EF%BC%89/" title="request和selenium（Python爬虫）">request和selenium（Python爬虫）</a><time datetime="2025-08-16T15:33:34.713Z" title="更新于 2025-08-16 23:33:34">2025-08-16</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/peppapig2.png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Tetuka</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.0-b2</a></span></div><div class="footer_custom_text">感谢阅读</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="输入以搜索内容..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
